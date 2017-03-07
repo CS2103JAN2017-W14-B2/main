@@ -123,7 +123,7 @@ Examples:
 
 * `edit 1 i/Use Stack et/23:59`<br>
   Edits the task information and end time of the 1st task to be `Use Stack` and `23:59` respectively.
-  
+
 * `edit 3 p/3`<br>
   Edits the priority level of 3rd task to be 3.
 
@@ -141,7 +141,7 @@ Examples:
 
 * `find n/Meeting`<br>
   Returns all tasks whose name contains `Meeting`
-  
+
 * `find ed/04-02-2017`<br>
   Returns all tasks with the end day `04-02-2017`
 
@@ -159,7 +159,7 @@ Examples:
 * `list`<br>
   `delete 2`<br>
   Deletes the 2nd task in the TaskBoss.
-  
+
 * `find n/Meeting`<br>
   `delete 1`<br>
   Deletes the 1st task in the results of the `find` command.
@@ -272,7 +272,7 @@ Format: `save n/FILE_PATH NEW_FILE_NAME`
 
 * **Find by task information** : `find i/INFORMATION` <br>
   e.g. `find i/Meeting room 3`
-  
+
 * **Create category** : `new CATEGORY` <br>
 
 * **Edit category** : `name EXISTING_CATEGORY NEW_CATEGORY` <br>
