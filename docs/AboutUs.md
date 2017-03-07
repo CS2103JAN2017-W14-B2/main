@@ -21,14 +21,14 @@ Responsibilities:
 #### [Xu Ruolan](https://github.com/fiomolv)
 <img src="images/fiomolv.jpg" width="150"><br>
 Role:  <br>
-Responsibilities: 
+Responsibilities:
 
 -----
 
 #### [Haya Alsharef](https://github.com/hayaz3)
 <img src="images/hayaz3.png" width="150"><br>
 Role:  <br>
-Responsibilities: 
+Responsibilities:
 
  -----
 
