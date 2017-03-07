@@ -7,7 +7,7 @@
 
 <img src="docs/images/TaskBossProto.png" width="500"><br>
 
-This is a desktop task manager application. 
+This is a desktop task manager application.
 It has a GUI but most of the user interactions happen using a CLI (Command Line Interface).
 
 
