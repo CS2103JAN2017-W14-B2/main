@@ -7,7 +7,7 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
 1. [Quick Start](#quick-start)
 2. [Features](#features)
 3. [Command Summary](#command-summary)
- 
+
 
 ## TaskBoss Prototype
 <img src="images/TaskBoss (all tasks).png" width="600"> <br>
@@ -19,21 +19,21 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
    > Having any Java 8 version is not enough. <br>
    > This app will not work with earlier versions of Java 8.
 
-1. Run the task manager, TaskBoss. 
+1. Run the task manager, TaskBoss.
 
 2. **Add your first task**<br>
    Initially, you will have a clear task manager. TaskBoss interface will show you three different panels. All panels should be void of anything at this point with the exception of the panel on the left side of the screen, it should have two categories by default by the names All Tasks and Done. To get started, you can add your first task by entering the correct command in the command panel that you see at the bottom of your screen. Set your first task’s details:
   a. Assign a title for your task
-  b. Add in any descriptions you want to specify to your task. 
+  b. Add in any descriptions you want to specify to your task.
   c. Specify the task’s deadlines if needed
   d. Decide on the task’s priority level
   e. Set a start and end time if need be.
 
-3. **View your tasks**<br> 
+3. **View your tasks**<br>
   Now that you have added in your first task, you should be able to see it in on the panel on the right side of your screen. You can always refer to this panel to see what tasks you have yet to complete. The panel will display your tasks based on the tasks’ deadlines then according to the priority level you’ve assigned the tasks. Notice how the All Tasks category is highlighted in red. This means your are currently seeing all the available tasks according to the default display setting mentioned above.
 
-4. **Edit your tasks**<br> 
-  You can edit a task’s details simply by entering the command in the command panel. You should be able to edit and update the task’s title, description, priority level, and deadlines. 
+4. **Edit your tasks**<br>
+  You can edit a task’s details simply by entering the command in the command panel. You should be able to edit and update the task’s title, description, priority level, and deadlines.
 
 5. **Mark done or delete your tasks**<br>
    Now that you’ve added a task and know how to edit it, you can check off the task once you’ve completed it. Enter the correct command prompt in the command panel. Doing so will automatically remove the said task from the All tasks category, the panel on the right, and add it to the list of tasks that have been completed which are all under the Done category. If you wish to move the marked done task back into your pending tasks list, you can do so by editing the task’s category and add it into an existing category. Your task will then appear under the category you have selected and under the All Tasks category.
@@ -42,21 +42,21 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
 
 6. **Create your first category**<br>
    TaskBoss gives you the option to create categories in order to organize your tasks. Create your categories by entering the correct command into the command panel. Now, edit the task that you want to put under the new category, and now you should be able to enlist it under the new category you created. You can also choose to edit the category name by entering the correct command prompt. By choosing to view all tasks under a specific category, you will see that the category’s name on the left panel will be highlighted. This will help in letting you know which category you’re viewing.
-   
+
 7. **Sort your tasks**<br>
-    With the correct command prompt in the command panel, you can view all your tasks in list view or sorted based on deadlines and priority levels. In addition, you can choose to view all the tasks that belong under a given category. Similarly, you can view the tasks that have been marked done or tasks that still need to be completed. 
+    With the correct command prompt in the command panel, you can view all your tasks in list view or sorted based on deadlines and priority levels. In addition, you can choose to view all the tasks that belong under a given category. Similarly, you can view the tasks that have been marked done or tasks that still need to be completed.
     The result of these commands should be visible on the main panel, the panel on the right.
 
 8. **View a specific task**<br>
  You can view any particular task by entering the correct command. The task will appear on the main panel, the panel of the right, with all it’s details clearly stated.
- 
+
 9. **Overdue**<br>
  If a pending task was overdue, TaskBoss will automatically highlight the task for you to take note of.
- 
+
 10. **Undo**<br>
-  If at any point, you entered the wrong command or want to reverse your last command, then you can simply enter the command for undoing your last command. 
+  If at any point, you entered the wrong command or want to reverse your last command, then you can simply enter the command for undoing your last command.
   In the case where you enter the wrong format of a command line, an error message will appear above the command panel, instructing you on the correct format and/or let you know if no such command exists.
-  
+
 11. **Help**<br>
   By entering the help command, you will be able to see all the different commands that you can do on your tasks and their descriptions. You should also see how each command should be formatted when entered to produce your intended action. This will be displayed as a pop up message which you can make dissapear after getting the help that you want by simply typing anything in the command panel.
 
@@ -125,7 +125,7 @@ Examples:
   Edits the task information and end time of the 1st task to be `Use Stack` and `23:59` respectively.
   
 * `edit 3 p/3`<br>
-  Edits the priority level of 3rd task to be 3. 
+  Edits the priority level of 3rd task to be 3.
 
 ### 2.5. Finding all tasks by Name/Date/Information: `find`
 
@@ -240,7 +240,7 @@ Format: `sort p`
 Exits the program.<br>
 Format: `exit`
 
-### 2.17. Saving the data 
+### 2.17. Saving the data
 
 TaskBoss data will automatically be saved in local hard disk after any command that mutates the data.<br>
 There is no need to save manually.
