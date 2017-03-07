@@ -79,7 +79,7 @@ Our target users (eg. `Jim`) are people who:
 * usually work alone on their personal or office computer
 * do not share their computer with others
 * prefer a command-line approach over a mouse-clicking approach
-* would like to have an organized set up of tasks to categorize, sort, and prioritise them for ease of task management  
+* would like to have an organized set up of tasks to categorize, sort, and prioritise them for ease of task management
 
 
 ## Design
@@ -431,7 +431,7 @@ Use case ends
 > 1e1. TaskBoss shows an error message <br>
 > 1e2. TaskBoss adds the new task without time and date <br>
 Use case ends
-  
+
 #### Use case: List all tasks
 
 **MSS**
@@ -514,7 +514,7 @@ Use case ends
 2a. Previous command is invalid
 
 > 2a1. TaskBoss shows "cannot undo" error message. <br>
-Use case ends. 
+Use case ends.
 
 #### Use case: Export tasks to an existing file
 
@@ -550,7 +550,7 @@ Use case ends
 
 > 2a1. TaskBoss shows "Cannot access file path" error message.<br>
  Use case ends.
- 
+
 #### Use case: Search tasks
 
 **MSS**
@@ -565,7 +565,7 @@ Use case ends
 
 > 3a1. TaskBoss shows “0 tasks found” message. <br>
 Use case ends.
- 
+
 #### Use case: List tasks by category
 
 **MSS**
@@ -607,7 +607,7 @@ Use case ends.
 **Extensions**
 
 1a. Category to be edited does not exist.
-		
+
 > 1a1. TaskBoss shows error message “Category does not exist”. <br>
 Use case ends.
 
@@ -657,7 +657,7 @@ Use case ends
 1a. The given task index is invalid
 
 > 1a1. TaskBoss shows an error message.<br>
-Use case ends  
+Use case ends
 
 
 ## Appendix C : Non Functional Requirements
@@ -668,7 +668,7 @@ Use case ends
 4. Should start up in less than  2 seconds.
 5. Should respond to commands in less than 1 second.
 6. Should come with automated unit tests and open source code.
- 
+
 
 ## Appendix D : Glossary
 
@@ -706,9 +706,9 @@ Author: Al Sharef Haya Fayez M
 2. Has colorful UI
 3. Provides instant capturing of anything by speech and pictures
 4. Able to be integrated with Google Drive and Google Docs
-5. Free to use 
+5. Free to use
 6. No need to set up an account
-7. Supports offline editing 
+7. Supports offline editing
 8. Supports undo option <br>
 
 **Cons:**
@@ -746,7 +746,7 @@ Author: Xu RuoLan
 
 1. Has simple and clear user interface
 2. Provides statistical analysis to track daily/monthly/yearly statistics
-3. Support tasks categorizing 
+3. Support tasks categorizing
 4. Easy to use(add, delete and sort the tasks)
 5. Supports priority setting
 6. Supports task reminders <br>
@@ -761,11 +761,11 @@ Author: Soh Wei Kiat Melvin
 
 **Pros:**
 
-1. Provides secure accounts and protected password 
+1. Provides secure accounts and protected password
 2. Has user-friendly interface
 3. Provides a wide range of functions
 4. Requires users to pay per usage
-5. Supports task reminders/hierarchy 
+5. Supports task reminders/hierarchy
 6. Supports instant messaging teams within users <br>
 
 **Cons:**
