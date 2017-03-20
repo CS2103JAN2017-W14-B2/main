@@ -3,9 +3,6 @@ package seedu.taskboss.model.category;
 
 import java.util.List;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import seedu.taskboss.commons.exceptions.IllegalValueException;
 import seedu.taskboss.model.ReadOnlyTaskBoss;
 import seedu.taskboss.model.task.ReadOnlyTask;
