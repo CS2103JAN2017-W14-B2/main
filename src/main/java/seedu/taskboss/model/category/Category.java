@@ -1,7 +1,17 @@
 package seedu.taskboss.model.category;
 
 
+import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import seedu.taskboss.commons.exceptions.IllegalValueException;
+import seedu.taskboss.model.ReadOnlyTaskBoss;
+import seedu.taskboss.model.task.ReadOnlyTask;
+import seedu.taskboss.model.task.Task;
+import seedu.taskboss.model.task.UniqueTaskList;
+import seedu.taskboss.model.task.UniqueTaskList.DuplicateTaskException;
 
 /**
  * Represents a Category in TaskBoss.
@@ -13,6 +23,11 @@ public class Category {
     public static final String CATEGORY_VALIDATION_REGEX = "\\p{Alnum}+";
 
     public final String categoryName;
+    private final UniqueTaskList taskList;
+
+    {
+        taskList = new UniqueTaskList();
+    }
 
     /**
      * Validates given category name.
@@ -28,6 +43,52 @@ public class Category {
         this.categoryName = trimmedName;
     }
 
+    public void setTasks(List<? extends ReadOnlyTask> tasks)
+            throws UniqueTaskList.DuplicateTaskException {
+        this.taskList.setTasks(tasks);
+    }
+
+    public void resetData(ReadOnlyTaskBoss newData) {
+        assert newData != null;
+        try {
+            setTasks(newData.getTaskList());
+        } catch (UniqueTaskList.DuplicateTaskException e) {
+            assert false : "A category should not have duplicate tasks";
+        }
+    }
+ 
+    /**
+     * Adds a task to the category.
+     *
+     * @throws UniqueTaskList.DuplicateTaskException if an equivalent task already exists.
+     */
+    public void addTask(Task task) throws UniqueTaskList.DuplicateTaskException {
+        taskList.add(task);
+    }
+
+    /**
+     * Updates the task in the list at position {@code index} with {@code editedReadOnlyTask}.
+     *
+     * @throws DuplicateTaskException if updating the task's details causes the task to be equivalent to
+     *      another existing task in the list.
+     * @throws IndexOutOfBoundsException if {@code index} < 0 or >= the size of the list.
+     */
+    public void updateTask(int index, ReadOnlyTask editedReadOnlyTask)
+            throws UniqueTaskList.DuplicateTaskException {
+        assert editedReadOnlyTask != null;
+
+        Task editedTask = new Task(editedReadOnlyTask);
+        taskList.updateTask(index, editedTask);
+    }
+
+    public boolean removeTask(ReadOnlyTask key) throws UniqueTaskList.TaskNotFoundException {
+        if (taskList.remove(key)) {
+            return true;
+        } else {
+            throw new UniqueTaskList.TaskNotFoundException();
+        }
+    }
+
     /**
      * Returns true if a given string is a valid category name.
      */
@@ -35,6 +96,11 @@ public class Category {
         return test.matches(CATEGORY_VALIDATION_REGEX);
     }
 
+    public UniqueTaskList getTasks() {
+        assert taskList != null;
+        return taskList;
+    }
+ 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
