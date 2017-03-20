@@ -4,7 +4,7 @@ import seedu.taskboss.commons.exceptions.IllegalValueException;
 
 public class DefaultCategory extends Category {
 
-    private String defaultCategoryName;
+    private static DefaultCategory allTasks;
 
     /**
      * Validates given default category name.
@@ -13,7 +13,6 @@ public class DefaultCategory extends Category {
      */
     private DefaultCategory(String name) throws IllegalValueException {
         super(name);
-        defaultCategoryName = name;
     }
 
     /**
@@ -22,6 +21,18 @@ public class DefaultCategory extends Category {
     @Override
     public boolean isDefault() {
         return true;
+    }
+
+    public static DefaultCategory getDefaultCategory() throws IllegalValueException {
+        if (allTasks == null) {
+            allTasks = new DefaultCategory("All Tasks");
+        }
+        return allTasks;
+    }
+
+    @Override
+    public String toString() {
+        return allTasks.toString();
     }
 
 }
