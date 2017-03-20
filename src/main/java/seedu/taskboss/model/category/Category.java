@@ -55,7 +55,7 @@ public class Category {
     }
 
     /**
-     * Returns true if a category is a defualt category
+     * Returns true if a category is a default category
      */
     public boolean isDefault() {
         return false;
