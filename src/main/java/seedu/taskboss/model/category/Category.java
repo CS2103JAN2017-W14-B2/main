@@ -54,4 +54,11 @@ public class Category {
         return '[' + categoryName + ']';
     }
 
+    /**
+     * Returns true if a category is a defualt category
+     */
+    public boolean isDefault() {
+        return false;
+    }
+
 }
