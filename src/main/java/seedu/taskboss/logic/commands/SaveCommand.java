@@ -35,8 +35,7 @@ public class SaveCommand extends Command {
         {
             storage.setFilePath(filepath);
         }
-        
+
         return new CommandResult(MESSAGE_SUCCESS);
     }
-
 }
