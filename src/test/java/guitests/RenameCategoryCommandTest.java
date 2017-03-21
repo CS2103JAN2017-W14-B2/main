@@ -30,7 +30,7 @@ public class RenameCategoryCommandTest extends TaskBossGuiTest {
     }
 
     private void assertRenameCategoryResult(boolean isShort,
-                   String command, TestTask[] taskList) throws IllegalValueException {
+            String command, TestTask[] taskList) throws IllegalValueException {
         TestTask sampleA;
         TestTask sampleB;
         if (!isShort) {

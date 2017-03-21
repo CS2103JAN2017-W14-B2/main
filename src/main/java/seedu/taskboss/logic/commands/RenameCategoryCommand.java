@@ -51,5 +51,4 @@ public class RenameCategoryCommand extends Command {
         }
 
     }
-
 }

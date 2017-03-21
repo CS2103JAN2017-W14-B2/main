@@ -31,7 +31,7 @@ public class RenameCategoryCommandParser {
             return new IncorrectCommand(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, RenameCategoryCommand.MESSAGE_USAGE));
         } else if (!oldCategory.matches(FORMAT_ALPHANUMERIC) ||
-            !newCategory.matches(FORMAT_ALPHANUMERIC)) {
+                !newCategory.matches(FORMAT_ALPHANUMERIC)) {
             return new IncorrectCommand(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, ERROR_NON_ALPHANUMERIC));
         } else if (oldCategory.equals(newCategory)) {
