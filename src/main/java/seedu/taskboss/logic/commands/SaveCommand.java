@@ -27,11 +27,15 @@ public class SaveCommand extends Command {
     public CommandResult execute() {
         assert storage != null;
 
-        if(filepath.contains("+")||filepath.contains("^")||filepath.contains("#")||filepath.contains("*"))
+        if (filepath.contains("+") || filepath.contains("^") || filepath.contains ("#") || filepath.contains ("*"))
+        {   
             return new CommandResult(MESSAGE_INVALID_FILEPATH);
+        }
         else
+        {
             storage.setFilePath(filepath);
-
+        }
+        
         return new CommandResult(MESSAGE_SUCCESS);
     }
 
