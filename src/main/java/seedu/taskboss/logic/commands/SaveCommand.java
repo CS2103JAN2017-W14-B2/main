@@ -28,7 +28,7 @@ public class SaveCommand extends Command {
         assert storage != null;
 
         if (filepath.contains("+") || filepath.contains("^") || filepath.contains ("#") || filepath.contains ("*"))
-        {   
+        {
             return new CommandResult(MESSAGE_INVALID_FILEPATH);
         }
         else
