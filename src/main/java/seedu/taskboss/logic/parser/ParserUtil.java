@@ -45,6 +45,12 @@ public class ParserUtil {
         return Optional.of(Integer.parseInt(index));
     }
 
+    public static String[] parseRenameCategory(String command) {
+        String trimmedCommand = command.trim();
+        String[] categories = trimmedCommand.split(" ");
+        return categories;
+    }
+
     //@@author A0143157J
     /**
      * Returns the specified sort type in the {@code command} if it is a valid sort type
