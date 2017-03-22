@@ -65,7 +65,7 @@ public class Parser {
 
         case RenameCategoryCommand.COMMAND_WORD:
         case RenameCategoryCommand.COMMAND_WORD_SHORT:
-            return new EditCommandParser().parse(arguments);
+            return new RenameCategoryCommandParser().parse(arguments);
 
         case ViewCommand.COMMAND_WORD:
         case ViewCommand.COMMAND_WORD_SHORT:
