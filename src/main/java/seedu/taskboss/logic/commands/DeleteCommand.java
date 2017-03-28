@@ -1,8 +1,11 @@
 package seedu.taskboss.logic.commands;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Set;
+
 import seedu.taskboss.commons.core.Messages;
 import seedu.taskboss.commons.core.UnmodifiableObservableList;
-import seedu.taskboss.commons.exceptions.IllegalValueException;
 import seedu.taskboss.logic.commands.exceptions.CommandException;
 import seedu.taskboss.model.task.ReadOnlyTask;
 import seedu.taskboss.model.task.UniqueTaskList.TaskNotFoundException;
@@ -22,10 +25,18 @@ public class DeleteCommand extends Command {
 
     public static final String MESSAGE_DELETE_TASK_SUCCESS = "Deleted Task: %1$s";
 
-    public final int targetIndex;
+    public final ArrayList<Integer> targetIndex;
 
-    public DeleteCommand(int targetIndex) {
-        this.targetIndex = targetIndex;
+    public final ArrayList<ReadOnlyTask> tasksToDelete;
+    //@@author A0138961W
+    /**
+    * Set will automatically remove duplicate indexes
+    */
+    public DeleteCommand(Set<Integer> targetIndex) {
+        this.targetIndex = new ArrayList<Integer>(targetIndex);
+        Collections.sort(this.targetIndex);
+        Collections.reverse(this.targetIndex);
+        this.tasksToDelete = new ArrayList<ReadOnlyTask>();
     }
 
 
@@ -34,22 +45,23 @@ public class DeleteCommand extends Command {
 
         UnmodifiableObservableList<ReadOnlyTask> lastShownList = model.getFilteredTaskList();
 
-        if (lastShownList.size() < targetIndex) {
+        if ((lastShownList.size() < targetIndex.get(0)) || (targetIndex.get(targetIndex.size() - 1) == 0)) {
             throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
 
-        ReadOnlyTask taskToDelete = lastShownList.get(targetIndex - 1);
+        for (int index: targetIndex) {
+            ReadOnlyTask taskToDelete = lastShownList.get(index - 1);
 
-        try {
-            model.deleteTask(taskToDelete);
-        } catch (TaskNotFoundException pnfe) {
-            assert false : "The target task cannot be missing";
-        } catch (IllegalValueException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            tasksToDelete.add(taskToDelete);
         }
 
-        return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS, taskToDelete));
-    }
+        try {
+            model.deleteTask(tasksToDelete);
+        } catch (TaskNotFoundException pnfe) {
+            assert false : "The target task cannot be missing";
+        }
 
+        return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS, tasksToDelete));
+    }
+    //@@author
 }
