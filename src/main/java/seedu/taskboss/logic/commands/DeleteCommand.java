@@ -6,6 +6,7 @@ import java.util.Set;
 
 import seedu.taskboss.commons.core.Messages;
 import seedu.taskboss.commons.core.UnmodifiableObservableList;
+import seedu.taskboss.commons.exceptions.IllegalValueException;
 import seedu.taskboss.logic.commands.exceptions.CommandException;
 import seedu.taskboss.model.task.ReadOnlyTask;
 import seedu.taskboss.model.task.UniqueTaskList.TaskNotFoundException;
@@ -41,7 +42,7 @@ public class DeleteCommand extends Command {
 
 
     @Override
-    public CommandResult execute() throws CommandException {
+    public CommandResult execute() throws CommandException, IllegalValueException {
 
         UnmodifiableObservableList<ReadOnlyTask> lastShownList = model.getFilteredTaskList();
 
