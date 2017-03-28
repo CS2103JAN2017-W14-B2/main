@@ -25,7 +25,7 @@ public interface Model {
     ReadOnlyTaskBoss getTaskBoss();
 
     /** Deletes the given task. */
-    void deleteTask(List<ReadOnlyTask> targets) throws UniqueTaskList.TaskNotFoundException;
+    void deleteTask(List<ReadOnlyTask> targets) throws UniqueTaskList.TaskNotFoundException, IllegalValueException;
 
     /** Adds the given task
      * @throws IllegalValueException */
