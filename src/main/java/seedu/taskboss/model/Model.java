@@ -87,6 +87,17 @@ public interface Model {
     void renameCategory(Category oldCategory, Category newCategory) throws IllegalValueException, CommandException,
         DuplicateCategoryException;
 
+    //@@author A0144904H
+    /**
+     * marks the list of tasks as done if they are not recurring, otherwise it will update the time and date
+     */
     void markDone(ArrayList<Integer> indices, ArrayList<ReadOnlyTask> tasksToMarkDone) throws IllegalValueException;
+
+  //@@author A0144904H
+    /**
+     * marks the list of tasks as done as long as they are recurring, otherwise it will result in an error
+     * @throws CommandException
+     */
+    void end(ArrayList<Integer> indices, ArrayList<ReadOnlyTask> tasksToMarkDone) throws IllegalValueException, CommandException;
 
 }

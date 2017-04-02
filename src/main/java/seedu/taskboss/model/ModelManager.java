@@ -33,6 +33,8 @@ public class ModelManager extends ComponentManager implements Model {
 
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
+    private static final String NOT_RECURRING = "All tasks indicated must be recurring";
+
     private final TaskBoss taskBoss;
     private final FilteredList<ReadOnlyTask> filteredTasks;
     private final Stack<ReadOnlyTaskBoss> taskbossHistory;
@@ -150,6 +152,29 @@ public class ModelManager extends ComponentManager implements Model {
             } else {
                 Task newRecurredTask = createRecurredTask(task);
                 this.taskBoss.updateTask(targetIndex, newRecurredTask);
+            }
+            index++;
+        }
+
+        indicateTaskBossChanged();
+    }
+
+    //@@author A0144904H
+    @Override
+    public void end(ArrayList<Integer> indices, ArrayList<ReadOnlyTask> tasksToMarkDone)
+                                                                        throws IllegalValueException, CommandException {
+        taskbossHistory.push(new TaskBoss(this.taskBoss));
+        int index = 0;
+        for (ReadOnlyTask task : tasksToMarkDone) {
+            int targetIndex = indices.get(index) - 1;
+            if (!task.isRecurring()) {
+                throw new CommandException(NOT_RECURRING);
+            } else {
+                Task newTask = new Task(task.getName(), task.getPriorityLevel(),
+                        task.getStartDateTime(), task.getEndDateTime(),
+                        task.getInformation(), task.getRecurrence(),
+                        new UniqueCategoryList(CATEGORY_DONE));
+                this.taskBoss.updateTask(targetIndex, newTask);
             }
             index++;
         }
