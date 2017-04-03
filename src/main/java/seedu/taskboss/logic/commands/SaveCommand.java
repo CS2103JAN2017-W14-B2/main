@@ -14,6 +14,7 @@ public class SaveCommand extends Command {
     private static final String SYMBOL_CARET = "^";
     private static final String SYMBOL_HASH = "#";
     private static final String SYMBOL_PLUS = "+";
+    private static final String SYMBOL_SLASH = "/";
     public static final String COMMAND_WORD = "save";
     public static final String COMMAND_WORD_SHORT = "sv";
 
@@ -38,7 +39,7 @@ public class SaveCommand extends Command {
 
         File f = new File(filepath);
 
-        if (!f.isDirectory()) {
+        if (!filepath.contains(SYMBOL_SLASH) || !f.isDirectory()) {
             return new CommandResult(MESSAGE_INVALID_FILEPATH);
         }
 
