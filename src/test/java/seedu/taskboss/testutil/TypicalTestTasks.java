@@ -21,8 +21,7 @@ public class TypicalTestTasks {
                     .withPriorityLevel("Yes")
                     .withStartDateTime("Feb 18, 2017 5pm")
                     .withEndDateTime("Mar 28, 2017 5pm")
-                    .withRecurrence(Frequency.NONE)
-                    .withCategories(AddCommand.DEFAULT_ALL_TASKS, "friends").build();
+                    .withRecurrence(Frequency.NONE).build();
             taskB = new TaskBuilder().withName("Birthday party")
                     .withInformation("311, Clementi Ave 2, #02-25")
                     .withPriorityLevel("No")
@@ -50,7 +49,7 @@ public class TypicalTestTasks {
                     .withEndDateTime("Dec 10, 2017 5pm")
                     .withRecurrence(Frequency.WEEKLY)
                     .withInformation("little tokyo")
-                    .withCategories("school").build();
+                    .withCategories("School").build();
             taskG = new TaskBuilder().withName("Game project player testing").withPriorityLevel("Yes")
                     .withStartDateTime("Jan 1, 2017 5pm")
                     .withEndDateTime("Nov 28, 2017 5pm")
@@ -69,7 +68,7 @@ public class TypicalTestTasks {
                     .withEndDateTime("Feb 28, 2019 5pm")
                     .withInformation("chicago ave")
                     .withRecurrence(Frequency.YEARLY)
-                    .withCategories(AddCommand.DEFAULT_ALL_TASKS).build();
+                    .withCategories(AddCommand.DEFAULT_ALL_TASKS, "work").build();
             taskJ = new TaskBuilder().withName("Join Leader Group").withPriorityLevel("Yes")
                     .withStartDateTime("next sat 5pm")
                     .withEndDateTime("tomorrow")
