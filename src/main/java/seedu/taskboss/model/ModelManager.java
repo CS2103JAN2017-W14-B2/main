@@ -15,6 +15,7 @@ import seedu.taskboss.commons.events.model.TaskBossChangedEvent;
 import seedu.taskboss.commons.exceptions.IllegalValueException;
 import seedu.taskboss.commons.util.CollectionUtil;
 import seedu.taskboss.commons.util.StringUtil;
+import seedu.taskboss.logic.commands.EndCommand;
 import seedu.taskboss.logic.commands.exceptions.CommandException;
 import seedu.taskboss.model.category.Category;
 import seedu.taskboss.model.category.UniqueCategoryList;
@@ -32,8 +33,6 @@ public class ModelManager extends ComponentManager implements Model {
     private static final String CATEGORY_DONE = "Done";
 
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
-
-    private static final String NOT_RECURRING = "All tasks indicated must be recurring";
 
     private final TaskBoss taskBoss;
     private final FilteredList<ReadOnlyTask> filteredTasks;
@@ -168,7 +167,7 @@ public class ModelManager extends ComponentManager implements Model {
         for (ReadOnlyTask task : tasksToMarkDone) {
             int targetIndex = indices.get(index) - 1;
             if (!task.isRecurring()) {
-                throw new CommandException(NOT_RECURRING);
+                throw new CommandException(EndCommand.NOT_RECURRING);
             } else {
                 Task newTask = new Task(task.getName(), task.getPriorityLevel(),
                         task.getStartDateTime(), task.getEndDateTime(),
