@@ -18,7 +18,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
     // This list is updated with every successful call to assertEditSuccess().
     TestTask[] expectedTasksList = td.getTypicalTasks();
 
-  //---------------- Tests for validity of input taskBoss index --------------------------------------
+    //---------------- Tests for validity of input taskBoss index --------------------------------------
 
     /*
      * EP: valid task index, should remove all
@@ -37,7 +37,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
                 .withInformation("wall street").withRecurrence(Frequency.NONE)
                 .withCategories("Done").build();
 
-        assertMarkDoneSuccess(false, false, taskBossIndex, taskBossIndex, markedDoneTask);
+        assertMarkDoneSuccess(false, taskBossIndex, taskBossIndex, markedDoneTask);
     }
 
     /*
@@ -81,7 +81,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
         assertResultMessage(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
     }
 
-  //---------------- Tests for format of Done command --------------------------------------
+    //---------------- Tests for format of Done command --------------------------------------
 
     /*
      * Valid format equivalence partitions for : 1) short command format
@@ -108,7 +108,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
                 .withInformation("wall street").withRecurrence(Frequency.NONE)
                 .withCategories("Done").build();
 
-        assertMarkDoneSuccess(false, false, taskBossIndex, taskBossIndex, markedDoneTask);
+        assertMarkDoneSuccess(false, taskBossIndex, taskBossIndex, markedDoneTask);
     }
 
     /*
@@ -128,28 +128,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
                 .withInformation("10th street").withRecurrence(Frequency.NONE)
                 .withCategories("Done").build();
 
-        assertMarkDoneSuccess(false, true, taskBossIndex, taskBossIndex, markedDoneTask);
-    }
-
-  //---------------- Tests for successfully marking done a task after find command--------------------------------------
-
-    /*
-     * EP: Check if successfully marked done a command after performing a find command,
-     * should should remove all task's current categories and add category "Done" in their place.
-     * Should return true.
-     */
-
-    @Test
-    public void markDone_findThenMarkDone_success() throws Exception {
-        commandBox.runCommand("find k/Clean house");
-
-        int filteredTaskListIndex = 1;
-        int taskBossIndex = 1;
-
-        TestTask taskToMarkDone = expectedTasksList[taskBossIndex - 1];
-        TestTask markedDoneTask = new TaskBuilder(taskToMarkDone).withCategories("Done").build();
-
-        assertMarkDoneSuccess(true, false, filteredTaskListIndex, taskBossIndex, markedDoneTask);
+        assertMarkDoneSuccess(true, taskBossIndex, taskBossIndex, markedDoneTask);
     }
 
     //---------------- Tests for successfully marking done multiple tasks-----------------------
@@ -191,6 +170,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
                 .withRecurrence(Frequency.NONE)
                 .withInformation("10th street")
                 .withCategories("Done").build();
+        assertTrue(taskListPanel.isListMatching(expectedTasksList));
     }
 
     @Test
@@ -204,7 +184,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
 
     //---------------- End of test cases --------------------------------------
 
-    private void assertMarkDoneSuccess(boolean runFind, boolean isShort, int filteredTaskListIndex, int taskBossIndex,
+    private void assertMarkDoneSuccess(boolean isShort, int filteredTaskListIndex, int taskBossIndex,
             TestTask markedDoneTask) {
 
         //@@author A0144904H
@@ -216,21 +196,14 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
 
         // confirm the list now contains all previous tasks plus the task with updated details
         expectedTasksList[taskBossIndex - 1] = markedDoneTask;
-        if (runFind) {
-            commandBox.runCommand("list ");
-            assertTrue(taskListPanel.isListMatching(expectedTasksList));
-            assertResultMessage("Listed all tasks");
-        } else {
-            assertTrue(taskListPanel.isListMatching(expectedTasksList));
-            assertResultMessage(String.format(MarkDoneCommand.MESSAGE_MARK_TASK_DONE_SUCCESS ,
-                            "[" + markedDoneTask + "]"));
-        }
 
         assertTrue(taskListPanel.isListMatching(expectedTasksList));
+        assertResultMessage(String.format(MarkDoneCommand.MESSAGE_MARK_TASK_DONE_SUCCESS ,
+                "[" + markedDoneTask + "]"));
     }
 
     private void assertMultipleMarkDoneSuccess(boolean isShort, int[] filteredTaskListIndex,
-                      TestTask[] tasksMarkedDone) {
+            TestTask[] tasksMarkedDone) {
 
         StringBuilder sb = new StringBuilder();
         for (int stringIndex = 0; stringIndex < filteredTaskListIndex.length; stringIndex++) {
