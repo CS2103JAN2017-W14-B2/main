@@ -38,7 +38,7 @@ public class SaveCommand extends Command {
 
         File f = new File(filepath);
 
-        if(!f.isDirectory()) { 
+        if(!f.isDirectory()) {
             return new CommandResult(MESSAGE_INVALID_FILEPATH);
         }
 
