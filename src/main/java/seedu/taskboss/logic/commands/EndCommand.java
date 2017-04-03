@@ -29,6 +29,8 @@ public class EndCommand extends Command {
     public static final String MESSAGE_MARK_TASK_DONE_SUCCESS = "Task marked done: %1$s";
     public static final String DONE = "Done";
 
+    public static final String NOT_RECURRING = "All tasks indicated must be recurring";
+
     public final ArrayList<Integer> filteredTaskListIndices;
     public final ArrayList<ReadOnlyTask> tasksToMarkDone;
 
