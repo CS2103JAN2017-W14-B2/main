@@ -98,6 +98,7 @@ public interface Model {
      * marks the list of tasks as done as long as they are recurring, otherwise it will result in an error
      * @throws CommandException
      */
-    void end(ArrayList<Integer> indices, ArrayList<ReadOnlyTask> tasksToMarkDone) throws IllegalValueException, CommandException;
+    void end(ArrayList<Integer> indices, ArrayList<ReadOnlyTask> tasksToMarkDone) throws IllegalValueException,
+                                                                                      CommandException;
 
 }
