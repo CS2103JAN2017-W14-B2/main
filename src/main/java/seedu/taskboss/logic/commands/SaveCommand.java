@@ -38,19 +38,15 @@ public class SaveCommand extends Command {
         assert storage != null;
 
         try {
-        	Path path = Paths.get(filepath);
+            Path path = Paths.get(filepath);
             if (!Files.exists(path)) {
                 throw new CommandException(MESSAGE_INVALID_FILEPATH);
             }
-        } catch (InvalidPathException ipe) {
-        	throw new CommandException(MESSAGE_INVALID_FILEPATH);
-        }
-
-
-        try {
             storage.setFilePath(filepath);
             model.saveTaskboss();
             return new CommandResult(MESSAGE_SUCCESS);
+        } catch (InvalidPathException ipe) {
+            throw new CommandException(MESSAGE_INVALID_FILEPATH);
         } catch (IOException e) {
             throw new CommandException(MESSAGE_INVALID_FILEPATH);
         }
