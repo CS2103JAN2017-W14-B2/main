@@ -1,6 +1,5 @@
 package seedu.taskboss.logic.commands;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,11 +14,6 @@ import seedu.taskboss.logic.commands.exceptions.CommandException;
 
 public class SaveCommand extends Command {
 
-    private static final String SYMBOL_ASTERISK = "*";
-    private static final String SYMBOL_CARET = "^";
-    private static final String SYMBOL_HASH = "#";
-    private static final String SYMBOL_PLUS = "+";
-    private static final String SYMBOL_SLASH = "/";
     public static final String COMMAND_WORD = "save";
     public static final String COMMAND_WORD_SHORT = "sv";
 
