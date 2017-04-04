@@ -2,6 +2,9 @@ package seedu.taskboss.logic.commands;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import seedu.taskboss.logic.commands.exceptions.CommandException;
 
@@ -39,14 +42,8 @@ public class SaveCommand extends Command {
     public CommandResult execute() throws CommandException {
         assert storage != null;
 
-        File f = new File(filepath);
-
-        if (!filepath.contains(SYMBOL_SLASH) || !f.isDirectory()) {
-            throw new CommandException(MESSAGE_INVALID_FILEPATH);
-        }
-
-        if (filepath.contains(SYMBOL_PLUS) || filepath.contains (SYMBOL_HASH) ||
-                filepath.contains (SYMBOL_CARET) || filepath.contains (SYMBOL_ASTERISK)) {
+        Path path = Paths.get(filepath);
+        if (!Files.exists(path)) {
             throw new CommandException(MESSAGE_INVALID_FILEPATH);
         }
 
