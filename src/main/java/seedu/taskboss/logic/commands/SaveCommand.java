@@ -2,6 +2,7 @@ package seedu.taskboss.logic.commands;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -36,10 +37,15 @@ public class SaveCommand extends Command {
     public CommandResult execute() throws CommandException {
         assert storage != null;
 
-        Path path = Paths.get(filepath);
-        if (!Files.exists(path)) {
-            throw new CommandException(MESSAGE_INVALID_FILEPATH);
+        try {
+        	Path path = Paths.get(filepath);
+            if (!Files.exists(path)) {
+                throw new CommandException(MESSAGE_INVALID_FILEPATH);
+            }
+        } catch (InvalidPathException ipe) {
+        	throw new CommandException(MESSAGE_INVALID_FILEPATH);
         }
+
 
         try {
             storage.setFilePath(filepath);
