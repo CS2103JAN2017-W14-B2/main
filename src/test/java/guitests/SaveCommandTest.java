@@ -11,7 +11,7 @@ public class SaveCommandTest extends TaskBossGuiTest {
     @Test
     public void save() {
         //invalid filepath
-        commandBox.runCommand("save C://user/desktop/^*:+#");
+        commandBox.runCommand("save C://user/desktop/^*+#");
         assertResultMessage(SaveCommand.MESSAGE_INVALID_FILEPATH);
 
         //valid filepath
