@@ -41,7 +41,7 @@ public class SaveCommand extends Command {
             Path path = Paths.get(filepath);
             if (!Files.exists(path) || !path.isAbsolute()) {
                 throw new CommandException(MESSAGE_INVALID_FILEPATH);
-            } else if (filepath.contains(".")) {
+            } else if (filepath.contains("*")) {
                 throw new CommandException(MESSAGE_INVALID_FILEPATH);
             }
 
