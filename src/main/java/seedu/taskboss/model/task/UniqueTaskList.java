@@ -196,20 +196,32 @@ public class UniqueTaskList implements Iterable<Task> {
             UniqueCategoryList targetCategoryList = task.getCategories();
             UniqueCategoryList newCategoryList = new UniqueCategoryList();
             try {
-                for (Category category : targetCategoryList) {
-                    if (category.equals(oldCategory)) {
-                        isFound = true;
-                        newCategoryList.add(newCategory);
-                    } else {
-                        newCategoryList.add(category);
-                    }
-                }
+                isFound = initNewCategoryList(oldCategory, newCategory, isFound, targetCategoryList, newCategoryList);
             } catch (DuplicateCategoryException dce) {
                 throw new DuplicateCategoryException();
             }
             task.setCategories(newCategoryList);
         }
         errorDoesNotExistDetect(oldCategory, isFound);
+    }
+
+    /**
+     * Initialises {@code newCategoryList} and returns true if {@code oldCategory}
+     * is found in {@code targetCategoryList}
+     * @throws IllegalValueException, DuplicateCategoryException
+     */
+    private boolean initNewCategoryList(Category oldCategory, Category newCategory, boolean isFound,
+            UniqueCategoryList targetCategoryList, UniqueCategoryList newCategoryList)
+            throws IllegalValueException, DuplicateCategoryException {
+        for (Category category : targetCategoryList) {
+            if (category.equals(oldCategory)) {
+                isFound = true;
+                newCategoryList.add(newCategory);
+            } else {
+                newCategoryList.add(category);
+            }
+        }
+        return isFound;
     }
 
     //@@author A0144904H
