@@ -35,11 +35,13 @@ We are a team based in the [School of Computing, National University of Singapor
 * Features implemented:
    * [Save data](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#314-exporting-the-data--save)
    * [Undo](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#311-undoing-a-command--undo)
-   * [Delete multiple tasks ](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#36-deleting-a-task--delete)
+   * [Redo](https://github.com/CS2103JAN2017-W14-B2/main/blob/April-documentation/docs/UserGuide.md#312-redoing-a-command--redo--r)
+   * [Delete multiple tasks](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#36-deleting-a-task--delete)
 * Code written: [[functional code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/main/A0138961W.md)][[test code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/test/A0138961W.md)]
 * Other major contributions:
-  * Documentation  [[#5](https://github.com/CS2103JAN2017-W14-B2/main/pull/5), [#6](https://github.com/CS2103JAN2017-W14-B2/main/pull/6), [#55](https://github.com/CS2103JAN2017-W14-B2/main/pull/55), [#72](https://github.com/CS2103JAN2017-W14-B2/main/pull/72), [#73](https://github.com/CS2103JAN2017-W14-B2/main/pull/73)]
-  * Minor aesthetic changes to UI status footer bar [#139](https://github.com/CS2103JAN2017-W14-B2/main/pull/139)
+  * Documentation  [[#5](https://github.com/CS2103JAN2017-W14-B2/main/pull/5), [#6](https://github.com/CS2103JAN2017-W14-B2/main/pull/6), [#55](https://github.com/CS2103JAN2017-W14-B2/main/pull/55), [#72](https://github.com/CS2103JAN2017-W14-B2/main/pull/72), [#73](https://github.com/CS2103JAN2017-W14-B2/main/pull/73), [#165](https://github.com/CS2103JAN2017-W14-B2/main/pull/165), [#167](https://github.com/CS2103JAN2017-W14-B2/main/pull/167)]
+  * Minor aesthetic changes to UI status footer bar [[#139](https://github.com/CS2103JAN2017-W14-B2/main/pull/139)]
+  * Improve and add test cases for features and changes within features [[#204](https://github.com/CS2103JAN2017-W14-B2/main/pull/204), [#205](https://github.com/CS2103JAN2017-W14-B2/main/pull/205)]
 
 -----
 
