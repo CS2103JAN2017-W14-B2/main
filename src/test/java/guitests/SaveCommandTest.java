@@ -2,6 +2,8 @@ package guitests;
 
 import org.junit.Test;
 
+import static seedu.taskboss.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import seedu.taskboss.commons.core.Messages;
 import seedu.taskboss.logic.commands.SaveCommand;
 
