@@ -107,7 +107,6 @@ public class UniqueTaskList implements Iterable<Task> {
     /**
      * Compares {@code priorityLevel1} with {@code priorityLevel2}.
      * High priority will take precedence.
-     * 
      */
     private int comparePriorityLevel(String priorityLevel1, String priorityLevel2) {
         if (priorityLevel1.equals(priorityLevel2)) {
