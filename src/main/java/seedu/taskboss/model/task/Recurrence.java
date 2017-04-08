@@ -51,45 +51,37 @@ public class Recurrence {
         switch(this.frequency) {
         case DAILY:
             if (startDate != null) {
-                Calendar startCalendar = addFrequencyToCalendar(startDate, Frequency.DAILY);
-                updateDateTime(startCalendar, task, startSdfFormat, isStartDate);
+                updateDateTime(Frequency.DAILY, task, startSdfFormat, isStartDate);
             }
             if (endDate != null) {
-                Calendar endCalendar = addFrequencyToCalendar(endDate, Frequency.DAILY);
-                updateDateTime(endCalendar, task, endSdfFormat, !isStartDate);
+                updateDateTime(Frequency.DAILY, task, endSdfFormat, !isStartDate);
             }
             break;
 
         case WEEKLY:
             if (startDate != null) {
-                Calendar startCalendar = addFrequencyToCalendar(startDate, Frequency.WEEKLY);
-                updateDateTime(startCalendar, task, startSdfFormat, isStartDate);
+                updateDateTime(Frequency.WEEKLY, task, startSdfFormat, isStartDate);
             }
             if (endDate != null) {
-                Calendar endCalendar = addFrequencyToCalendar(endDate, Frequency.WEEKLY);
-                updateDateTime(endCalendar, task, endSdfFormat, !isStartDate);
+                updateDateTime(Frequency.WEEKLY, task, endSdfFormat, !isStartDate);
             }
             break;
 
         case MONTHLY:
             if (startDate != null) {
-                Calendar startCalendar = addFrequencyToCalendar(startDate, Frequency.MONTHLY);
-                updateDateTime(startCalendar, task, startSdfFormat, isStartDate);
+                updateDateTime(Frequency.MONTHLY, task, startSdfFormat, isStartDate);
             }
             if (endDate != null) {
-                Calendar endCalendar = addFrequencyToCalendar(endDate, Frequency.MONTHLY);
-                updateDateTime(endCalendar, task, endSdfFormat, !isStartDate);
+                updateDateTime(Frequency.MONTHLY, task, endSdfFormat, !isStartDate);
             }
             break;
 
         case YEARLY:
             if (startDate != null) {
-                Calendar startCalendar = addFrequencyToCalendar(startDate, Frequency.YEARLY);
-                updateDateTime(startCalendar, task, startSdfFormat, isStartDate);
+                updateDateTime(Frequency.YEARLY, task, startSdfFormat, isStartDate);
             }
             if (endDate != null) {
-                Calendar endCalendar = addFrequencyToCalendar(endDate, Frequency.YEARLY);
-                updateDateTime(endCalendar, task, endSdfFormat, !isStartDate);
+                updateDateTime(Frequency.YEARLY, task, endSdfFormat, !isStartDate);
             }
             break;
 
@@ -102,11 +94,28 @@ public class Recurrence {
     }
 
     /**
-     * Updates the start/end DateTime of a given task with
+     * Updates a task's date based on the specified {@code frequency}
+     * @throws IllegalValueException
+     */
+    private void updateDateTime(Frequency frequency, Task task, SimpleDateFormat sdfFormat, boolean isStartDate)
+            throws IllegalValueException {
+        if (isStartDate) {
+            Date startDate = task.getStartDateTime().getDate();
+            Calendar startCalendar = addFrequencyToCalendar(startDate, frequency);
+            setDateTime(startCalendar, task, sdfFormat, true);
+        } else {
+            Date endDate = task.getEndDateTime().getDate();
+            Calendar endCalendar = addFrequencyToCalendar(endDate, frequency);
+            setDateTime(endCalendar, task, sdfFormat, false);
+        }
+    }
+
+    /**
+     * Sets the start/end DateTime of a given task with
      * the Date extracted from Calendar, based on its original DateTime format
      * @throws IllegalValueException
      */
-    private void updateDateTime(Calendar calendar, Task task,
+    private void setDateTime(Calendar calendar, Task task,
             SimpleDateFormat desiredFormat, boolean isStartDate) throws IllegalValueException {
         String dateInString = desiredFormat.format(calendar.getTime());
         if (isStartDate) {
