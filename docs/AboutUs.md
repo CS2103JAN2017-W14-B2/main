@@ -82,7 +82,8 @@ We are a team based in the [School of Computing, National University of Singapor
 * Code written: [[functional code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/main/A0147990R.md)][[test code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/test/A0147990R.md)]
 * Other major contributions:
   * In charge of review and merge pull requests
-  * Help debug and solve merge conflicts [[#152](https://github.com/CS2103JAN2017-W14-B2/main/pull/152), [#146](https://github.com/CS2103JAN2017-W14-B2/main/pull/146)]
+  * Help debug and solve merge conflicts [[#152](https://github.com/CS2103JAN2017-W14-B2/main/pull/152), [#146](https://github.com/CS2103JAN2017-W14-B2/main/pull/146), [#188](https://github.com/CS2103JAN2017-W14-B2/main/pull/188), , [#208](https://github.com/CS2103JAN2017-W14-B2/main/pull/208)]
+  * Improve result display [[#200](https://github.com/CS2103JAN2017-W14-B2/main/pull/200)]
   * Documentation [[#80](https://github.com/CS2103JAN2017-W14-B2/main/pull/80), [#1](https://github.com/CS2103JAN2017-W14-B2/main/pull/1)] 
 
 -----
