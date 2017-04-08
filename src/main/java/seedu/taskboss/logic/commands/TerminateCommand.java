@@ -3,8 +3,10 @@ package seedu.taskboss.logic.commands;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import seedu.taskboss.commons.core.EventsCenter;
+import seedu.taskboss.commons.core.LogsCenter;
 import seedu.taskboss.commons.core.Messages;
 import seedu.taskboss.commons.core.UnmodifiableObservableList;
 import seedu.taskboss.commons.events.ui.JumpToListRequestEvent;
@@ -15,6 +17,8 @@ import seedu.taskboss.model.task.ReadOnlyTask;
 
 //@@author A0144904H
 public class TerminateCommand extends Command {
+
+    private static final Logger logger = LogsCenter.getLogger(TerminateCommand.class);
 
     private static final int INDEX_ZERO = 0;
     private static final int INDEX_ONE = 1;
@@ -50,17 +54,21 @@ public class TerminateCommand extends Command {
 
         if (filteredTaskListIndices.get(filteredTaskListIndices.size() - 1) < 1
                 || filteredTaskListIndices.get(INDEX_ZERO) > lastShownList.size()) {
+            logger.info("User input index(es) out of bound.");
             throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
 
         for (int index : filteredTaskListIndices) {
             ReadOnlyTask recurringTaskToMarkDone = lastShownList.get(index - 1);
             if (recurringTaskToMarkDone.getCategories().contains(Category.done)) {
+                logger.info("User attempted to terminate a task that was marked previosuly. "
+                        + "Throwing commandException.");
                 throw new CommandException(ERROR_TERMINATED_TASK);
             }
             recurringTasksToMarkDone.add(recurringTaskToMarkDone);
         }
 
+        logger.info("Attempting to terminate task(s).");
         model.end(filteredTaskListIndices, recurringTasksToMarkDone);
 
         scrollToTask(recurringTasksToMarkDone);

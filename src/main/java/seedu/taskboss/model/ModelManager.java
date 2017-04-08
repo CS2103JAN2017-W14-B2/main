@@ -179,6 +179,7 @@ public class ModelManager extends ComponentManager implements Model {
         for (ReadOnlyTask task : tasksToMarkDone) {
             int targetIndex = indices.get(index) - 1;
             if (!task.isRecurring()) {
+                logger.info("Marking a non-recurring task.");
                 UniqueCategoryList newCategoryList = new UniqueCategoryList(task.getCategories());
                 newCategoryList.add(new Category(CATEGORY_DONE));
                 Task newTask = new Task(task.getName(), task.getPriorityLevel(),
@@ -188,6 +189,7 @@ public class ModelManager extends ComponentManager implements Model {
                 int taskBossIndex = filteredTasks.getSourceIndex(targetIndex);
                 this.taskBoss.updateTask(taskBossIndex, newTask);
             } else {
+                logger.info("Marking a recurring task. Updating dates of task.");
                 Task newRecurredTask = createRecurredTask(task);
                 int taskBossIndex = filteredTasks.getSourceIndex(targetIndex);
                 this.taskBoss.updateTask(taskBossIndex, newRecurredTask);
@@ -209,6 +211,7 @@ public class ModelManager extends ComponentManager implements Model {
         for (ReadOnlyTask task : tasksToMarkDone) {
             int targetIndex = indices.get(index) - 1;
             if (task.isRecurring()) {
+                logger.info("terminating a task.");
                 UniqueCategoryList newCategories = new UniqueCategoryList(task.getCategories());
                 newCategories.add(Category.done);
                 Task newTask = new Task(task.getName(), task.getPriorityLevel(),
@@ -218,6 +221,7 @@ public class ModelManager extends ComponentManager implements Model {
                 int taskBossIndex = filteredTasks.getSourceIndex(targetIndex);
                 this.taskBoss.updateTask(taskBossIndex, newTask);
             } else {
+                logger.info("terminating a non-recurring task. Throwing commandException.");
                 throw new CommandException(TerminateCommand.ERROR_TASK_NOT_RECURRING);
             }
             index++;
@@ -237,6 +241,7 @@ public class ModelManager extends ComponentManager implements Model {
         for (ReadOnlyTask task : tasksToMarkDone) {
             int targetIndex = indices.get(index) - 1;
             if (!task.isRecurring()) {
+                logger.info("unmarking a task.");
                 UniqueCategoryList newCategoryList = new UniqueCategoryList(task.getCategories());
                 newCategoryList.remove(Category.done);
                 Task newTask = new Task(task.getName(), task.getPriorityLevel(),
@@ -246,6 +251,7 @@ public class ModelManager extends ComponentManager implements Model {
                 int taskBossIndex = filteredTasks.getSourceIndex(targetIndex);
                 this.taskBoss.updateTask(taskBossIndex, newTask);
             } else {
+                logger.info("unmarking a recurring task. Updating the task's dates.");
                 Task newRecurredTask = createRecurredTaskForUnmarking(task);
                 int taskBossIndex = filteredTasks.getSourceIndex(targetIndex);
                 this.taskBoss.updateTask(taskBossIndex, newRecurredTask);
