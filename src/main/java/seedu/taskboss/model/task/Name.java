@@ -15,8 +15,7 @@ public class Name {
 
 
     /*
-     * The first character of the information must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
+     * The first character of the information must not be empty
      */
 
     public final String fullName;
