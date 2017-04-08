@@ -70,7 +70,8 @@ public class DateTimeParser {
 
         DateGroup dateGroup = dateGroupList.get(INDEX_FIRST_DATEGROUP);
 
-        return new DateTime(dateGroup.getDates().get(INDEX_FIRST_DATE), dateGroup.isDateInferred(), dateGroup.isTimeInferred());
+        return new DateTime(dateGroup.getDates().get(INDEX_FIRST_DATE), dateGroup.isDateInferred(),
+                dateGroup.isTimeInferred());
     }
 
     /**
