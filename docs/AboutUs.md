@@ -84,7 +84,8 @@ We are a team based in the [School of Computing, National University of Singapor
   * In charge of review and merge pull requests
   * Help debug and solve merge conflicts [[#152](https://github.com/CS2103JAN2017-W14-B2/main/pull/152), [#146](https://github.com/CS2103JAN2017-W14-B2/main/pull/146), [#188](https://github.com/CS2103JAN2017-W14-B2/main/pull/188), [#196](https://github.com/CS2103JAN2017-W14-B2/main/pull/196), [#208](https://github.com/CS2103JAN2017-W14-B2/main/pull/208)]
   * Improve result display [[#200](https://github.com/CS2103JAN2017-W14-B2/main/pull/200)]
-  * Documentation [[#80](https://github.com/CS2103JAN2017-W14-B2/main/pull/80), [#1](https://github.com/CS2103JAN2017-W14-B2/main/pull/1)] 
+  * Documentation [[#80](https://github.com/CS2103JAN2017-W14-B2/main/pull/80), [#1](https://github.com/CS2103JAN2017-W14-B2/main/pull/1)]
+  * UI of task Card [[#176](https://github.com/CS2103JAN2017-W14-B2/main/pull/176)]
 
 -----
 
