@@ -86,12 +86,16 @@ public class TypicalTestTasks {
                     .withInformation("clementi ave 2")
                     .withRecurrence(Frequency.NONE)
                     .withCategories(AddCommand.BUILT_IN_ALL_TASKS).build();
+
+            //@@author A0144904H
             taskL = new TaskBuilder().withName("Lower costs of product").withPriorityLevel("Yes")
                     .withStartDateTime("Dec 30 2019")
                     .withEndDateTime("Jan 2 2020")
                     .withInformation("update John on new price")
                     .withRecurrence(Frequency.NONE)
                     .withCategories(AddCommand.BUILT_IN_ALL_TASKS).build();
+
+            //@@author
         } catch (IllegalValueException e) {
             e.printStackTrace();
             assert false : "not possible";

@@ -88,17 +88,25 @@ public class EditCommand extends Command {
         } catch (UniqueTaskList.DuplicateTaskException dpe) {
             throw new CommandException(MESSAGE_DUPLICATE_TASK);
         } catch (BuiltInCategoryException dce) {
-            if (dce.getMessage().equals(ERROR_CANNOT_EDIT_DONE_TASK)) {
-                throw new CommandException(ERROR_CANNOT_EDIT_DONE_TASK);
-            } else if (dce.getMessage().equals(ERROR_CANNOT_EDIT_ALL_TASKS_CATEGORY)) {
-                throw new CommandException(ERROR_CANNOT_EDIT_ALL_TASKS_CATEGORY);
-            } else {
-                throw new CommandException(ERROR_CANNOT_EDIT_DONE_CATEGORY);
-            }
+            catchBuiltInCategoriesErrors(dce);
         }
 
         scrollToTask(taskToEdit);
         return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, taskToEdit));
+    }
+
+    /**
+     * @param BuiltInCategoryException
+     * @throws CommandException
+     */
+    private void catchBuiltInCategoriesErrors(BuiltInCategoryException dce) throws CommandException {
+        if (dce.getMessage().equals(ERROR_CANNOT_EDIT_DONE_TASK)) {
+            throw new CommandException(ERROR_CANNOT_EDIT_DONE_TASK);
+        } else if (dce.getMessage().equals(ERROR_CANNOT_EDIT_ALL_TASKS_CATEGORY)) {
+            throw new CommandException(ERROR_CANNOT_EDIT_ALL_TASKS_CATEGORY);
+        } else {
+            throw new CommandException(ERROR_CANNOT_EDIT_DONE_CATEGORY);
+        }
     }
 
     //@@author A0143157J
