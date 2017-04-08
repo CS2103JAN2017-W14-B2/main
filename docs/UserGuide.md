@@ -204,7 +204,9 @@ Example:
 Marks task(s) as done<br>
 Format: `mark INDEX`
 
-> * Marks the task(s) at the specified `INDEX`. <br>
+> * Marks the task(s) as Done at the specified `INDEX` if the task(s) is(are) non-recurring. <br>
+> * Updates the start and end dates of the task(s) if the task(s) is(are) recurring based on the 
+recurrance type (See details of recurrances #32-adding-a-task-add--a). <br>
 > * The index numbers refers to the index numbers shown in the most recent listing.<br>
 > * The index numbers **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 
