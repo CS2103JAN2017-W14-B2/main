@@ -49,18 +49,9 @@ public class UniqueTaskList implements Iterable<Task> {
             taskCmp =  new Comparator<ReadOnlyTask>() {
                 @Override
                 public int compare(ReadOnlyTask task1, ReadOnlyTask task2) {
-                    Date startDateTime1 = task1.getStartDateTime().getDate();
-                    Date startDateTime2 = task2.getStartDateTime().getDate();
-                    if (startDateTime1 == null &&
-                            startDateTime2 == null) {
-                        return 0;
-                    } else if (startDateTime1 == null) {
-                        return 1;
-                    } else if (startDateTime2 == null) {
-                        return -1;
-                    } else {
-                        return startDateTime1.compareTo(startDateTime2);
-                    }
+                    Date startDate1 = task1.getStartDateTime().getDate();
+                    Date startDate2 = task2.getStartDateTime().getDate();
+                    return compareDateTime(startDate1, startDate2);
                 }
             };
             break;
@@ -69,18 +60,9 @@ public class UniqueTaskList implements Iterable<Task> {
             taskCmp = new Comparator<ReadOnlyTask> () {
                 @Override
                 public int compare(ReadOnlyTask task1, ReadOnlyTask task2) {
-                    Date endDateTime1 = task1.getEndDateTime().getDate();
-                    Date endDateTime2 = task2.getEndDateTime().getDate();
-                    if (endDateTime1 == null &&
-                            endDateTime2 == null) {
-                        return 0;
-                    } else if (endDateTime1 == null) {
-                        return 1;
-                    } else if (endDateTime2 == null) {
-                        return -1;
-                    } else {
-                        return endDateTime1.compareTo(endDateTime2);
-                    }
+                    Date endDate1 = task1.getEndDateTime().getDate();
+                    Date endDate2 = task2.getEndDateTime().getDate();
+                    return compareDateTime(endDate1, endDate2);
                 }
             };
             break;
@@ -91,16 +73,9 @@ public class UniqueTaskList implements Iterable<Task> {
                 public int compare(ReadOnlyTask task1, ReadOnlyTask task2) {
                     String priorityLevel1 = task1.getPriorityLevel().toString();
                     String priorityLevel2 = task2.getPriorityLevel().toString();
-                    if (priorityLevel1.equals(priorityLevel2)) {
-                        return 0;
-                    } else if (priorityLevel1.equals(PriorityLevel.PRIORITY_HIGH_VALUE)) {
-                        return -1;
-                    } else if (priorityLevel2.equals(PriorityLevel.PRIORITY_HIGH_VALUE)) {
-                        return 1;
-                    } else {
-                        return 0;
-                    }
+                    return comparePriorityLevel(priorityLevel1, priorityLevel2);
                 }
+
             };
             break;
 
@@ -109,6 +84,41 @@ public class UniqueTaskList implements Iterable<Task> {
         }
 
         FXCollections.sort(internalList, taskCmp);
+    }
+
+    /**
+     * Compares {@code date1} with {@code date2}.
+     * Earlier date will take precedence.
+     * A null value is seen as having a lower precedence than a non-null date.
+     */
+    private int compareDateTime(Date date1, Date date2) {
+        if (date1 == null &&
+                date2 == null) {
+            return 0;
+        } else if (date1 == null) {
+            return 1;
+        } else if (date2 == null) {
+            return -1;
+        } else {
+            return date1.compareTo(date2);
+        }
+    }
+
+    /**
+     * Compares {@code priorityLevel1} with {@code priorityLevel2}.
+     * High priority will take precedence.
+     * 
+     */
+    private int comparePriorityLevel(String priorityLevel1, String priorityLevel2) {
+        if (priorityLevel1.equals(priorityLevel2)) {
+            return 0;
+        } else if (priorityLevel1.equals(PriorityLevel.PRIORITY_HIGH_VALUE)) {
+            return -1;
+        } else if (priorityLevel2.equals(PriorityLevel.PRIORITY_HIGH_VALUE)) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     //@@author
