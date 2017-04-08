@@ -57,34 +57,15 @@ public class EditCommandParser {
 
             Optional<DateTime> startDateTimeOp = ParserUtil.
                     parseDateTime(argsTokenizer.getValue(PREFIX_START_DATE));
-            // if user input is "edit INDEX sd/", remove the current startDateTime
-            if (!startDateTimeOp.isPresent() && args.contains(PREFIX_START_DATE.getPrefix())) {
-                editTaskDescriptor.setStartDateTime(Optional.of(new DateTime(EMPTY_STRING)));
-            } else {
-                editTaskDescriptor.setStartDateTime(startDateTimeOp);
-            }
+            processStartDateTime(args, editTaskDescriptor, startDateTimeOp);
 
             Optional<DateTime> endDateTimeOp = ParserUtil.
                     parseDateTime(argsTokenizer.getValue(PREFIX_END_DATE));
-            // if user input is "edit INDEX ed/", remove the current endDateTime
-            if (!endDateTimeOp.isPresent() && args.contains(PREFIX_END_DATE.getPrefix())) {
-                editTaskDescriptor.setEndDateTime(Optional.of(new DateTime(EMPTY_STRING)));
-            } else {
-                editTaskDescriptor.setEndDateTime(endDateTimeOp);
-            }
+            processEndDateTime(args, editTaskDescriptor, endDateTimeOp);
 
             editTaskDescriptor.setInformation(ParserUtil.parseInformation
                     (argsTokenizer.getValue(PREFIX_INFORMATION)));
-
-            // if user in put is "edit INDEX r/", set recurrence as NONE
-            if (args.contains(PREFIX_RECURRENCE.getPrefix()) &&
-                    argsTokenizer.getValue(PREFIX_RECURRENCE).get().equals(EMPTY_STRING)) {
-                editTaskDescriptor.setRecurrence(Optional.of(new Recurrence(Frequency.NONE)));
-            } else {
-                editTaskDescriptor.setRecurrence(ParserUtil.parseRecurrence
-                        (argsTokenizer.getValue(PREFIX_RECURRENCE)));
-            }
-
+            processRecurrence(args, argsTokenizer, editTaskDescriptor);
             editTaskDescriptor.setCategories(parseCategoriesForEdit
                     (ParserUtil.toSet(argsTokenizer.getAllValues(PREFIX_CATEGORY))));
         } catch (IllegalValueException ive) {
@@ -98,6 +79,47 @@ public class EditCommandParser {
         }
 
         return new EditCommand(index.get(), editTaskDescriptor);
+    }
+
+    /**
+     * Sets recurrence as NONE if user input is "edit INDEX r/", 
+     * @throws IllegalValueException
+     */
+    private void processRecurrence(String args, ArgumentTokenizer argsTokenizer, EditTaskDescriptor editTaskDescriptor)
+            throws IllegalValueException {
+        if (args.contains(PREFIX_RECURRENCE.getPrefix()) &&
+                argsTokenizer.getValue(PREFIX_RECURRENCE).get().equals(EMPTY_STRING)) {
+            editTaskDescriptor.setRecurrence(Optional.of(new Recurrence(Frequency.NONE)));
+        } else {
+            editTaskDescriptor.setRecurrence(ParserUtil.parseRecurrence
+                    (argsTokenizer.getValue(PREFIX_RECURRENCE)));
+        }
+    }
+
+    /**
+     * Removes the current endDateTime if user input is "edit INDEX ed/", 
+     * @throws IllegalValueException
+     */
+    private void processEndDateTime(String args, EditTaskDescriptor editTaskDescriptor,
+            Optional<DateTime> endDateTimeOp) throws IllegalValueException {
+        if (!endDateTimeOp.isPresent() && args.contains(PREFIX_END_DATE.getPrefix())) {
+            editTaskDescriptor.setEndDateTime(Optional.of(new DateTime(EMPTY_STRING)));
+        } else {
+            editTaskDescriptor.setEndDateTime(endDateTimeOp);
+        }
+    }
+
+    /**
+     * Removes the current startDateTime if user input is "edit INDEX sd/", 
+     * @throws IllegalValueException
+     */
+    private void processStartDateTime(String args, EditTaskDescriptor editTaskDescriptor,
+            Optional<DateTime> startDateTimeOp) throws IllegalValueException {
+        if (!startDateTimeOp.isPresent() && args.contains(PREFIX_START_DATE.getPrefix())) {
+            editTaskDescriptor.setStartDateTime(Optional.of(new DateTime(EMPTY_STRING)));
+        } else {
+            editTaskDescriptor.setStartDateTime(startDateTimeOp);
+        }
     }
 
     //@@author
