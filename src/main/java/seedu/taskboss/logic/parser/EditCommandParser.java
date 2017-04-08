@@ -82,7 +82,7 @@ public class EditCommandParser {
     }
 
     /**
-     * Sets recurrence as NONE if user input is "edit INDEX r/", 
+     * Sets recurrence as NONE if user input is "edit INDEX r/",
      * @throws IllegalValueException
      */
     private void processRecurrence(String args, ArgumentTokenizer argsTokenizer, EditTaskDescriptor editTaskDescriptor)
@@ -97,7 +97,7 @@ public class EditCommandParser {
     }
 
     /**
-     * Removes the current endDateTime if user input is "edit INDEX ed/", 
+     * Removes the current endDateTime if user input is "edit INDEX ed/",
      * @throws IllegalValueException
      */
     private void processEndDateTime(String args, EditTaskDescriptor editTaskDescriptor,
@@ -110,7 +110,7 @@ public class EditCommandParser {
     }
 
     /**
-     * Removes the current startDateTime if user input is "edit INDEX sd/", 
+     * Removes the current startDateTime if user input is "edit INDEX sd/",
      * @throws IllegalValueException
      */
     private void processStartDateTime(String args, EditTaskDescriptor editTaskDescriptor,
