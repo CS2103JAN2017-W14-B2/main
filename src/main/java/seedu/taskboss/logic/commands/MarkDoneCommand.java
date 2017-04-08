@@ -78,6 +78,7 @@ public class MarkDoneCommand extends Command {
         EventsCenter.getInstance().post(new JumpToListRequestEvent(targetIndex));
     }
 
+    //@@author A0143157J
     /**
      * Returns a formatted {@code ArrayList} tasksToMarkDone,
      * so that each ReadOnlyTask in the ArrayList is numbered
