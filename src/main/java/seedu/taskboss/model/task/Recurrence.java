@@ -50,39 +50,19 @@ public class Recurrence {
 
         switch(this.frequency) {
         case DAILY:
-            if (startDate != null) {
-                updateDateTime(Frequency.DAILY, task, startSdfFormat, isStartDate);
-            }
-            if (endDate != null) {
-                updateDateTime(Frequency.DAILY, task, endSdfFormat, !isStartDate);
-            }
+            updateDailyRecur(task, startDate, endDate, startSdfFormat, endSdfFormat, isStartDate);
             break;
 
         case WEEKLY:
-            if (startDate != null) {
-                updateDateTime(Frequency.WEEKLY, task, startSdfFormat, isStartDate);
-            }
-            if (endDate != null) {
-                updateDateTime(Frequency.WEEKLY, task, endSdfFormat, !isStartDate);
-            }
+            updateWeeklyRecur(task, startDate, endDate, startSdfFormat, endSdfFormat, isStartDate);
             break;
 
         case MONTHLY:
-            if (startDate != null) {
-                updateDateTime(Frequency.MONTHLY, task, startSdfFormat, isStartDate);
-            }
-            if (endDate != null) {
-                updateDateTime(Frequency.MONTHLY, task, endSdfFormat, !isStartDate);
-            }
+            updateMonthlyRecur(task, startDate, endDate, startSdfFormat, endSdfFormat, isStartDate);
             break;
 
         case YEARLY:
-            if (startDate != null) {
-                updateDateTime(Frequency.YEARLY, task, startSdfFormat, isStartDate);
-            }
-            if (endDate != null) {
-                updateDateTime(Frequency.YEARLY, task, endSdfFormat, !isStartDate);
-            }
+            updateYearlyRecur(task, startDate, endDate, startSdfFormat, endSdfFormat, isStartDate);
             break;
 
         case NONE:
@@ -94,7 +74,63 @@ public class Recurrence {
     }
 
     /**
-     * Updates a task's date based on the specified {@code frequency}
+     * Update task dates {@code startDate} and {@code endDate} by incrementing a year if they are present
+     * @throws IllegalValueException
+     */
+    private void updateYearlyRecur(Task task, Date startDate, Date endDate, SimpleDateFormat startSdfFormat,
+            SimpleDateFormat endSdfFormat, boolean isStartDate) throws IllegalValueException {
+        if (startDate != null) {
+            updateDateTime(Frequency.YEARLY, task, startSdfFormat, isStartDate);
+        }
+        if (endDate != null) {
+            updateDateTime(Frequency.YEARLY, task, endSdfFormat, !isStartDate);
+        }
+    }
+
+    /**
+     * Update task dates {@code startDate} and {@code endDate} by incrementing a month if they are present
+     * @throws IllegalValueException
+     */
+    private void updateMonthlyRecur(Task task, Date startDate, Date endDate, SimpleDateFormat startSdfFormat,
+            SimpleDateFormat endSdfFormat, boolean isStartDate) throws IllegalValueException {
+        if (startDate != null) {
+            updateDateTime(Frequency.MONTHLY, task, startSdfFormat, isStartDate);
+        }
+        if (endDate != null) {
+            updateDateTime(Frequency.MONTHLY, task, endSdfFormat, !isStartDate);
+        }
+    }
+
+    /**
+     * Update task dates {@code startDate} and {@code endDate} by incrementing a weekly if they are present
+     * @throws IllegalValueException
+     */
+    private void updateWeeklyRecur(Task task, Date startDate, Date endDate, SimpleDateFormat startSdfFormat,
+            SimpleDateFormat endSdfFormat, boolean isStartDate) throws IllegalValueException {
+        if (startDate != null) {
+            updateDateTime(Frequency.WEEKLY, task, startSdfFormat, isStartDate);
+        }
+        if (endDate != null) {
+            updateDateTime(Frequency.WEEKLY, task, endSdfFormat, !isStartDate);
+        }
+    }
+
+    /**
+     * Update task dates {@code startDate} and {@code endDate} by incrementing a day if they are present
+     * @throws IllegalValueException
+     */
+    private void updateDailyRecur(Task task, Date startDate, Date endDate, SimpleDateFormat startSdfFormat,
+            SimpleDateFormat endSdfFormat, boolean isStartDate) throws IllegalValueException {
+        if (startDate != null) {
+            updateDateTime(Frequency.DAILY, task, startSdfFormat, isStartDate);
+        }
+        if (endDate != null) {
+            updateDateTime(Frequency.DAILY, task, endSdfFormat, !isStartDate);
+        }
+    }
+
+    /**
+     * Update a task's date based on the specified {@code frequency}
      * @throws IllegalValueException
      */
     private void updateDateTime(Frequency frequency, Task task, SimpleDateFormat sdfFormat, boolean isStartDate)
@@ -111,7 +147,7 @@ public class Recurrence {
     }
 
     /**
-     * Sets the start/end DateTime of a given task with
+     * Set the start/end DateTime of a given task with
      * the Date extracted from Calendar, based on its original DateTime format
      * @throws IllegalValueException
      */
