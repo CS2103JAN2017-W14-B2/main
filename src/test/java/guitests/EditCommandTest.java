@@ -173,7 +173,7 @@ public class EditCommandTest extends TaskBossGuiTest {
         assertResultMessage(EditCommand.ERROR_INVALID_DATES);
     }
 
-    //author A0144904H
+    //@@author A0144904H
     @Test
     public void edit_To_DoneCategory_failure() {
         commandBox.runCommand("edit 3 c/Done sd/next fri 5pm ed/tomorrow");
