@@ -40,9 +40,11 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
 
 ## 1. Introduction
 
-TaskBoss is a Java application which allows you to manage your tasks through command line inputs. It has a colorful and user friendly interface for ease of use. So use TaskBoss, and be the boss of your tasks today!
+TaskBoss is a Java desktop application that allows users to manage their tasks using command line inputs. It supports a wide range of features and has a colourful and user-friendly interface that is implemented using JavaFx.
 
-This developer guide was written in a top down approach and it lists the architecture, components and implementation of TaskBoss. Developers can make use of this document to better understand TaskBoss' design and learn how to contribute to its development.
+This developer guide was written in a top-down manner and it lists the architecture, components and implementation of TaskBoss. We welcome developers like you to make use of this document to better understand TaskBoss' design and how you can contribute to its development.
+
+Help us empower users of TaskBoss and join us in improving TaskBoss today!
 
 ## 2. Setting up
 
@@ -178,8 +180,7 @@ The [**`UI`**](#32-ui-component) component as shown above in Figure 5:
 * Binds itself to some data in the [**`Model`**](#34-model-component) component so that the user interface can auto-update when data in the [**`Model`**](#34-model-component) component change
 * Responds to events raised from various parts of the TaskBoss and updates the user interface accordingly
 
-The [**`UI`**](#32-ui-component) component consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `CategoryListPanel`, `CategoryCard`, `TaskListPanel`,
-`TaskCard`, `StatusBarFooter` and `HelpWindow`. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+The [**`UI`**](#32-ui-component) component consists of a `MainWindow` that is made up of parts i.e.`CommandBox`, `ResultDisplay`, `CategoryListPanel`, `TaskListPanel`, `StatusBarFooter` and `HelpWindow`. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
 The [**`UI`**](#32-ui-component) component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder.<br>
 
@@ -239,7 +240,7 @@ _Figure 10: Structure of the Storage Component_
 
 **API** : [`Storage.java`](../src/main/java/seedu/taskboss/storage/Storage.java)
 
-The [**`Storage`**](#35-storage-component) component, as shown above in Figure 10
+The [**`Storage`**](#35-storage-component) component as shown above in Figure 10:
 
 * Saves `UserPref` objects in `.json` format and reads it back.
 * Saves TaskBoss data in `.xml` format and reads it back.
