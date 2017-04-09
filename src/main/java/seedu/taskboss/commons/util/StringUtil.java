@@ -5,7 +5,6 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 
 import seedu.taskboss.model.task.ReadOnlyTask;
-import seedu.taskboss.testutil.TestTask;
 
 /**
  * Helper functions for handling strings.
@@ -72,21 +71,6 @@ public class StringUtil {
         int i = INDEX_ONE;
         StringBuilder builder = new StringBuilder();
         for (ReadOnlyTask task : taskList) {
-            builder.append(i + NUMBERING_DOT).append(task.toString());
-            i++;
-        }
-        return builder.toString();
-    }
-
-    /**
-     * For testing purposes.
-     * Returns a formatted {@code taskList} ArrayList,
-     * so that each TestTask in {@code taskList} is numbered
-     */
-    public static String getDesiredArrayListFormatForTest(ArrayList<TestTask> taskList) {
-        int i = INDEX_ONE;
-        StringBuilder builder = new StringBuilder();
-        for (TestTask task : taskList) {
             builder.append(i + NUMBERING_DOT).append(task.toString());
             i++;
         }
