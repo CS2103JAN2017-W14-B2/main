@@ -382,7 +382,7 @@ is better than these alternatives that: <br>
 
 ## Appendix A : User Stories
 
-Table 1 below shows the user stories of TaskBoss.
+Table 1 below shows the user stories of TaskBoss.<br>
 Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (unlikely to have) - `*`
 
 
@@ -417,11 +417,12 @@ Priority | As a ... | I want to ... | So that I can...
 `*` | user | redo a command | redo any unintended undo actions
 `*` | user | integrate Google Calendar | see a monthly view of my tasks
 `*` | user | view all tasks that are between a specified date/time interval | focus on a particular set of tasks
-    _Table 1: List of User Stories_
+
+_Table 1: List of User Stories_
 
 ## Appendix B : Use Cases
 
-(For all use cases below, the **System** is`TaskBoss` and the **Actor** is the `user`, unless otherwise specified)
+For all use cases below, the **System** is`TaskBoss` and the **Actor** is the `user`, unless otherwise specified.
 
 ### Use case: Add a task
 
