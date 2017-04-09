@@ -373,14 +373,14 @@ Examples:
 Undoes the most recent command and reverts to previous state<br>
 Format: `undo`
 > * `Undo` command can be executed until all previous undo-able commands are exhausted.
-> * `Save` command is not undo-able.
+> * `Save`, `list`, `find`  commands are not undo-able.
 
 ### 3.14. Redoing a command : `redo / r`
 
 Redoes the most recent command after it has been undone<br>
 Format: `redo`
 > * `Redo` command can be executed as long as an undo command was called previously and has not been redone.
-> * `Save` command is not redo-able.
+> * `Save`, `list`, `find`  commands are not redo-able.
 
 ### 3.15. Sorting tasks : `sort / s` 
 
