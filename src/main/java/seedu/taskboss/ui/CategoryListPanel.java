@@ -30,6 +30,8 @@ import seedu.taskboss.model.task.ReadOnlyTask;
  */
 public class CategoryListPanel extends UiPart<Region> {
 
+    private static final double NO_BOUNDARY = 0.0;
+
     private final Logger logger = LogsCenter.getLogger(CategoryListPanel.class);
 
     private static final int AMOUNT_ONE = 1;
@@ -165,7 +167,8 @@ public class CategoryListPanel extends UiPart<Region> {
 
     private void addToPlaceholder(AnchorPane placeHolderPane) {
         SplitPane.setResizableWithParent(placeHolderPane, false);
-        FxViewUtil.applyAnchorBoundaryParameters(getRoot(), 0.0, 0.0, 0.0, 0.0);
+        FxViewUtil.applyAnchorBoundaryParameters(getRoot(), NO_BOUNDARY, NO_BOUNDARY,
+                NO_BOUNDARY, NO_BOUNDARY);
         placeHolderPane.getChildren().add(getRoot());
     }
 

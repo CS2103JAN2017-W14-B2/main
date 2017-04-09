@@ -2,9 +2,11 @@ package seedu.taskboss.logic.parser;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 import com.joestelmach.natty.DateGroup;
 
+import seedu.taskboss.commons.core.LogsCenter;
 import seedu.taskboss.commons.exceptions.IllegalValueException;
 import seedu.taskboss.model.task.DateTime;
 
@@ -14,10 +16,14 @@ import seedu.taskboss.model.task.DateTime;
  */
 public class DateTimeParser {
 
+    private final Logger logger = LogsCenter.getLogger(DateTimeParser.class);
+
     private static final int SINGLE_DATE = 1;
     private static final int INDEX_FIRST_DATEGROUP = 0;
     private static final int INDEX_FIRST_DATE = 0;
     private static final String ERROR_MULTIPLE_DATES = "Please only enter a single date.";
+    private static final String ERROR_INVALID_DATE = "Sorry, TaskBoss is unable to understand"
+            + " your given date.";
     private static final String REGEX_US_DATE = "(\\d{1,2})-(\\d{1,2})-((?:\\d\\d){1,2})";
     private static final String REGEX_NON_US_DATE = "$2-$1-$3";
     private static final String EMPTY_STRING = "";
@@ -80,7 +86,11 @@ public class DateTimeParser {
      */
     private void checkDateValidity(int numDates) throws IllegalValueException {
         if (numDates > SINGLE_DATE) {
+            logger.info("User attempted to enter multiple dates or a range of dates. Throwing IllegalValueException");
             throw new IllegalValueException(ERROR_MULTIPLE_DATES);
+        } else if (numDates < SINGLE_DATE) {
+            logger.info("Natty failed to parse user-entered date. Throwing IllegalValueException");
+            throw new IllegalValueException(ERROR_INVALID_DATE);
         }
     }
 

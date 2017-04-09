@@ -33,9 +33,7 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
 5. [Command Summary](#5-command-summary)
 
 ## 1. Introduction
-Have you ever been overwhelmed with too many tasks? Perhaps a couple of these tasks might have slipped your mind. Well, TaskBoss is here to help you out! TaskBoss is a user friendly task manager which supports a wide range of features.<br>
-<br>
-Be the boss of your tasks, use TaskBoss today!
+Have you ever been overwhelmed with too many tasks? Perhaps, a couple of these tasks might have even slipped your mind? Well, TaskBoss is here to save the day! TaskBoss is a user-friendly task manager that supports a wide range of features. Become the boss of your tasks and start using TaskBoss today!
 
 ## 2. Quick Start
 
@@ -87,7 +85,7 @@ Displays the filepath where TaskBoss' data is currently saved in. The filepath d
 
 |Command    |Description                                                          |
 |:---------:|:-------------------------------------------------------------------:|
-|[**help / h**](#31-viewing-help--help--h)                       |View help              |
+|[**help / h**](#31-viewing-help--help--h)                       |View help window             |
 |[**add / a / +**](#32-adding-a-task--add--a--plus-sign)                         |Add a task             |
 |[**list / l**](#33-listing-all-tasks--list--l)                  |List the tasks         |
 |[**edit / e**](#34-editing-a-task--edit--e)                     |Edit a task            |
@@ -97,8 +95,8 @@ Displays the filepath where TaskBoss' data is currently saved in. The filepath d
 |[**view / v**](#38-viewing-a-task--view--v)                    |View a task            |
 |[**name / n**](#39-renaming-a-category--name--n)         |Rename a category      |
 |[**mark / m**](#310-marking-tasks-done--mark--m)               |Mark a task as done and updates task's dates    |
-|[**terminate / t**](#311-terminating-tasks--terminate--t)          |Terminates a recurring task    |
-|[**unmark / um**](#312-unmarking-tasks--unmark--um)       |Unmarks previously marked or terminated tasks and updates task's dates | 
+|[**terminate / t**](#311-terminating-tasks--terminate--t)          |Terminate a recurring task    |
+|[**unmark / um**](#312-unmarking-tasks--unmark--um)       |Unmark previously marked or terminated tasks and updates task's dates | 
 |[**undo / u**](#313-undoing-a-command--undo--u)                 |Undo a task            |
 |[**redo / r**](#314-redoing-a-command--redo--r)                 |Redo a task            |
 |[**sort / s**](#315-sorting-tasks--sort--s)                     |Sort tasks by deadline or by priority|
@@ -114,7 +112,7 @@ Displays the filepath where TaskBoss' data is currently saved in. The filepath d
 
 ### 3.1. Viewing help : `help / h`
 
-Opens the user guide in a separate window<br>
+Displays a window with a summary of all the different commands and features available and guidelines on how to use them.<br>
 Format: `help`
 
 ### 3.2. Adding a task : `add / a / plus sign`

@@ -184,6 +184,7 @@ public class EditCommandTest extends TaskBossGuiTest {
     @Test
     public void edit_doneCategory_failure() throws IllegalArgumentException, IllegalValueException {
         commandBox.runCommand("mark 1");
+        commandBox.runCommand("list c/done");
         commandBox.runCommand("edit 1 c/Work");
 
         assertResultMessage(EditCommand.ERROR_CANNOT_EDIT_DONE_TASK);
