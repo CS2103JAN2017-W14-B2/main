@@ -21,7 +21,10 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
 5. [Implementation](#5-implementation)<br>
     5.1 [Logging](#51-logging)<br>
     5.2 [Configuration](#52-configuration)<br>
-6. [Testing](#6-testing)
+6. [Testing](#6-testing)<br>
+    6.1 [Test environment](#61-test-environment)<br>
+    6.2 [Types of tests](#62-types-of-tests)<br>
+    6.3 [Troubleshooting tests](#63-troubleshooting-tests)<br>
 7. [Dev Ops](#7-dev-ops)<br>
     7.1 [Building automation](#71-building-automation)<br>
     7.2 [Performing continuous integration](#72-performing-continuous-integration)<br>
@@ -45,23 +48,19 @@ This developer guide was written in a top down approach and it lists the archite
 
 ### 2.1. Prerequisites
 
-1. **JDK `1.8.0_60`**  or later<br>
-
-    > Having any Java 8 version is not enough. <br>
-    TaskBoss app will not work with earlier versions of Java 8.
-
-2. **Eclipse** IDE
-3. **e(fx)clipse** plugin for Eclipse (Follow instructions from step two onwards given in
-   [this link](http://www.eclipse.org/efxclipse/install.html#for-the-ambitious))
-4. **Buildship Gradle Integration** plugin from the Eclipse Marketplace
-5. **Checkstyle Plug-in** from the Eclipse Marketplace
-
+1. [**Java SE Development Kit `1.8.0_60`**](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or later<br>
+2. [**Eclipse**](http://www.eclipse.org/downloads/) IDE
+3. [**e(fx)clipse**](https://www.eclipse.org/efxclipse/install.html) plugin for Eclipse
+4. [**Buildship Gradle Integration**](https://marketplace.eclipse.org/content/buildship-gradle-integration) plugin from the Eclipse Marketplace
+5. [**Checkstyle Plug-in**](https://marketplace.eclipse.org/content/checkstyle-plug) from the Eclipse Marketplace
 
 ### 2.2. Importing TaskBoss into Eclipse
 
-1. Fork this repo, and clone the fork to your computer
-2. Open Eclipse (Note: Ensure you have installed the **e(fx)clipse** and **buildship** plugins as given
-   in the prerequisites above)
+1. Fork this repository, and clone the fork to your computer
+2. Open the Eclipse IDE
+    > Note: Ensure that you have installed the **e(fx)clipse** and **buildship** plugins as given
+   in the prerequisites above.
+
 3. Click `File` > `Import`
 4. Click `Gradle` > `Gradle Project` > `Next` > `Next`
 5. Click `Browse`, then locate the project's directory
@@ -109,9 +108,9 @@ Our target users (eg. *Jim*) are people who:
 ### 4.1. Architecture
 
 <img src="images/Architecture.png" width="600"><br>
-_Figure 2.1.1 : Architecture Diagram_
+_Figure 1: Architecture Diagram_
 
-The **_Architecture Diagram_** above explains the high-level design of TaskBoss.
+Figure 1 above explains the high-level design of TaskBoss.
 Given below is a quick overview of each component.
 
 **`Main`** has only one class called [`MainApp`](../src/main/java/seedu/taskboss/MainApp.java). It is responsible for:
@@ -138,27 +137,27 @@ Each of the four components:
 * Defines its API in an `interface` with the same name as the component
 * Exposes its functionality using a `{Component Name}Manager` class
 
-> For example, the [**`Logic`**](#33-logic-component) component (see the figure 2.1.2 below) defines its API in the [`Logic.java`](../src/main/java/seedu/taskboss/logic/Logic.java)
+> For example, the [**`Logic`**](#33-logic-component) component (see the Figure 2 below) defines its API in the [`Logic.java`](../src/main/java/seedu/taskboss/logic/Logic.java)
 interface and exposes its functionality using the [`LogicManager.java`](../src/main/java/seedu/taskboss/logic/LogicManager.java) class.<br>
 
 <img src="images/LogicClassDiagram.png" width="800"><br>
-_Figure 2.1.2 : Class Diagram of the Logic Component_
+_Figure 2: Class Diagram of the Logic Component_
 
 ### Events-Driven nature of the design
 
-Figure 2.1.3a below shows how the components interact for the scenario where the user issues the
+Figure 3 below shows how the components interact for the scenario where the user issues the
 command `delete 1`.
 
 <img src="images\SDforDeleteTask.png" width="800"><br>
-_Figure 2.1.3a : Component interactions for `delete 1` command (part 1)_
+_Figure 3: Component Interactions for `delete 1` Command (Part 1)_
 
 > Note how the `Model` component simply raises a `TaskBossChangedEvent` when the TaskBoss data is changed,
  instead of asking the `Storage` component to save the updates to the hard disk.
 
-Figure 2.1.3b below shows how the [`EventsCenter`](../src/main/java/seedu/taskboss/commons/core/EventsCenter.java) reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the user interface being updated to reflect the 'Last Updated' time. <br>
+Figure 4 below shows how the [`EventsCenter`](../src/main/java/seedu/taskboss/commons/core/EventsCenter.java) reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the user interface being updated to reflect the 'Last Updated' time. <br>
 
 <img src="images\SDforDeleteTaskEventHandling.png" width="800"><br>
-_Figure 2.1.3b : Component interactions for `delete 1` command (part 2)_
+_Figure 4: Component Interactions for `delete 1` Command (Part 2)_
 
 > Note how the event is propagated through the [`EventsCenter`](../src/main/java/seedu/taskboss/commons/core/EventsCenter.java) to the `Storage` and `UI` components without the `Model` component having to be coupled to either of them. This is an example of how this event-driven approach helps us reduce direct coupling between components.
 
@@ -169,65 +168,65 @@ The sections below give more details of each component.
 Author: Tan Wei
 
 <img src="images/UiClassDiagram.png" width="800"><br>
-_Figure 2.2.1 : Structure of the UI Component_
+_Figure 5: Structure of the UI Component_
 
 **API** : [`Ui.java`](../src/main/java/seedu/taskboss/ui/Ui.java)
 
-The [**`UI`**](#32-ui-component) component, as shown above in Figure 2.2.1 consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `CategoryPanel`,
-`AllTasksPanel`, `StatusBarFooter`, `HelpWindow`. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
-
-The [**`UI`**](#32-ui-component) component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder.<br>
- 
-> For example, the layout of the [`MainWindow`](../src/main/java/seedu/taskboss/ui/MainWindow.java) is specified in
- [`MainWindow.fxml`](../src/main/resources/view/MainWindow.fxml)
-
-The [**`UI`**](#32-ui-component) component
+The [**`UI`**](#32-ui-component) component as shown above in Figure 5:
 
 * Executes user commands using the [**`Logic`**](#33-logic-component) component
 * Binds itself to some data in the [**`Model`**](#34-model-component) component so that the user interface can auto-update when data in the [**`Model`**](#34-model-component) component change
 * Responds to events raised from various parts of the TaskBoss and updates the user interface accordingly
+
+The [**`UI`**](#32-ui-component) component consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `CategoryListPanel`, `CategoryCard`, `TaskListPanel`,
+`TaskCard`, `StatusBarFooter` and `HelpWindow`. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+
+The [**`UI`**](#32-ui-component) component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder.<br>
+
+> For example, the layout of the [`MainWindow`](../src/main/java/seedu/taskboss/ui/MainWindow.java) is specified in
+ [`MainWindow.fxml`](../src/main/resources/view/MainWindow.fxml)
 
 ### 4.3. Logic component
 
 Author: Alsharef Haya Fayez M
 
 <img src="images/LogicClassDiagram.png" width="800"><br>
-_Figure 2.3.1 : Structure of the Logic Component_
+_Figure 6: Structure of the Logic Component_
 
 **API** : [`Logic.java`](../src/main/java/seedu/taskboss/logic/Logic.java)
 
-The [**`Logic`**](#33-logic-component) component
+The [**`Logic`**](#33-logic-component) component as shown above in Figure 6:
 
 * Uses the `Parser` class to parse the user command.
 * Executes a `Command` object via the `LogicManager`.
 * Affects the [**`Model`**](#34-model-component) component (e.g. *adding a person*) and/or raises events.
 * Encapsulates as a `CommandResult` object which is passed back to the [**`UI`**](#32-ui-component) component.
 
-Figure 2.3.1 below shows the interactions within the [**`Logic`**](#33-logic-component) component for the *`execute("delete 1")`*
+Figure 7 below shows the interactions within the [**`Logic`**](#33-logic-component) component for the *`execute("delete 1")`*
  API call.<br>
- 
-<img src="images/DeleteTaskSdForLogic.png" width="800"><br>
-_Figure 2.3.1 : Interactions Inside the Logic Component for the `delete 1` Command_
 
-Figure 2.3.2 below shows the interactions within the [**`Logic`**](#33-logic-component) component for the *`execute("mark 1")`*
+<img src="images/DeleteTaskSdForLogic.png" width="800"><br>
+_Figure 7: Interactions Inside the Logic Component for the `delete 1` Command_
+
+Figure 8 below shows the interactions within the [**`Logic`**](#33-logic-component) component for the *`execute("mark 1")`*
  API call.<br>
- 
+
  <img src="images/MarkDoneTaskSDForLogic.png" width="800"><br>
-_Figure 2.3.2 : Interactions Inside the Logic Component for the `mark 1` Command_
+_Figure 8: Interactions Inside the Logic Component for the `mark 1` Command_
 
 ### 4.4. Model component
 
 Author: Xu Ruolan
 
 <img src="images/ModelClassDiagram.png" width="800"><br>
-_Figure 2.4.1 : Structure of the Model Component_
+_Figure 9: Structure of the Model Component_
 
 **API** : [`Model.java`](../src/main/java/seedu/taskboss/model/Model.java)
 
-The [**`Model`**](#34-model-component) component, as shown above in Figure 2.4.1
+The [**`Model`**](#34-model-component) component as shown above in Figure 9:
 
 * Stores a `UserPref` object that represents the user's preferences
-* Stores the TaskBoss data
+* Stores TaskBoss data
 * Exposes a `UnmodifiableObservableList<ReadOnlyTask>` that can be 'observed' e.g. the [**`UI`**](#32-ui-component) component can be bound to this list so that the user interface automatically updates when the data in the list change
 * Does not depend on any of the other three components
 
@@ -236,16 +235,16 @@ The [**`Model`**](#34-model-component) component, as shown above in Figure 2.4.1
 Author: Soh Wei Kiat Melvin
 
 <img src="images/StorageClassDiagram.png" width="800"><br>
-_Figure 2.5.1 : Structure of the Storage Component_
+_Figure 10: Structure of the Storage Component_
 
 **API** : [`Storage.java`](../src/main/java/seedu/taskboss/storage/Storage.java)
 
-The [**`Storage`**](#35-storage-component) component, as shown above in Figure 2.5.1
+The [**`Storage`**](#35-storage-component) component, as shown above in Figure 10
 
-* Saves `UserPref` objects in json format and reads it back.
-* Saves the TaskBoss data in xml format and reads it back.
+* Saves `UserPref` objects in `.json` format and reads it back.
+* Saves TaskBoss data in `.xml` format and reads it back.
 
-TaskBoss allows the user to save their data at a new filepath. The filepath can be specified via the Save command and will contain a new taskboss.xml document. The new filepath is then saved into 'Config' and TaskBoss will load from and save to the new filepath for current and future sessions until a new filepath is specified.
+TaskBoss allows the user to save their data at a new filepath. The filepath can be specified via the Save command and will contain a new `taskboss.xml` document. The new filepath is then saved into `Config` and TaskBoss will load from and save to the new filepath for current and future sessions until a new filepath is specified.
 
 ### 4.6. Common classes
 
@@ -280,6 +279,8 @@ Certain properties of the application can be controlled (*e.g App name, logging 
 
 Tests can be found in the `./src/test/java` folder.
 
+### 6.1. Test environment
+
 **In Eclipse**:
 
 * To run all tests, right-click on the `src/test/java` folder and choose
@@ -291,29 +292,31 @@ Tests can be found in the `./src/test/java` folder.
 
 * See [UsingGradle.md](UsingGradle.md) for how to run tests using Gradle
 
-We have two types of tests:
+### 6.2. Types of tests
 
-* **GUI Tests** - These are _System Tests_ that test TaskBoss by simulating user actions on the GUI.
+We have three types of tests:
+
+1. **GUI Tests** - These are _System Tests_ that test TaskBoss by simulating user actions on the GUI.
    These are in the `guitests` package.
 
-* **Non-GUI Tests** - These are tests that do not involve the GUI. They include:
-   1. _Unit tests_ that target the lowest level methods/classes. <br>
+2. **Non-GUI Tests** - These are tests that do not involve the GUI. They include:
+   * _Unit tests_ that target the lowest level methods/classes. <br>
       e.g. *`seedu.taskboss.commons.UrlUtilTest`*
-   2. _Integration tests_ that check the integration of multiple code units
+   * _Integration tests_ that check the integration of multiple code units
      (those code units are assumed to be working).<br>
       e.g. *`seedu.taskboss.storage.StorageManagerTest`*
-   3. Hybrids of unit and integration tests that check multiple code units as well as
+   * _Hybrids of unit and integration tests_ that check multiple code units as well as
       how they are connected together.<br>
       e.g. *`seedu.taskboss.logic.LogicManagerTest`*
 
-### Headless GUI Testing
+3. **Headless GUI Testing**
  Using the [TestFX](https://github.com/TestFX/TestFX) library,
  our GUI tests can be run in the _headless_ mode.
  In the headless mode, GUI tests do not show up on the screen.
  That means the developer can do other things on the computer while the tests are running.
  See [UsingGradle.md](UsingGradle.md#running-tests) to learn how to run tests in the _headless_ mode.
 
-### Troubleshooting tests
+### 6.3. Troubleshooting tests
 
  **Problem: Tests fail because of NullPointerException when AssertionError is expected**
 
@@ -334,21 +337,21 @@ See [UsingGradle.md](UsingGradle.md) to learn how to use Gradle for build automa
 We use [Travis CI](https://travis-ci.org/) and [AppVeyor](https://www.appveyor.com/) to perform _Continuous Integration_ on our projects.
 See [UsingTravis.md](UsingTravis.md) and [UsingAppVeyor.md](UsingAppVeyor.md) for more details.
 
-### 7.3. Publishing Documentation
+### 7.3. Publishing documentation
 
 See [UsingGithubPages.md](UsingGithubPages.md) to learn how to use GitHub Pages to publish documentation to the
 project site.
 
-### 7.4. Making a Release
+### 7.4. Making a release
 
 Here are the steps to create a new release.
 
  1. Generate a JAR file [using Gradle](UsingGradle.md#creating-the-jar-file)
- 2. Tag the repo with the version number. e.g. `v0.1`
+ 2. Tag the repository with the version number. e.g. `v0.1`
  3. [Create a new release using GitHub](https://help.github.com/articles/creating-releases/)
     and upload the JAR file you created
 
-### 7.5. Converting Documentation to PDF format
+### 7.5. Converting documentation to pdf format
 
 We use [Google Chrome](https://www.google.com/chrome/browser/desktop/) for converting documentation to PDF format,
 as Chrome's PDF engine preserves hyperlinks used in webpages.
@@ -361,12 +364,12 @@ Here are the steps to convert the project documentation files to PDF format:
     (e.g. *For [UserGuide.md](UserGuide.md), the URL will be `https://cs2103jan2017-w14-b2.github.io/main/docs/UserGuide.html`*)
  3. Click on the `Print` option in Chrome's menu
  4. Set the destination to `Save as PDF`, then click `Save` to save a copy of the file in PDF format <br>
-    For best results, use the settings indicated in the screenshot below <br>
-    
-    <img src="images/chrome_save_as_pdf.png" width="300"><br>
-    _Figure 5.4.1 : Saving Documentation as PDF Files in Chrome_
+    For best results, use the settings indicated in the screenshot in Figure 11 below<br>
 
-### 7.6. Managing Dependencies
+    <img src="images/chrome_save_as_pdf.png" width="300"><br>
+    _Figure 11: Saving Documentation as PDF Files in Chrome_
+
+### 7.6. Managing dependencies
 
 A project often depends on third-party libraries. For example, TaskBoss depends on the
 [Jackson library](http://wiki.fasterxml.com/JacksonHome) for XML parsing. Managing these dependencies
@@ -378,6 +381,7 @@ is better than these alternatives that: <br>
 
 ## Appendix A : User Stories
 
+Table 1 below shows the user stories of TaskBoss.
 Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (unlikely to have) - `*`
 
 
@@ -409,13 +413,14 @@ Priority | As a ... | I want to ... | So that I can...
 `*` | user | set locations | check locations of the tasks (if any)
 `*` | user | add people | check people associated with the task (if any)
 `*` | user | create labels for tasks | easily group similar tasks together
-`*` | user | redo a command after undoing a command | revert the state of TaskBoss if need be
+`*` | user | redo a command | redo any unintended undo actions
 `*` | user | integrate Google Calendar | see a monthly view of my tasks
 `*` | user | view all tasks that are between a specified date/time interval | focus on a particular set of tasks
+    _Table 1: List of User Stories_
 
 ## Appendix B : Use Cases
 
-(For all use cases below, the **System** is`TaskBoss` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is`TaskBoss` and the **Actor** is the `user`, unless otherwise specified)
 
 ### Use case: Add a task
 
@@ -451,7 +456,7 @@ Use case ends
 
 > 1e1. TaskBoss shows an error message <br>
 Use case ends
-  
+
 ### Use case: List all tasks
 
 **MSS**
@@ -570,12 +575,12 @@ Use case ends
 
 > 2a1. TaskBoss shows an error message.<br>
  Use case ends
- 
+
 ### Use case: Search tasks
 
 **MSS**
 
-1. User requests to search for tasks (by description, task title, or deadline) by keywords 
+1. User requests to search for tasks (by description, task title, or deadline) by keywords
 2. TaskBoss displays list of tasks containing keyword <br>
 Use case ends
 
@@ -585,7 +590,7 @@ Use case ends
 
 > 3a1. TaskBoss shows “0 tasks found” message. <br>
 Use case ends.
- 
+
 ### Use case: List tasks by category
 
 **MSS**
@@ -627,7 +632,7 @@ Use case ends.
 **Extensions**
 
 1a. Category to be edited does not exist.
-		
+
 > 1a1. TaskBoss shows error message “Category does not exist” <br>
 Use case ends
 
@@ -686,7 +691,7 @@ Use case ends
 User case ends
 
 
-## Appendix C : Non Functional Requirements
+## Appendix C : Non-Functional Requirements
 
 * Should handle at least 100 tasks
 * Should work without Internet connection
@@ -694,7 +699,7 @@ User case ends
 * Should start up in less than two seconds
 * Should respond to commands in less than one second
 * Should come with automated unit tests and open source code
- 
+
 
 ## Appendix D : Glossary
 
@@ -727,14 +732,14 @@ Author: Al Sharef Haya Fayez M
 * Has colourful user interface
 * Provides instant capturing of anything by speech and pictures
 * Integrates with Google Drive and Google Docs
-* Free of charge
+* Is Free of charge
 * Supports offline editing <br>
 
 **Cons:**
 
 * Does not support calendar view
-* Hard to organize when there is a large number of notes
-* Unable to categorize tasks
+* Is hard to organize when there is a large number of notes
+* Is unable to categorize tasks
 * Does not support typed commands
 * Depends on mouse clicks <br>
 
@@ -750,17 +755,17 @@ Author: Tan Wei
 **Pros:**
 
 * Has beautiful user interface
-* Free of charge for personal use
+* Is fee of charge for personal use
 * Supports third-party application integrations (*e.g. Google, Dropbox*)
-* Available across most platforms (*e.g. Web app, Android, OS X*)
-* Can enable task relationships <br>
+* Is available across most platforms (*e.g. Web app, Android, OS X*)
+* Supports task relationships <br>
 
 **Cons:**
 
 * Does not support calendar view
-* Hard to organize when there is a large number of tasks
-* Unable to set recurring tasks
-* Unable to set task reminders <br>
+* Is hard to organize when there is a large number of tasks
+* Does not support recurring tasks
+* Does not support task reminders <br>
 
 **Summary**
 
@@ -774,13 +779,13 @@ Author: Xu Ruolan
 **Pros:**
 * Has intuitive user interface
 * Provides statistical analysis to track daily/monthly/yearly statistics
-* Able to categorize tasks
-* Able to prioritize tasks
-* Able to set task reminders <br>
+* Is able to categorize tasks
+* Is ale to prioritize tasks
+* Is able to set task reminders <br>
 
 **Cons:**
 
-* Hard to organize when there is a large number of tasks <br>
+* Is hard to organize when there is a large number of tasks <br>
 
 **Summary**
 
@@ -792,12 +797,12 @@ Statistical analysis would be useful for our target users as they are most proba
 Author: Soh Wei Kiat Melvin
 
 **Pros:**
- 
+
 * Has an intuitive interface
 * Provides secure accounts and protected password
 * Provides a wide range of functions
-* Able to set task reminders/hierarchy 
-* Able to prioritize tasks
+* Is able to set task reminders/hierarchy
+* Is able to prioritize tasks
 * Supports instant messaging teams among users <br>
 
 **Cons:**
