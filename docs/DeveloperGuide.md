@@ -5,24 +5,24 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
 ---
 
 1. [Introduction](#1-introduction)
-2. [Setting Up](#2-setting-up)
+2. [Setting Up](#2-setting-up)<ed>
   > * 2.1 [Prerequisites](#21-prerequisites)<ed>
   > * 2.2 [Importing TaskBoss into Eclipse](#22-importing-taskboss-into-eclipse)<ed>
   > * 2.3 [Configuring Checkstyle](#23-configuring-checkstyle)<ed>
   > * 2.4 [Troubleshooting project setup](#24-troubleshooting-project-setup)<ed>
 3. [Target Users](#3-target-users)
-4. [Design](#4-design)
+4. [Design](#4-design)<ed>
   > * 4.1 [Architecture](#41-architecture)<ed>
   > * 4.2 [UI component](#42-ui-component)<ed>
   > * 4.3 [Logic component](#43-logic-component)<ed>
   > * 4.4 [Model component](#44-model-component)<ed>
   > * 4.5 [Storage component](#45-storage-component)<ed>
   > * 4.6 [Common classes](#46-common-classes)<ed>
-5. [Implementation](#5-implementation)
+5. [Implementation](#5-implementation)<ed>
   > * 5.1 [Logging](#51-logging)<ed>
   > * 5.1 [Configuration](#52-configuration)<ed>
 6. [Testing](#6-testing)
-7. [Dev Ops](#7-dev-ops)
+7. [Dev Ops](#7-dev-ops)<ed>
   > * 7.1 [Building automation](#71-building-automation)<ed>
   > * 7.1 [Performing continuous integration](#72-performing-continuous-integration)<ed>
   > * 7.1 [Publishing Documentation](#73-publishing-documentation)<ed>
