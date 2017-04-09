@@ -62,8 +62,10 @@ We are a team based in the [School of Computing, National University of Singapor
   * Did the initial refactoring from AddressBook to TaskBoss [[#50](https://github.com/CS2103JAN2017-W14-B2/main/pull/50), [#51](https://github.com/CS2103JAN2017-W14-B2/main/pull/51), [#53](https://github.com/CS2103JAN2017-W14-B2/main/pull/53), [#54](https://github.com/CS2103JAN2017-W14-B2/main/pull/54)]
   * Set up Travis, Appveyor and Coveralls
   * Scroll to tasks after updates [[#137](https://github.com/CS2103JAN2017-W14-B2/main/pull/137)]
-  * Designed TaskBoss prototype
-  * Documentation [[#2](https://github.com/CS2103JAN2017-W14-B2/main/pull/2), [#3](https://github.com/CS2103JAN2017-W14-B2/main/pull/3), [#79](https://github.com/CS2103JAN2017-W14-B2/main/pull/79), [#81](https://github.com/CS2103JAN2017-W14-B2/main/pull/81), [#95](https://github.com/CS2103JAN2017-W14-B2/main/pull/95)]
+  * Did code quality checks periodically for the team [[#160](https://github.com/CS2103JAN2017-W14-B2/main/pull/160), [#212](https://github.com/CS2103JAN2017-W14-B2/main/pull/212), [#227](https://github.com/CS2103JAN2017-W14-B2/main/pull/227), [#233](https://github.com/CS2103JAN2017-W14-B2/main/pull/233)]
+  * Updated TaskBoss overall UI and implemented CategoryListPanel as well as CategoryCard [[#164](https://github.com/CS2103JAN2017-W14-B2/main/pull/164), [#188](https://github.com/CS2103JAN2017-W14-B2/main/pull/188), [#196](https://github.com/CS2103JAN2017-W14-B2/main/pull/196), [#207] (https://github.com/CS2103JAN2017-W14-B2/main/pull/207), [#209](https://github.com/CS2103JAN2017-W14-B2/main/pull/209)]
+  * Designed TaskBoss' [initial prototype](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/images/TaskBoss%20(all%20tasks).png)
+  * Documentation [[#2](https://github.com/CS2103JAN2017-W14-B2/main/pull/2), [#3](https://github.com/CS2103JAN2017-W14-B2/main/pull/3), [#79](https://github.com/CS2103JAN2017-W14-B2/main/pull/79), [#81](https://github.com/CS2103JAN2017-W14-B2/main/pull/81), [#95](https://github.com/CS2103JAN2017-W14-B2/main/pull/95), [#166](https://github.com/CS2103JAN2017-W14-B2/main/pull/166), [#234](https://github.com/CS2103JAN2017-W14-B2/main/pull/234)]
 
 
 -----
