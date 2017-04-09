@@ -237,7 +237,7 @@ Example:
 Marks non-recurring task(s) as done and updates recurring task(s)' dates<br>
 Format: `mark INDEX...`
 
-> * Marks the task(s) as Done at the specified `INDEX` if the task(s) is(are) non-recurring. <br>
+> * Marks the task(s) as done at the specified `INDEX` if the task(s) is(are) non-recurring. <br>
 > * Updates the start and end dates of the task(s) if the task(s) is(are) recurring based on the 
 recurrance type (See details of recurrances in [**Add task**](#32-adding-a-task-add--a)). <br>
 > * The index numbers refers to the index number last shown in the last task listing.<br>
@@ -287,7 +287,7 @@ Format: `terminate INDEX...`
 > * The index numbers refers to the index number last shown in the last task listing.<br>
 > * The index numbers **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * Multiple indexes are allowed. All tasks at the specified indexes will be unmarked.
-> * Unamrk will move the task(s) from the `Done` category to their initial categories from before they were marked or terminated.
+> * Unmark will move the task(s) from the `Done` category to their initial categories from before they were marked or terminated.
 
 Examples:
  
