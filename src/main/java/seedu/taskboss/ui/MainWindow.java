@@ -23,7 +23,7 @@ import seedu.taskboss.model.UserPrefs;
  */
 public class MainWindow extends UiPart<Region> {
 
-    private static final String ICON = "/images/address_book_32.png";
+    private static final String ICON = "/images/taskBoss_icon.png";
     private static final String FXML = "MainWindow.fxml";
     private static final int MIN_HEIGHT = 600;
     private static final int MIN_WIDTH = 450;
@@ -116,6 +116,14 @@ public class MainWindow extends UiPart<Region> {
         new ResultDisplay(getResultDisplayPlaceholder());
         new StatusBarFooter(getStatusbarPlaceholder(), config.getTaskBossFilePath());
         new CommandBox(getCommandBoxPlaceholder(), logic);
+        initCategoryListPanel();
+    }
+
+    //@@author A0143157J
+    /**
+     * Initialises {@code categoryListPanel}
+     */
+    private void initCategoryListPanel() {
         categoryListPanel = new CategoryListPanel(getCategoryListPlaceholder(), logic.getFilteredTaskList());
         categoryListPanel.setTaskList(logic.getTaskBoss().getTaskList());
         categoryListPanel.setCategoryList(logic.getTaskBoss().getCategoryList());

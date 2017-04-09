@@ -384,6 +384,7 @@ public class LogicManagerTest {
     public void execute_deleteIndexNotFound_errorMessageShown() throws Exception {
         assertIndexNotFoundBehaviorForCommand("delete");
     }
+
     //@@author A0138961W
     @Test
     public void execute_delete_removesSingleTask() throws Exception {
@@ -423,8 +424,8 @@ public class LogicManagerTest {
 
         assertCommandFailure("delete 0", MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
     }
-    //@@author
 
+    //@@author
     @Test
     public void execute_find_invalidArgsFormat() throws IllegalValueException,
                                                      InvalidDatesException, BuiltInCategoryException {
@@ -538,6 +539,7 @@ public class LogicManagerTest {
                 expectedAB, expectedList);
     }
 
+    //@@author
     /**
      * A utility class to generate test data.
      */
@@ -583,8 +585,6 @@ public class LogicManagerTest {
             StringBuffer cmd = new StringBuffer();
 
             cmd.append("add ");
-
-            //@@author A0144904H
             cmd.append(p.getName().toString());
             cmd.append(" p/").append(p.getPriorityLevel().input);
             cmd.append(" sd/").append(p.getStartDateTime().toString());

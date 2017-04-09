@@ -30,6 +30,7 @@ public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
     public static final String COMMAND_WORD_SHORT = "a";
+
     //@@author A0144904H
     public static final String COMMAND_WORD_2ND_SHORT = "+";
 
@@ -49,6 +50,7 @@ public class AddCommand extends Command {
     public static final String MESSAGE_SUCCESS = "New task added: %1$s";
     public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in TaskBoss";
     public static final String ERROR_INVALID_ORDER_DATES = "Your end date is earlier than start date.";
+
     //@@author A0144904H
     public static final String BUILT_IN_ALL_TASKS = "Alltasks";
     public static final String BUILT_IN_DONE = "Done";
@@ -115,8 +117,8 @@ public class AddCommand extends Command {
 
     //@@author A0144904H
     /**
-     * Sets up the set of categories a task is supposed to have
-     * Built in Category "All Tasks" will be assigned to all tasks automatically
+     * Sets up the set of categories.
+     * Alltasks category will be assigned to all tasks automatically
      * @param categories the set of categories being assigned to a task
      * @param categorySet the set of categories that is being added after modification occurs
      * @throws IllegalValueException

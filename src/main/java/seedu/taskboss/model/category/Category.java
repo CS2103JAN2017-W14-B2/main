@@ -20,8 +20,10 @@ public class Category {
 
     public final String categoryName;
 
+    //@@author A0144904H
     public static Category done = new Category("Done", EMPTY_STRING);
 
+    //@@author A0144904H
     /**
      * Validates given category name.
      *
@@ -36,11 +38,13 @@ public class Category {
         this.categoryName = formatName(trimmedName);
     }
 
+    //@@author A0144904H
     private Category(String name, String toDifferentiaiteBetweenConstructors) {
         assert toDifferentiaiteBetweenConstructors.equals(EMPTY_STRING);
         this.categoryName = name;
     }
 
+    //@@author
     /**
      * Returns true if a given string is a valid category name.
      */
