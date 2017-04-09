@@ -65,7 +65,7 @@ Displays a list of all categories created by the user when adding tasks to TaskB
 Displays a list of tasks under a particular category, if specified. Otherwise, it displays all tasks that exist in Taskboss.<br>
 The following are some general properties of each task:
     * Tasks in TaskBoss are sorted by end dates in ascending order by default.
-    * A task has seven parameters, which are _task name_, _information_, _start date_, _end date_, _categories_, _priority level_ and _recurrence_.
+    * A task has seven parameters, which are task name, information, start date, end date, categories, priority level and recurrence.
     * A task can be tagged with multiple categories.
     * An overdue task is highlighted in red as shown in task #1 in Figure 3.
     * A high priority task has the <img src="images/urgent.png" width="60"> label attached as shown in task #1 in Figure 3.
