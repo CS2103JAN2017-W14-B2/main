@@ -10,23 +10,25 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
     2.2 [Launch](#22-launch)<br>
     2.3 [Visual Introduction](#23-visual-introduction)<br>
 3. [Features](#3-features)<br>
-    3.1 [Viewing help](#31-viewing-help--help--h)<br>
-    3.2 [Adding a task](#32-adding-a-task--add--a--plus-sign)<br>
-    3.3 [Listing all tasks](#33-listing-all-tasks--list--l)<br>
-    3.4 [Editing a task](#34-editing-a-task--edit--e)<br>
-    3.5 [Finding task(s) by keywords or by datetime](#35-finding-tasks-by-keywords-or-by-datetime--find--f)<br>
-    3.6 [Deleting task(s)](#36-deleting-tasks--delete--d--minus-sign)<br>
-    3.7 [Clearing tasks by category](#37-clearing-tasks-by-category--clear--c)<br>
-    3.8 [Viewing a task](#38-viewing-a-task--view--v)<br>
-    3.9 [Renaming a category](#39-renaming-a-category--name--n)<br>
-    3.10 [Marking task(s) done](#310-marking-tasks-done--mark--m)<br>
-    3.11 [Terminating task(s)](#311-terminating-tasks--terminate--t)<br> 
-    3.12 [Unmarking task(s)](#312-unmarking-tasks--unmark--um)<br> 
-    3.13 [Undoing a command](#313-undoing-a-command--undo--u)<br>
-    3.14 [Redoing a command](#314-redoing-a-command--redo--r)<br> 
-    3.15 [Sorting tasks](#315-sorting-tasks--sort--s)<br>
-    3.16 [Saving the data](#316-saving-the-data--save--sv)<br>
-    3.17 [Exiting the program](#317-exiting-the-program--exit--x)<br>
+    3.1 [Viewing help: `help / h`](#31-viewing-help--help--h)<br>
+    3.2 [Adding a task: `add / a / +`](#32-adding-a-task--add--a--plus-sign)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1 [Accepted Date Format](#321-accepted-date-format)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.2 [Accepted Time Format](#322-accepted-time-format)<br>
+    3.3 [Listing all tasks: `list / l`](#33-listing-all-tasks--list--l)<br>
+    3.4 [Editing a task: `edit / e`](#34-editing-a-task--edit--e)<br>
+    3.5 [Finding task(s) by keywords or by datetime: `find / f`](#35-finding-tasks-by-keywords-or-by-datetime--find--f)<br>
+    3.6 [Deleting task(s): `delete / d / -`](#36-deleting-tasks--delete--d--minus-sign)<br>
+    3.7 [Clearing tasks by category: `clear / c`](#37-clearing-tasks-by-category--clear--c)<br>
+    3.8 [Viewing a task: `view / v`](#38-viewing-a-task--view--v)<br>
+    3.9 [Renaming a category: `name / n`](#39-renaming-a-category--name--n)<br>
+    3.10 [Marking task(s) done: `mark / m`](#310-marking-tasks-done--mark--m)<br>
+    3.11 [Terminating task(s): `terminate / t`](#311-terminating-tasks--terminate--t)<br> 
+    3.12 [Unmarking task(s): `unmark / um`](#312-unmarking-tasks--unmark--um)<br> 
+    3.13 [Undoing a command: `undo / u`](#313-undoing-a-command--undo--u)<br>
+    3.14 [Redoing a command: `redo / r`](#314-redoing-a-command--redo--r)<br> 
+    3.15 [Sorting tasks: `sort / s`](#315-sorting-tasks--sort--s)<br>
+    3.16 [Saving the data: `save / sv`](#316-saving-the-data--save--sv)<br>
+    3.17 [Exiting the program: `exit / x`](#317-exiting-the-program--exit--x)<br>
 4. [FAQ](#4-faq)
 5. [Command Summary](#5-command-summary)
 
@@ -61,7 +63,12 @@ Displays a list of all categories created by the user when adding tasks to TaskB
     * When the user marks a task done, the task is automatically moved to Done category.
 
 2. **Task List Panel**<br>
-Displays a list of tasks under a particular category, if specified. Otherwise, it displays all tasks that exist in Taskboss.
+Displays a list of tasks under a particular category, if specified. Otherwise, it displays all tasks that exist in Taskboss.<br>
+The following are some general properties of each task in TaskBoss:
+    * A task has seven parameters, which are _task name_, _information_, _start date_, _end date_, _categories_, _priority level_ and _recurrence_.
+    * A task can be tagged with multiple categories.
+    * An overdue task is highlighted in red as shown in task #1 in Figure 2.
+    * A high priority task has the <img src="images/urgent.png" width="60"> label attached as shown in task #1 in Figure 2.
 
 3. **Command Box**<br>
 Provides a box where user commands are entered.
@@ -106,6 +113,7 @@ Displays the filepath where TaskBoss' data is currently saved in.
 
 ### 3.1. Viewing help : `help / h`
 
+Opens the user guide in a separate window<br>
 Format: `help`
 
 ### 3.2. Adding a task : `add / a / plus sign`
@@ -115,12 +123,12 @@ Format: `add TASK_NAME [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY...] [p
 
 > * The added task is included in `Alltasks` category by default.
 > * Task name and information can take both alphanumeric and non-alphanumeric characters.
-> * Start and end dates are automatically formatted into `Month Day_of_month, Year Time`, `i.e Apr 14, 2017`.
+> * Start and end dates are automatically formatted into _Month Day_of_month, Year Time_, `i.e Apr 14, 2017`.
 > * Priority level is `no` by default, and can be either `yes` or `no` OR `y` or `n` (case-insensitive).
-> * Category is configured to be in the lowercase form with the first letter in the uppercase form. `i.e c/work` will be `Work`.
+> * Category is configured to be in the lowercase form with the first letter in the uppercase form, `i.e c/work` will be `Work`.
 > * Recurrence is `none` by default, and can be either `daily`, `weekly`, `monthly` or `yearly` (case-insensitive).
 > * All prefixes are case-sensitive.<br>
-  - prefixes include i/, sd/, ed/, c/, p/, and r/.
+  - Prefixes include i/, sd/, ed/, c/, p/, and r/.
 
 Examples:
 
@@ -295,9 +303,9 @@ Format: `mark INDEX...`
 
 > * Marks the task(s) as done at the specified `INDEX` if the task(s) is(are) non-recurring. <br>
 > * Updates the start and end dates of the task(s) if the task(s) is(are) recurring based on the 
-recurrance type (See details of recurrances in [**Add task**](#32-adding-a-task--add--a--plus-sign)). <br>
-> * The index numbers refers to the index number last shown in the last task listing.<br>
-> * The index numbers **must be a positive integer** (*e.g. 1, 2, 3, ...*).
+recurrence type (See details of recurrences in [**Add task**](#32-adding-a-task--add--a--plus-sign)). <br>
+> * The index number refers to the index number of the task in the current showing category.<br>
+> * The index number **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * Multiple indexes are allowed. All tasks at the specified indexes will be marked or updated.
 
 Examples:
@@ -305,12 +313,12 @@ Examples:
  * `list`<br>
   `mark 1 2`<br>
   Marks the first and second task as done if they are non-recurring. <br>
-  Updates the dates of the first and second task if they are recurring. <br>
+  Otherwise, increments both start and end dates (if present) of the first and second task according to their specified recurrence type.<br>
   
  * `find meeting`<br>
  `mark 1`<br>
- Marks the first task in the result of the `find` command as done if they are non-recurring. <br>
- Marks the first task in the result of the `find` command as done if they are non-recurring. <br>
+ Marks the first task listed in the task list panel after the `find` command as done if it is non-recurring.<br>
+ Otherwise, increments both start and end dates (if present) of the task according to its specified recurrence type.<br>
 
 ### 3.11. Terminating task(s) : `terminate / t`
 
@@ -369,18 +377,22 @@ Format: `redo`
 
 ### 3.15. Sorting tasks : `sort / s` 
 
-Sorts tasks by their priorities<br>
+Sorts tasks by priority level<br>
 Format: `sort p` 
+> * Tasks with high priority will take precedence.
+> * Tasks with the same priority level are sorted based on the previous sorting criteria.<br>
 
-Sorts tasks by their start dates<br>
+Sorts tasks by start dates<br>
 Format: `sort sd`
+> * Tasks with earlier start dates will take precedence.
+> * For tasks with the same start dates, a task with time specified will take precedence. `i.e Apr 10, 2017 7.30am` comes before `Apr 10, 2017`.
+> * Tasks with the same start dates are sorted based on the previous sorting criteria.<br>
 
-Sorts tasks by their end dates<br>
+Sorts tasks by end dates<br>
 Format: `sort ed`
-
-### 3.16. Saving the data 
-
- There is no need to save manually.
+> * Tasks with earlier end dates will take precedence.
+> * For tasks with the same end dates, a task with time specified will take precedence. `i.e Apr 14, 2017 9am` comes before `Apr 14, 2017`.<br>
+> * Tasks with the same start dates are sorted based on the previous sorting criteria.<br>
 
 ### 3.16. Saving the data : `save / sv`
 
@@ -394,16 +406,16 @@ Format: `save NEW_FILE_PATH`
 > * _taskboss.xml_ updates itself automatically after the user enters any command that changes the data.
 > * TaskBoss loads data from the last specified filepath every time it is re-loaded.
 
-### 3.18. Exiting the program : `exit / x`
+### 3.17. Exiting the program : `exit / x`
 
-Exits the program.<br>
+Exits the program<br>
 Format: `exit`
 
 
 ## 4. FAQ
 
 **_Q: How do I save my task data in TaskBoss?_** <br>
-TaskBoss saves your data to ‘data/taskboss.xml’ by default whenever your task list is updated. There is no need to save manually. You can also change the storage location using the `save` command.
+TaskBoss saves your data to ‘taskboss.xml’ in your home folder by default whenever your task list is updated. There is no need to save manually. You can also change the storage location using the `save` command.
 
 **_Q: How do I transfer my data to another computer?_** <br>
 A: Download TaskBoss in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TaskBoss.
