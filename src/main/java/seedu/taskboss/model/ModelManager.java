@@ -201,7 +201,7 @@ public class ModelManager extends ComponentManager implements Model {
 
     //@@author A0144904H
     @Override
-    public void end(ArrayList<Integer> indices, ArrayList<ReadOnlyTask> tasksToMarkDone)
+    public void terminate(ArrayList<Integer> indices, ArrayList<ReadOnlyTask> tasksToMarkDone)
             throws IllegalValueException,
             CommandException {
         taskbossHistory.push(new TaskBoss(this.taskBoss));
@@ -281,6 +281,7 @@ public class ModelManager extends ComponentManager implements Model {
         return newRecurredTask;
     }
 
+    //@@author A0144904H
     /**
      * Returns a new recurred task with updated task dates according to the recurrence
      * of the given task and removes done category
@@ -382,8 +383,10 @@ public class ModelManager extends ComponentManager implements Model {
     public boolean hasCategory(Category t) {
         return taskBoss.hasCategory(t);
     }
-    //========== Inner classes/interfaces used for filtering =================================================
+
     //@@author
+    //========== Inner classes/interfaces used for filtering =================================================
+
     interface Expression {
         boolean satisfies(ReadOnlyTask task);
         String toString();

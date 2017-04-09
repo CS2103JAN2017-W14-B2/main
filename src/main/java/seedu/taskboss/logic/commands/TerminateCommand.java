@@ -60,7 +60,7 @@ public class TerminateCommand extends Command {
             recurringTasksToMarkDone.add(recurringTaskToMarkDone);
         }
 
-        model.end(filteredTaskListIndices, recurringTasksToMarkDone);
+        model.terminate(filteredTaskListIndices, recurringTasksToMarkDone);
 
         scrollToTask(recurringTasksToMarkDone);
         return new CommandResult(String.format(MESSAGE_MARK_RECURRING_TASK_DONE_SUCCESS,

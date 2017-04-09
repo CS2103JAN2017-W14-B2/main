@@ -95,14 +95,14 @@ public class RenameCategoryCommandTest extends TaskBossGuiTest {
     //@@author A0143157J
     //BVA: Duplicate categories in a task
     @Test
-    public void rename_duplicate_categories_within_task_failure() {
+    public void renameCategory_duplicateCategoriesWithinTask_failure() {
         commandBox.runCommand("name owesMoney friends");
         assertResultMessage(RenameCategoryCommand.MESSAGE_DUPLICATE_CATEGORY);
     }
 
     //BVA: Duplicate categories in TaskBoss (but different tasks)
     @Test
-    public void rename_duplicate_categories_within_taskboss_failure() {
+    public void renameCategory_duplicateCategoriesWithinTaskboss_failure() {
         commandBox.runCommand("name school owesMoney");
         assertResultMessage(RenameCategoryCommand.MESSAGE_DUPLICATE_CATEGORY);
     }

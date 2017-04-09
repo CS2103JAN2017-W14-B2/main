@@ -25,6 +25,9 @@ import seedu.taskboss.model.category.Category;
 import seedu.taskboss.model.task.ReadOnlyTask;
 
 //@@author A0143157J
+/**
+ * Panel containing the list of categories.
+ */
 public class CategoryListPanel extends UiPart<Region> {
 
     private final Logger logger = LogsCenter.getLogger(CategoryListPanel.class);

@@ -56,6 +56,8 @@ public class SortCommandTest extends TaskBossGuiTest {
 
     }
 
+    //---------------- End of test cases --------------------------------------
+
     private void assertSortSuccess(boolean isShortCommand, TestTask[] expectedList, String sortType) {
         if (isShortCommand) {
             commandBox.runCommand("s " + sortType);
