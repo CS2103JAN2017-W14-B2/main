@@ -730,7 +730,7 @@ Author: Al Sharef Haya Fayez M
 * Does not support typed commands
 * Depends on mouse clicks <br>
 
-**Verdict-No**
+**Summary**
 
 Having a colourful user interface would be a plus but our target user is someone who prefer typed commands over mouse clicks, which Google Keep does not support.
 
@@ -754,7 +754,7 @@ Author: Tan Wei
 * Unable to set recurring tasks
 * Unable to set task reminders <br>
 
-**Verdict-No**
+**Summary**
 
 The fact that MeisterTask is available across many platforms sounds intriguing, but it is not useful in the case of our target users. In addition, our target users most probably need to set recurring tasks.
 
@@ -774,7 +774,7 @@ Author: Xu Ruolan
 
 * Hard to organize when there is a large number of tasks <br>
 
-**Verdict-No**
+**Summary**
 
 Statistical analysis would be useful for our target users as they are most probably office workers, but Just does not accept typed command-line inputs which are important to our target users.
 
@@ -797,6 +797,6 @@ Author: Soh Wei Kiat Melvin
 * Requires users to pay per usage
 * Might be confusing to new users as features are based off different price plans <br>
 
-**Verdict-No**
+**Summary**
 
 Secured accounts and protected password are an added plus to have in any task manager, but they are not necessary in the case of our target users as they never share their computers.
