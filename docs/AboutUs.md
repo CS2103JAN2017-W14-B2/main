@@ -74,11 +74,11 @@ We are a team based in the [School of Computing, National University of Singapor
 * Components in charge of: [Model](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/DeveloperGuide.md#34-model-component)
 * Aspects/tools in charge of: Code Quality, Integration
 * Features implemented:
-   * [Make add command fields optional](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#32-adding-a-task-add)
-   * [List tasks by category](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#33listing-all-tasks--list)
-   * [Find tasks by keywords](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#35-finding-all-tasks-by-keywords-or-by-datetime--find)
-   * [Find tasks by datetime](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#35-finding-all-tasks-by-keywords-or-by-datetime--find)
-   * [Clear tasks by category](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#37-clearing-tasks-by-category--clear)
+   * [Make add command fields optional](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#32-adding-a-task--add--a--plus-sign)
+   * [List tasks by category](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#33-listing-all-tasks--list--l)
+   * [Find tasks by keywords](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#35-finding-tasks-by-keywords-or-by-datetime--find--f)
+   * [Find tasks by datetime](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#35-finding-tasks-by-keywords-or-by-datetime--find--f)
+   * [Clear tasks by category](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#37-clearing-tasks-by-category--clear--c)
 * Code written: [[functional code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/main/A0147990R.md)][[test code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/test/A0147990R.md)]
 * Other major contributions:
   * In charge of review and merge pull requests
