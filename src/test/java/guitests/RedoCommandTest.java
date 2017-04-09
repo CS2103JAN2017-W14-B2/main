@@ -32,9 +32,9 @@ public class RedoCommandTest extends TaskBossGuiTest {
         assertResultMessage(RedoCommand.MESSAGE_WITHOUT_PREVIOUS_OPERATION);
 
         //redo operation fails when apply delete operation after undo operation
-        TestTask[] currentList = td.getTypicalTasks();
-        TestTask taskToAdd = td.taskI;
-        commandBox.runCommand(taskToAdd.getAddCommand());
+        TestTask[] currentListOne = td.getTypicalTasks();
+        TestTask taskToAddOne = td.taskI;
+        commandBox.runCommand(taskToAddOne.getAddCommand());
         commandBox.runCommand("undo");
         commandBox.runCommand("delete 1");
         commandBox.runCommand("redo");
@@ -53,11 +53,11 @@ public class RedoCommandTest extends TaskBossGuiTest {
         assertResultMessage(RedoCommand.MESSAGE_WITHOUT_PREVIOUS_OPERATION);
 
         //redo one undo command
-        TestTask[] currentList = td.getTypicalTasks();
-        TestTask taskToAdd = td.taskI;
-        commandBox.runCommand(taskToAdd.getAddCommand());
+        TestTask[] currentListTwo = td.getTypicalTasks();
+        TestTask taskToAddTwo = td.taskI;
+        commandBox.runCommand(taskToAddTwo.getAddCommand());
         commandBox.runCommand("undo");
-        TestTask[] expectedList = TestUtil.addTasksToList(currentList, taskToAdd);
+        TestTask[] expectedList = TestUtil.addTasksToList(currentListTwo, taskToAddTwo);
         assertRedoCommandSuccess(true, expectedList);
 
         //redo operation fails when undo fails
@@ -66,9 +66,9 @@ public class RedoCommandTest extends TaskBossGuiTest {
         assertResultMessage(RedoCommand.MESSAGE_WITHOUT_PREVIOUS_OPERATION);
 
         //redo operation fails when apply delete operation after undo operation
-        TestTask[] currentList = td.getTypicalTasks();
-        TestTask taskToAdd = td.taskI;
-        commandBox.runCommand(taskToAdd.getAddCommand());
+        TestTask[] currentListThree = td.getTypicalTasks();
+        TestTask taskToAddThree = td.taskI;
+        commandBox.runCommand(taskToAddThree.getAddCommand());
         commandBox.runCommand("u");
         commandBox.runCommand("d 1");
         commandBox.runCommand("r");
