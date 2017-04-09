@@ -33,15 +33,15 @@ We are a team based in the [School of Computing, National University of Singapor
 * Components in charge of: [Storage](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/DeveloperGuide.md#35-storage-component)
 * Aspects/tools in charge of: Testing and Documentation
 * Features implemented:
-   * [Save data](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#314-exporting-the-data--save)
-   * [Undo](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#311-undoing-a-command--undo)
-   * [Redo](https://github.com/CS2103JAN2017-W14-B2/main/blob/April-documentation/docs/UserGuide.md#312-redoing-a-command--redo--r)
-   * [Delete multiple tasks](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#36-deleting-a-task--delete)
+   * [Save data](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#316-exporting-the-data--save--sv)
+   * [Undo](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#313-undoing-a-command--undo--u)
+   * [Redo](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#314-redoing-a-command--redo--r)
+   * [Delete multiple tasks](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#36-deleting-tasks--delete--d--minus-sign)
 * Code written: [[functional code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/main/A0138961W.md)][[test code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/test/A0138961W.md)]
 * Other major contributions:
   * Documentation  [[#5](https://github.com/CS2103JAN2017-W14-B2/main/pull/5), [#6](https://github.com/CS2103JAN2017-W14-B2/main/pull/6), [#55](https://github.com/CS2103JAN2017-W14-B2/main/pull/55), [#72](https://github.com/CS2103JAN2017-W14-B2/main/pull/72), [#73](https://github.com/CS2103JAN2017-W14-B2/main/pull/73), [#165](https://github.com/CS2103JAN2017-W14-B2/main/pull/165), [#167](https://github.com/CS2103JAN2017-W14-B2/main/pull/167)]
   * Minor aesthetic changes to UI status footer bar [[#139](https://github.com/CS2103JAN2017-W14-B2/main/pull/139)]
-  * Improve and add test cases for features and changes within features [[#204](https://github.com/CS2103JAN2017-W14-B2/main/pull/204), [#205](https://github.com/CS2103JAN2017-W14-B2/main/pull/205)]
+  * Improve and add test cases for features and changes within features [[#204](https://github.com/CS2103JAN2017-W14-B2/main/pull/204), [#205](https://github.com/CS2103JAN2017-W14-B2/main/pull/205), [#229](https://github.com/CS2103JAN2017-W14-B2/main/pull/229)]
 
 -----
 
