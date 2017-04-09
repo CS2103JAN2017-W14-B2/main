@@ -423,6 +423,65 @@ public class LogicManagerTest {
 
         assertCommandFailure("delete 0", MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
     }
+
+    @Test
+    public void execute_delete_removesValidAndInvalidTasks() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        List<Task> threeTasks = helper.generateTaskList(3);
+
+        helper.addToModel(model, threeTasks);
+
+        assertCommandFailure("delete 0 1 2", MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
+    }
+
+    @Test
+    public void execute_short_delete_removesSingleTask() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        List<Task> threeTasks = helper.generateTaskList(3);
+
+        TaskBoss expectedAB = helper.generateTaskBoss(threeTasks);
+        expectedAB.removeTask(threeTasks.get(1));
+        helper.addToModel(model, threeTasks);
+
+        assertCommandSuccess("d 2", String.format(DeleteCommand.MESSAGE_DELETE_TASK_SUCCESS,
+                "1. " + threeTasks.get(1)),
+                expectedAB, expectedAB.getTaskList());
+    }
+
+    @Test
+    public void execute_short_delete_removesMultipleTasks() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        List<Task> threeTasks = helper.generateTaskList(3);
+
+        TaskBoss expectedAB = helper.generateTaskBoss(threeTasks);
+        expectedAB.removeTask(threeTasks.get(2));
+        expectedAB.removeTask(threeTasks.get(1));
+        helper.addToModel(model, threeTasks);
+
+        assertCommandSuccess("d 2 3", String.format(DeleteCommand.MESSAGE_DELETE_TASK_SUCCESS,
+                "1. " + threeTasks.get(2) + "2. " + threeTasks.get(1)),
+                expectedAB, expectedAB.getTaskList());
+    }
+
+    @Test
+    public void execute_short_delete_removesInvalidTasks() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        List<Task> threeTasks = helper.generateTaskList(3);
+
+        helper.addToModel(model, threeTasks);
+
+        assertCommandFailure("d 0", MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
+    }
+    
+    @Test
+    public void execute_short_delete_removesValidAndInvalidTasks() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        List<Task> threeTasks = helper.generateTaskList(3);
+
+        helper.addToModel(model, threeTasks);
+
+        assertCommandFailure("d 0 1 2", MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
+    }
     //@@author
 
     @Test
