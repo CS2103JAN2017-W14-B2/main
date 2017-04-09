@@ -136,7 +136,7 @@ Examples:
 
 #### 3.2.1. Accepted Date Format
 Date can be either in the UK format `i.e dd-mm-yyyy` or the US format `i.e mm-dd-yyyy` depending on the region and date settings of your computer. It can also be in natural language `i.e this sunday` and is case-insensitive.<br>
-Table 1 below shows some examples of the accepted date format.
+Table 1 below shows some examples of the accepted date format in the UK format.
 
 | Date Format     | Example(s)           | Formatted Result   |
 |-----------------|----------------------|--------------------|
@@ -146,7 +146,6 @@ Table 1 below shows some examples of the accepted date format.
 | Day of the week | thurs, Thursday      | (relative)         |
 | Relative date   | today, tmr, next fri | (relative)          |
 <h5 align="left">Table 1: Examples of Accepted Date Format</h5>
-> * Table 1 above assumes date inputs in the UK format
 
 #### 3.2.2. Accepted Time Format
 Time should be in the 24-hour clock format `i.e 1830`, or the 12-hour clock format with `AM` or `PM` (case-insensitive) `i.e 6:30 PM`.<br>
