@@ -14,6 +14,9 @@ import seedu.taskboss.model.task.DateTime;
  */
 public class DateTimeParser {
 
+    private static final int SINGLE_DATE = 1;
+    private static final int INDEX_FIRST_DATEGROUP = 0;
+    private static final int INDEX_FIRST_DATE = 0;
     private static final String ERROR_MULTIPLE_DATES = "Please only enter a single date.";
     private static final String REGEX_US_DATE = "(\\d{1,2})-(\\d{1,2})-((?:\\d\\d){1,2})";
     private static final String REGEX_NON_US_DATE = "$2-$1-$3";
@@ -33,7 +36,7 @@ public class DateTimeParser {
         List<DateGroup> tempDateGroupList = this.nattyParser.parse(date);
         int numDates = countDates(tempDateGroupList);
 
-        return numDates >= 1;
+        return numDates >= SINGLE_DATE;
     }
 
     /**
@@ -63,13 +66,22 @@ public class DateTimeParser {
         List <DateGroup> dateGroupList = parse(date);
         int numDates = countDates(dateGroupList);
 
-        if (numDates > 1) {
+        checkDateValidity(numDates);
+
+        DateGroup dateGroup = dateGroupList.get(INDEX_FIRST_DATEGROUP);
+
+        return new DateTime(dateGroup.getDates().get(INDEX_FIRST_DATE), dateGroup.isDateInferred(),
+                dateGroup.isTimeInferred());
+    }
+
+    /**
+     * Checks if {@code numDates} have more than one date
+     * @throws IllegalValueException
+     */
+    private void checkDateValidity(int numDates) throws IllegalValueException {
+        if (numDates > SINGLE_DATE) {
             throw new IllegalValueException(ERROR_MULTIPLE_DATES);
         }
-
-        DateGroup dateGroup = dateGroupList.get(0);
-
-        return new DateTime(dateGroup.getDates().get(0), dateGroup.isDateInferred(), dateGroup.isTimeInferred());
     }
 
     /**

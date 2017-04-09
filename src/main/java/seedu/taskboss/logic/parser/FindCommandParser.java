@@ -21,7 +21,7 @@ import seedu.taskboss.model.task.DateTime;
  */
 public class FindCommandParser {
 
-    private static final String DIGITS = "\\d";
+    private static final String REGEX_DIGITS = "\\d";
     private static final String EMPTY_STRING = "";
     private static final String WHITESPACE = " ";
 
@@ -68,7 +68,7 @@ public class FindCommandParser {
             // only parse if input is (not only integers and not a single word) or (contains time)
             // so that user can also search for numeral day_of_month/year
             if ((findType.equals(TYPE_START_DATE) || findType.equals(TYPE_END_DATE)) &&
-                    (keywords.replaceAll(DIGITS, EMPTY_STRING).length() > 0 || hasAmOrPm(keywords))) {
+                    (keywords.replaceAll(REGEX_DIGITS, EMPTY_STRING).length() > 0 || hasAmOrPm(keywords))) {
                 updatedKeywords = parseFindDates(keywords);
             } else {
                 updatedKeywords = keywords;
@@ -103,26 +103,29 @@ public class FindCommandParser {
         DateTime parsedFormattedDateTime = new DateTime(keywords);
 
         // user only enters time
-        if (parsedFormattedDateTime.isDateInferred() &&
-                !parsedFormattedDateTime.isTimeInferred()) {
-
-            String extractedKeywords = parsedFormattedDateTime.value
-                    .substring(INDEX_TIME_START_POSITION);
-            keywords = extractedKeywords;
+        if (parsedFormattedDateTime.isDateInferred() && !parsedFormattedDateTime.isTimeInferred()) {
+            keywords = extractSubstring(parsedFormattedDateTime, INDEX_TIME_START_POSITION,
+                    parsedFormattedDateTime.value.length());
 
         // user only enters month
-        } else if (!keywords.trim().contains(WHITESPACE) &&
-                !oneWordDays.containsKey(keywords.toLowerCase())) {
-
-            String extractedKeywords = parsedFormattedDateTime.value
-                  .substring(INDEX_MONTH_START_POSITION, INDEX_MONTH_END_POSITION + 1);
-            keywords = extractedKeywords;
+        } else if (!keywords.trim().contains(WHITESPACE)
+                && !oneWordDays.containsKey(keywords.toLowerCase())) {
+            keywords = extractSubstring(parsedFormattedDateTime, INDEX_MONTH_START_POSITION,
+                    INDEX_MONTH_END_POSITION + 1);
 
         // user enters date with or without time
         } else {
             keywords = parsedFormattedDateTime.value;
         }
         return keywords;
+    }
+
+    /**
+     * Returns the extracted substring from the parsed {@code formattedDateTime}
+     */
+    private String extractSubstring(DateTime formattedDateTime, int substringStartPos,
+            int substringEndPos) {
+        return formattedDateTime.value.substring(substringStartPos, substringEndPos);
     }
 
     /**

@@ -18,7 +18,7 @@ public class ListCommandParser {
 
     //@@author A0147990R
     private static final String EMPTY_STRING = "";
-    private static final String BUILDIN_ALLTAKS = "Alltasks";
+    private static final String BUILT_IN_ALLTAKS = "Alltasks";
 
     /**
      * Returns a ListCommand if there is no argument.
@@ -28,9 +28,9 @@ public class ListCommandParser {
     public Command parse(String args) {
         if (EMPTY_STRING.equals(args.trim())) {
             try {
-                return new ListByCategoryCommand(new Category(BUILDIN_ALLTAKS));
+                return new ListByCategoryCommand(new Category(BUILT_IN_ALLTAKS));
             } catch (IllegalValueException e) {
-                // never reach here as BUILDIN_ALLTAKS is a valid category name
+                // never reach here as BUILT_IN_ALLTAKS is a valid category name
                 e.printStackTrace();
             }
         }

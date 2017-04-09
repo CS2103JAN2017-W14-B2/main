@@ -56,7 +56,7 @@ public class RenameCategoryCommand extends Command {
 
         try {
             logger.info("Attempting to rename category");
-            checkBuiltINCategoryViolation(oldCategory, newCategory);
+            checkBuiltInCategoryViolation(oldCategory, newCategory);
             model.renameCategory(oldCategory, newCategory);
             model.updateFilteredTaskListByCategory(newCategory);
             return new CommandResult(MESSAGE_SUCCESS);
@@ -84,7 +84,7 @@ public class RenameCategoryCommand extends Command {
         }
     }
 
-    private void checkBuiltINCategoryViolation(Category oldCategory, Category newCategory)
+    private void checkBuiltInCategoryViolation(Category oldCategory, Category newCategory)
             throws BuiltInCategoryException, IllegalValueException {
         if (oldCategory.equals(new Category(AddCommand.BUILT_IN_ALL_TASKS))) {
             throw new BuiltInCategoryException(MESSAGE_ALL_TASK_CATEGORY_CANNOT_RENAME);

@@ -48,19 +48,19 @@ public class FindCommandTest extends TaskBossGuiTest {
     //@@author A0143157J
     // EP: find end datetime by natural language
     @Test
-    public void find_usingNaturalLanguage_endDate() {
+    public void findEndDate_usingNaturalLanguage_success() {
         assertFindResult("find ed/28 february", td.taskC, td.taskE);
     }
 
     // EP: find month by natural language
     @Test
-    public void find_usingNaturalLanguage_onlyMonth() {
+    public void findOnlyMonth_usingNaturalLanguage_success() {
         assertFindResult("find sd/january", td.taskG);
     }
 
     // EP: find day_of_month by natural language
     @Test
-    public void find_usingNaturalLanguage_onlyDayOfMonth() {
+    public void findOnlyDayOfMonth_usingNaturalLanguage_success() {
         assertFindResult("find ed/28", td.taskC, td.taskE, td.taskA, td.taskD, td.taskB, td.taskG);
     }
 
