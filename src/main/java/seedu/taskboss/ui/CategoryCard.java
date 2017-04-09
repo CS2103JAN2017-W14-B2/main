@@ -8,6 +8,9 @@ import javafx.scene.shape.Rectangle;
 import seedu.taskboss.model.category.Category;
 
 //@@author A0143157J
+/**
+ * A ui for each category card that is contained in CategoryListPanel
+ */
 public class CategoryCard extends UiPart<Region> {
 
     private static final String FXML = "CategoryCard.fxml";

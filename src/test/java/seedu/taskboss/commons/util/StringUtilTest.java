@@ -2,14 +2,19 @@ package seedu.taskboss.commons.util;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import seedu.taskboss.model.task.ReadOnlyTask;
+import seedu.taskboss.testutil.TypicalTestTasks;
 
 public class StringUtilTest {
 
@@ -148,5 +153,34 @@ public class StringUtilTest {
         StringUtil.getDetails(null);
     }
 
+    //@@author A0143157J
+    //---------------- Tests for getDesiredArrayListFormat --------------------------------------
 
+    /*
+     * Equivalence Partitions: null, single task, multiple tasks
+     */
+
+    @Test
+    public void getDesiredArrayListFormat_nullGiven_assertionError() {
+        thrown.expect(AssertionError.class);
+        StringUtil.getDesiredArrayListFormat(null);
+    }
+
+    @Test
+    public void getDesiredArrayListFormat_singleTask_assertionError() {
+        TypicalTestTasks td = new TypicalTestTasks();
+        ArrayList<ReadOnlyTask> taskList = new ArrayList<ReadOnlyTask> ();
+        taskList.add(td.taskA);
+        assertEquals("1. " + td.taskA.toString(), StringUtil.getDesiredArrayListFormat(taskList));
+    }
+
+    @Test
+    public void getDesiredArrayListFormat_multipleTask_assertionError() {
+        TypicalTestTasks td = new TypicalTestTasks();
+        ArrayList<ReadOnlyTask> taskList = new ArrayList<ReadOnlyTask> ();
+        taskList.add(td.taskF);
+        taskList.add(td.taskD);
+        assertEquals("1. " + td.taskF.toString() + "2. " + td.taskD.toString(),
+                StringUtil.getDesiredArrayListFormat(taskList));
+    }
 }

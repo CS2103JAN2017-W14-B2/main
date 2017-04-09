@@ -11,6 +11,7 @@ import seedu.taskboss.commons.core.Messages;
 import seedu.taskboss.commons.core.UnmodifiableObservableList;
 import seedu.taskboss.commons.events.ui.JumpToListRequestEvent;
 import seedu.taskboss.commons.exceptions.IllegalValueException;
+import seedu.taskboss.commons.util.StringUtil;
 import seedu.taskboss.logic.commands.exceptions.CommandException;
 import seedu.taskboss.model.category.Category;
 import seedu.taskboss.model.task.ReadOnlyTask;
@@ -21,8 +22,6 @@ public class TerminateCommand extends Command {
     private static final Logger logger = LogsCenter.getLogger(TerminateCommand.class);
 
     private static final int INDEX_ZERO = 0;
-    private static final int INDEX_ONE = 1;
-    private static final String NUMBERING_DOT = ". ";
     public static final String COMMAND_WORD = "terminate";
     public static final String COMMAND_WORD_SHORT = "t";
 
@@ -69,11 +68,11 @@ public class TerminateCommand extends Command {
         }
 
         logger.info("Attempting to terminate task(s).");
-        model.end(filteredTaskListIndices, recurringTasksToMarkDone);
+        model.terminate(filteredTaskListIndices, recurringTasksToMarkDone);
 
         scrollToTask(recurringTasksToMarkDone);
         return new CommandResult(String.format(MESSAGE_MARK_RECURRING_TASK_DONE_SUCCESS,
-                getDesiredTasksToTerminateFormat()));
+                StringUtil.getDesiredArrayListFormat(recurringTasksToMarkDone)));
     }
 
     /**
@@ -85,20 +84,5 @@ public class TerminateCommand extends Command {
         UnmodifiableObservableList<ReadOnlyTask> latestShownList = model.getFilteredTaskList();
         int targetIndex = latestShownList.indexOf(recurringTaskToMarkDone);
         EventsCenter.getInstance().post(new JumpToListRequestEvent(targetIndex));
-    }
-
-    //@@author A0143157J
-    /**
-     * Returns a formatted {@code ArrayList} tasksToDelete,
-     * so that each ReadOnlyTask in the ArrayList is numbered
-     */
-    private String getDesiredTasksToTerminateFormat() {
-        int i = INDEX_ONE;
-        StringBuilder builder = new StringBuilder();
-        for (ReadOnlyTask task : recurringTasksToMarkDone) {
-            builder.append(i + NUMBERING_DOT).append(task.toString());
-            i++;
-        }
-        return builder.toString();
     }
 }

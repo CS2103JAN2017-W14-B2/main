@@ -83,12 +83,11 @@ public interface Model {
     /** Save current state of TaskBoss*/
     void saveTaskboss();
 
-    //@@author
+    //@@author A0143157J
     /** Sorts the task list according to the provided sort type
      * @throws IllegalValueException */
     void sortTasks(SortBy sortType) throws IllegalValueException;
 
-    //@@author A0143157J
     /** Changes the name of a category of all tasks in the filtered task list
      * @throws CommandException */
     void renameCategory(Category oldCategory, Category newCategory) throws IllegalValueException, CommandException,
@@ -106,7 +105,7 @@ public interface Model {
      * @throws CommandException
      * @throws IllegalValueException
      */
-    void end(ArrayList<Integer> indices, ArrayList<ReadOnlyTask> tasksToMarkDone) throws IllegalValueException,
+    void terminate(ArrayList<Integer> indices, ArrayList<ReadOnlyTask> tasksToMarkDone) throws IllegalValueException,
                                                                                         CommandException;
 
     /**

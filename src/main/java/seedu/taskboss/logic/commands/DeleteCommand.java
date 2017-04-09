@@ -7,6 +7,7 @@ import java.util.Set;
 import seedu.taskboss.commons.core.Messages;
 import seedu.taskboss.commons.core.UnmodifiableObservableList;
 import seedu.taskboss.commons.exceptions.IllegalValueException;
+import seedu.taskboss.commons.util.StringUtil;
 import seedu.taskboss.logic.commands.exceptions.CommandException;
 import seedu.taskboss.model.task.ReadOnlyTask;
 import seedu.taskboss.model.task.UniqueTaskList.TaskNotFoundException;
@@ -15,9 +16,6 @@ import seedu.taskboss.model.task.UniqueTaskList.TaskNotFoundException;
  * Deletes a task identified using it's last displayed index from TaskBoss.
  */
 public class DeleteCommand extends Command {
-
-    private static final String NUMBERING_DOT = ". ";
-    private static final int INDEX_ONE = 1;
 
     public static final String COMMAND_WORD = "delete";
     public static final String COMMAND_WORD_SHORT = "d";
@@ -71,22 +69,8 @@ public class DeleteCommand extends Command {
             e.printStackTrace();
         }
 
-        return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS, getDesiredTasksToDeleteFormat()));
+        return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS,
+                StringUtil.getDesiredArrayListFormat(tasksToDelete)));
     }
-    //@@author
 
-    //@@author A0143157J
-    /**
-     * Returns a formatted {@code ArrayList} tasksToDelete,
-     * so that each ReadOnlyTask in the ArrayList is numbered
-     */
-    private String getDesiredTasksToDeleteFormat() {
-        int i = INDEX_ONE;
-        StringBuilder builder = new StringBuilder();
-        for (ReadOnlyTask task : tasksToDelete) {
-            builder.append(i + NUMBERING_DOT).append(task.toString());
-            i++;
-        }
-        return builder.toString();
-    }
 }

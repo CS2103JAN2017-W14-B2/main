@@ -11,6 +11,7 @@ import seedu.taskboss.commons.core.Messages;
 import seedu.taskboss.commons.core.UnmodifiableObservableList;
 import seedu.taskboss.commons.events.ui.JumpToListRequestEvent;
 import seedu.taskboss.commons.exceptions.IllegalValueException;
+import seedu.taskboss.commons.util.StringUtil;
 import seedu.taskboss.logic.commands.exceptions.CommandException;
 import seedu.taskboss.model.category.Category;
 import seedu.taskboss.model.task.ReadOnlyTask;
@@ -19,9 +20,6 @@ import seedu.taskboss.model.task.ReadOnlyTask;
 public class MarkDoneCommand extends Command {
 
     private final Logger logger = LogsCenter.getLogger(MarkDoneCommand.class);
-
-    private static final String NUMBERING_DOT = ". ";
-    private static final int INDEX_ONE = 1;
 
     private static final int INDEX_ZERO = 0;
     public static final String COMMAND_WORD = "mark";
@@ -72,7 +70,8 @@ public class MarkDoneCommand extends Command {
         model.markDone(filteredTaskListIndices, tasksToMarkDone);
 
         scrollToTask(tasksToMarkDone);
-        return new CommandResult(String.format(MESSAGE_MARK_TASK_DONE_SUCCESS, getDesiredTasksToMarkDoneFormat()));
+        return new CommandResult(String.format(MESSAGE_MARK_TASK_DONE_SUCCESS,
+                StringUtil.getDesiredArrayListFormat(tasksToMarkDone)));
     }
 
     /**
@@ -84,20 +83,5 @@ public class MarkDoneCommand extends Command {
         UnmodifiableObservableList<ReadOnlyTask> latestShownList = model.getFilteredTaskList();
         int targetIndex = latestShownList.indexOf(taskToMarkDone);
         EventsCenter.getInstance().post(new JumpToListRequestEvent(targetIndex));
-    }
-
-    //@@author A0143157J
-    /**
-     * Returns a formatted {@code ArrayList} tasksToMarkDone,
-     * so that each ReadOnlyTask in the ArrayList is numbered
-     */
-    private String getDesiredTasksToMarkDoneFormat() {
-        int i = INDEX_ONE;
-        StringBuilder builder = new StringBuilder();
-        for (ReadOnlyTask task : tasksToMarkDone) {
-            builder.append(i + NUMBERING_DOT).append(task.toString());
-            i++;
-        }
-        return builder.toString();
     }
 }

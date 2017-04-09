@@ -152,7 +152,7 @@ public class UniqueCategoryList implements Iterable<Category> {
     //@@author A0143157J
     /**
      * Replaces a Category in the list.
-     * On client-side, this operation is to rename a Category.
+     * On client-side, this operation is to rename {@code oldCategory}.
      * @throws IllegalValueException
      */
     public void replace(Category newCategory, Category oldCategory) throws IllegalValueException {

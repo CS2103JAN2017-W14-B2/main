@@ -35,8 +35,8 @@ public class Recurrence {
     }
 
     /**
-     * Marks a recurring task undone and
-     * updates task dates according to the recurrence of the task
+     * Marks a recurring {@code task} undone and
+     * updates {@code task} dates according to the recurrence of the {@code task}
      * @throws IllegalValueException
      */
     public void updateTaskDates(Task task) throws IllegalValueException {
@@ -50,47 +50,19 @@ public class Recurrence {
 
         switch(this.frequency) {
         case DAILY:
-            if (startDate != null) {
-                Calendar startCalendar = addFrequencyToCalendar(startDate, Frequency.DAILY);
-                updateDateTime(startCalendar, task, startSdfFormat, isStartDate);
-            }
-            if (endDate != null) {
-                Calendar endCalendar = addFrequencyToCalendar(endDate, Frequency.DAILY);
-                updateDateTime(endCalendar, task, endSdfFormat, !isStartDate);
-            }
+            updateDailyRecur(task, startDate, endDate, startSdfFormat, endSdfFormat, isStartDate);
             break;
 
         case WEEKLY:
-            if (startDate != null) {
-                Calendar startCalendar = addFrequencyToCalendar(startDate, Frequency.WEEKLY);
-                updateDateTime(startCalendar, task, startSdfFormat, isStartDate);
-            }
-            if (endDate != null) {
-                Calendar endCalendar = addFrequencyToCalendar(endDate, Frequency.WEEKLY);
-                updateDateTime(endCalendar, task, endSdfFormat, !isStartDate);
-            }
+            updateWeeklyRecur(task, startDate, endDate, startSdfFormat, endSdfFormat, isStartDate);
             break;
 
         case MONTHLY:
-            if (startDate != null) {
-                Calendar startCalendar = addFrequencyToCalendar(startDate, Frequency.MONTHLY);
-                updateDateTime(startCalendar, task, startSdfFormat, isStartDate);
-            }
-            if (endDate != null) {
-                Calendar endCalendar = addFrequencyToCalendar(endDate, Frequency.MONTHLY);
-                updateDateTime(endCalendar, task, endSdfFormat, !isStartDate);
-            }
+            updateMonthlyRecur(task, startDate, endDate, startSdfFormat, endSdfFormat, isStartDate);
             break;
 
         case YEARLY:
-            if (startDate != null) {
-                Calendar startCalendar = addFrequencyToCalendar(startDate, Frequency.YEARLY);
-                updateDateTime(startCalendar, task, startSdfFormat, isStartDate);
-            }
-            if (endDate != null) {
-                Calendar endCalendar = addFrequencyToCalendar(endDate, Frequency.YEARLY);
-                updateDateTime(endCalendar, task, endSdfFormat, !isStartDate);
-            }
+            updateYearlyRecur(task, startDate, endDate, startSdfFormat, endSdfFormat, isStartDate);
             break;
 
         case NONE:
@@ -102,11 +74,84 @@ public class Recurrence {
     }
 
     /**
-     * Updates the start/end DateTime of a given task with
-     * the Date extracted from Calendar, based on its original DateTime format
+     * Update task dates {@code startDate} and {@code endDate} by incrementing a year if they are present
      * @throws IllegalValueException
      */
-    private void updateDateTime(Calendar calendar, Task task,
+    private void updateYearlyRecur(Task task, Date startDate, Date endDate, SimpleDateFormat startSdfFormat,
+            SimpleDateFormat endSdfFormat, boolean isStartDate) throws IllegalValueException {
+        if (startDate != null) {
+            updateDateTime(Frequency.YEARLY, task, startSdfFormat, isStartDate);
+        }
+        if (endDate != null) {
+            updateDateTime(Frequency.YEARLY, task, endSdfFormat, !isStartDate);
+        }
+    }
+
+    /**
+     * Update task dates {@code startDate} and {@code endDate} by incrementing a month if they are present
+     * @throws IllegalValueException
+     */
+    private void updateMonthlyRecur(Task task, Date startDate, Date endDate, SimpleDateFormat startSdfFormat,
+            SimpleDateFormat endSdfFormat, boolean isStartDate) throws IllegalValueException {
+        if (startDate != null) {
+            updateDateTime(Frequency.MONTHLY, task, startSdfFormat, isStartDate);
+        }
+        if (endDate != null) {
+            updateDateTime(Frequency.MONTHLY, task, endSdfFormat, !isStartDate);
+        }
+    }
+
+    /**
+     * Update task dates {@code startDate} and {@code endDate} by incrementing a weekly if they are present
+     * @throws IllegalValueException
+     */
+    private void updateWeeklyRecur(Task task, Date startDate, Date endDate, SimpleDateFormat startSdfFormat,
+            SimpleDateFormat endSdfFormat, boolean isStartDate) throws IllegalValueException {
+        if (startDate != null) {
+            updateDateTime(Frequency.WEEKLY, task, startSdfFormat, isStartDate);
+        }
+        if (endDate != null) {
+            updateDateTime(Frequency.WEEKLY, task, endSdfFormat, !isStartDate);
+        }
+    }
+
+    /**
+     * Update {@code task} dates {@code startDate} and {@code endDate} by incrementing a day if they are present
+     * @throws IllegalValueException
+     */
+    private void updateDailyRecur(Task task, Date startDate, Date endDate, SimpleDateFormat startSdfFormat,
+            SimpleDateFormat endSdfFormat, boolean isStartDate) throws IllegalValueException {
+        if (startDate != null) {
+            updateDateTime(Frequency.DAILY, task, startSdfFormat, isStartDate);
+        }
+        if (endDate != null) {
+            updateDateTime(Frequency.DAILY, task, endSdfFormat, !isStartDate);
+        }
+    }
+
+    /**
+     * Update a {@code task} date based on the specified {@code frequency}
+     * @throws IllegalValueException
+     */
+    private void updateDateTime(Frequency frequency, Task task, SimpleDateFormat sdfFormat, boolean isStartDate)
+            throws IllegalValueException {
+        if (isStartDate) {
+            Date startDate = task.getStartDateTime().getDate();
+            Calendar startCalendar = addFrequencyToCalendar(startDate, frequency);
+            setDateTime(startCalendar, task, sdfFormat, true);
+        } else {
+            Date endDate = task.getEndDateTime().getDate();
+            Calendar endCalendar = addFrequencyToCalendar(endDate, frequency);
+            setDateTime(endCalendar, task, sdfFormat, false);
+        }
+    }
+
+    /**
+     * Set the start/end DateTime of a given {@code task} with the Date
+     * extracted from {@code calendar}, based on its original SimpleDateFormat {@code desiredFormat}
+     * @throws IllegalValueException
+     */
+    private void setDateTime(Calendar calendar, Task task,
             SimpleDateFormat desiredFormat, boolean isStartDate) throws IllegalValueException {
         String dateInString = desiredFormat.format(calendar.getTime());
         if (isStartDate) {
@@ -118,7 +163,7 @@ public class Recurrence {
 
     /**
      * Constructs a Calendar and adds the corresponding
-     * frequency to the Calendar with the given Date.
+     * frequency to the Calendar with the given {@code date}.
      */
     private Calendar addFrequencyToCalendar(Date date, Frequency freq) {
         Calendar calendar = initCalendar(date);
@@ -135,28 +180,28 @@ public class Recurrence {
     }
 
     /**
-     * Adds one day to the calendar.
+     * Adds one day to the {@code calendar}.
      */
     private void addDayToCalendar(Calendar calendar) {
         calendar.add(Calendar.DATE, AMOUNT_ONE);
     }
 
     /**
-     * Adds one week to the calendar.
+     * Adds one week to the {@code calendar}.
      */
     private void addWeekToCalendar(Calendar calendar) {
         calendar.add(Calendar.WEEK_OF_YEAR, AMOUNT_ONE);
     }
 
     /**
-     * Adds one month to the calendar.
+     * Adds one month to the {@code calendar}.
      */
     private void addMonthToCalendar(Calendar calendar) {
         calendar.add(Calendar.MONTH, AMOUNT_ONE);
     }
 
     /**
-     * Adds one year to the calendar.
+     * Adds one year to the {@code calendar}.
      */
     private void addYearToCalendar(Calendar calendar) {
         calendar.add(Calendar.YEAR, AMOUNT_ONE);
