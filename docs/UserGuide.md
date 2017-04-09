@@ -333,11 +333,11 @@ Examples:
  
  * `list`<br>
   `t 1 2`<br>
-  Terminates the first and second recurrings tasks. 
+  Terminates the first and second tasks, assuming that they are recurring tasks. 
   
  * `find meeting`<br>
- `mark 1`<br>
- Terminates the first recurring task in the result of the `find`. <br>
+ `terminate 1`<br>
+ Terminates the first task listed in the result of `find`command, assuming that it is a recurring task. <br>
  
 ### 3.12. Unmarking task(s) : `unmark / um`
 
