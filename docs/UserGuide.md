@@ -33,7 +33,7 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
 An image of TaskBoss
 
 ## 1. Introduction
-Have you ever been overwhelmed with too many tasks? Perhaps a couple of these tasks might have slipped your mind. Well, TaskBoss is here to help you out! TaskBoss is a user friendly task manager which supports a wide range of features. Be the boss of your tasks, use TaskBoss today!
+Have you ever been overwhelmed with too many tasks? Perhaps, a couple of these tasks might have even slipped your mind? Well, TaskBoss is here to save the day! TaskBoss is a user-friendly task manager that supports a wide range of features. Become the boss of your tasks and start using TaskBoss today!
 
 ## 2. Quick Start
 1. Ensure you have Java version `1.8.0_60` or later installed in your Computer.<br>
@@ -43,13 +43,13 @@ Have you ever been overwhelmed with too many tasks? Perhaps a couple of these ta
 
 2. Install the latest `TaskBoss.jar` from the [releases](../../../releases) tab.
 3. Copy the file to the folder you want to use as the home folder for TaskBoss.
-4. Double-click the file to start the app. The GUI should appear in a few seconds.
-5. Type the command in the command box and press <kbd>Enter</kbd> to execute it. <br>
+4. Double-click the file to start the app. The GUI should appear within a few seconds.
+5. Type a command in the command box and press <kbd>Enter</kbd> to execute it. <br>
    e.g. typing **`help`** and pressing <kbd>Enter</kbd> will open the help window.
    Here are some commands you can try:
    * **`list`** : lists all tasks
    * **`add`**: `submit proposal p/high i/group project ed/tomorrow c/project`
-     adds a task named `submit proposal` to the TaskBoss
+     adds a task named `submit proposal` to your list of tasks
    * **`delete`**` 3` : deletes the third task shown in the current list
    * **`exit`** : exits the app <br>
 
@@ -69,7 +69,7 @@ Have you ever been overwhelmed with too many tasks? Perhaps a couple of these ta
 
 |Command    |Description                                                          |
 |:---------:|:-------------------------------------------------------------------:|
-|[**help / h**](#31-viewing-help--help--h)                       |View help              |
+|[**help / h**](#31-viewing-help--help--h)                       |View help window             |
 |[**add / a / +**](#32-adding-a-task--add--a--plus-sign)                         |Add a task             |
 |[**list / l**](#33-listing-all-tasks--list--l)                  |List the tasks         |
 |[**edit / e**](#34-editing-a-task--edit--e)                     |Edit a task            |
@@ -79,8 +79,8 @@ Have you ever been overwhelmed with too many tasks? Perhaps a couple of these ta
 |[**view / v**](#38-viewing-a-task--view--v)                    |View a task            |
 |[**name / n**](#39-renaming-a-category--name--n)         |Rename a category      |
 |[**mark / m**](#310-marking-tasks-done--mark--m)               |Mark a task as done and updates task's dates    |
-|[**terminate / t**](#311-terminating-tasks--terminate--t)          |Terminates a recurring task    |
-|[**unmark / um**](#312-unmarking-tasks--unmark--um)       |Unmarks previously marked or terminated tasks and updates task's dates | 
+|[**terminate / t**](#311-terminating-tasks--terminate--t)          |Terminate a recurring task    |
+|[**unmark / um**](#312-unmarking-tasks--unmark--um)       |Unmark previously marked or terminated tasks and updates task's dates | 
 |[**undo / u**](#313-undoing-a-command--undo--u)                 |Undo a task            |
 |[**redo / r**](#314-redoing-a-command--redo--r)                 |Redo a task            |
 |[**sort / s**](#315-sorting-tasks--sort--s)                     |Sort tasks by deadline or by priority|
@@ -91,6 +91,7 @@ Have you ever been overwhelmed with too many tasks? Perhaps a couple of these ta
 
 ### 3.1. Viewing help : `help / h`
 
+Displays a window with a summary of all the different commands and features available and guidelines on how to use them.
 Format: `help`
 
 ### 3.2. Adding a task : `add / a / plus sign`
