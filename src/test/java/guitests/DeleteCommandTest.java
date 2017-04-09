@@ -48,6 +48,7 @@ public class DeleteCommandTest extends TaskBossGuiTest {
 
     }
 
+    //---------------- End of test cases --------------------------------------
     /**
      * Runs the delete command to delete the task at specified index and confirms the result is correct.
      * @param targetIndexOneIndexed e.g. index 1 to delete the first task in the list,
@@ -70,7 +71,7 @@ public class DeleteCommandTest extends TaskBossGuiTest {
 
         //confirm the list now contains all previous tasks except the deleted task
         assertTrue(taskListPanel.isListMatching(expectedRemainder));
-        //@@author A0138961W
+
         //confirm the result message is correct
         ArrayList<TestTask> deletedTasks = new ArrayList<TestTask>();
         deletedTasks.add(taskToDelete);
@@ -78,15 +79,18 @@ public class DeleteCommandTest extends TaskBossGuiTest {
     }
 
     //@@author A0143157J
+    //---------------- Helper function -------------------------------
     /**
      * Returns a formatted {@code ArrayList} deletedTasks,
      * so that each ReadOnlyTask in the ArrayList is numbered
      */
     private String getDesiredFormat(ArrayList<TestTask> deletedTasks) {
-        int i = 1;
+        int indexOne = 1;
+        String numberingDot = ". ";
+        int i = indexOne;
         StringBuilder builder = new StringBuilder();
         for (ReadOnlyTask task : deletedTasks) {
-            builder.append(i + ". ").append(task.toString());
+            builder.append(i + numberingDot).append(task.toString());
             i++;
         }
         return builder.toString();

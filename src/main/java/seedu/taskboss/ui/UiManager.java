@@ -27,7 +27,7 @@ import seedu.taskboss.model.UserPrefs;
  */
 public class UiManager extends ComponentManager implements Ui {
     private static final Logger logger = LogsCenter.getLogger(UiManager.class);
-    private static final String ICON_APPLICATION = "/images/address_book_32.png";
+    private static final String ICON_APPLICATION = "/images/taskBoss_icon.png";
     public static final String ALERT_DIALOG_PANE_FIELD_ID = "alertDialogPane";
 
     private Logic logic;
@@ -119,12 +119,14 @@ public class UiManager extends ComponentManager implements Ui {
         mainWindow.getTaskListPanel().scrollTo(event.targetIndex);
     }
 
+    //@@author A0143157J
     @Subscribe
     private void handleJumpToCategoryListEvent(JumpToCategoryListEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         mainWindow.getCategoryListPanel().scrollTo(event.category);
     }
 
+    //@@author
     @Subscribe
     private void handleTaskPanelViewingChangedEvent(TaskPanelViewingChangedEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
