@@ -57,7 +57,7 @@ We are a team based in the [School of Computing, National University of Singapor
    * [Add recurring tasks](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#32-adding-a-task-add)
    * [Rename a category](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#39-modifying-a-category-name--name)
    * Short commands
-* Code written: [[functional code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/main/A0143157J.md)][[test code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/test/A0143157J.md)]
+* Code written: [[functional code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/main/A0143157J.md)][[test code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/test/A0143157J.md)][[unused code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/unused/A0143157J-unused.md)]
 * Other major contributions:
   * Did the initial refactoring from AddressBook to TaskBoss [[#50](https://github.com/CS2103JAN2017-W14-B2/main/pull/50), [#51](https://github.com/CS2103JAN2017-W14-B2/main/pull/51), [#53](https://github.com/CS2103JAN2017-W14-B2/main/pull/53), [#54](https://github.com/CS2103JAN2017-W14-B2/main/pull/54)]
   * Set up Travis, Appveyor and Coveralls
