@@ -29,7 +29,7 @@ import seedu.taskboss.model.task.UniqueTaskList;
  * Adds a task to the TaskBoss.
  */
 public class AddCommand extends Command {
-    
+
     private final Logger logger = LogsCenter.getLogger(AddCommand.class);
 
     public static final String COMMAND_WORD = "add";
