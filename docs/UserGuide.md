@@ -109,7 +109,6 @@ Displays the filepath where TaskBoss' data is currently saved in.
 > * Items in `SQUARE_BRACKETS` are optional.
 > * Items with `...` after them can have multiple instances.
 > * Parameters can be in any order.
-<br>
 
 ### 3.1. Viewing help : `help / h`
 
@@ -127,8 +126,7 @@ Format: `add TASK_NAME [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY...] [p
 > * Priority level is `no` by default, and can be either `yes` or `no` OR `y` or `n` (case-insensitive).
 > * Category is configured to be in the lowercase form with the first letter in the uppercase form, `i.e c/work` will be `Work`.
 > * Recurrence is `none` by default, and can be either `daily`, `weekly`, `monthly` or `yearly` (case-insensitive).
-> * All prefixes are case-sensitive.<br>
-  - Prefixes include i/, sd/, ed/, c/, p/, and r/.
+> * Prefixes are i/, sd/, ed/, c/, p/, and r/ (case-sensitive).
 
 Examples:
 
@@ -182,7 +180,7 @@ Edits an existing task<br>
 Format: `edit INDEX [TASK NAME] [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY] [p/PRIORITY_LEVEL] [r/RECURRENCE]`
 
 > * Edits the task at the specified `INDEX`.
-    The index refers to the index number last shown in the last task listing.<br>
+    The index refers to the index number of the task in the currently showing category.<br>
     The index **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * At least one of the optional paramaters must be provided.
 > * Existing task details will be updated to the new input values.
@@ -230,7 +228,7 @@ Deletes the specified task<br>
 Format: `delete INDEX...`
 
 > * Deletes the task(s) at the specified `INDEX`. <br>
-> * The index numbers refers to the index number last shown in the last task listing. <br>
+> * The index numbers refers to the index number of the task in the currently showing category. <br>
 > * The index numbers **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * Multiple indexes are allowed. All tasks at the specified indexes will be deleted.
 
@@ -274,7 +272,7 @@ Highlights the specified task<br>
 Format: `view INDEX`
 
 > * Highlights the task at the specified `INDEX`. <br>
-> * The index refers to the index number last shown in the last task listing.<br>
+> * The index refers to the index number of the task in the currently showing category.<br>
 > * The index **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 
 Examples:
@@ -303,8 +301,9 @@ Format: `mark INDEX...`
 
 > * Marks the task(s) as done at the specified `INDEX` if the task(s) is(are) non-recurring. <br>
 > * Updates the start and end dates of the task(s) if the task(s) is(are) recurring based on the 
-recurrence type (See details of recurrences in [**Add task**](#32-adding-a-task--add--a--plus-sign)). <br>
-> * The index number refers to the index number of the task in the current showing category.<br>
+recurrence type, which can be `daily`, `weekly`, `monthly` or `yearly`.<br>
+> * Start and end dates of the recurring task(s) will be incremented by either a day, a week, a month or a year.
+> * The index number refers to the index number of the task in the currently showing category.<br>
 > * The index number **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * Multiple indexes are allowed. All tasks at the specified indexes will be marked or updated.
 
@@ -326,8 +325,8 @@ Terminates recurring task(s)<br>
 Format: `terminate INDEX...`
 
 > * Terminates the task(s) at the specified `INDEX` as long as the task(s) is(are) recurring. <br>
-> * The index numbers refers to the index number last shown in the last task listing.<br>
-> * The index numbers **must be a positive integer** (*e.g. 1, 2, 3, ...*).
+> * The index number refers to the index number of the task in the currently showing category.<br>
+> * The index number **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * Multiple indexes are allowed. All tasks at the specified indexes will be terminated.
 > * Terminate will move the task(s) to the `Done` category
 
@@ -344,14 +343,13 @@ Examples:
 ### 3.12. Unmarking task(s) : `unmark / um`
 
 Re-instates previously marked or terminated task(s)<br>
-Format: `terminate INDEX...`
+Format: `unmark INDEX...`
 
 > * Unmarks the task(s) at the specified `INDEX`. <br>
-> * If the the task(s) is(are) recurring, then their dates will be updated.<br>
-> * The index numbers refers to the index number last shown in the last task listing.<br>
-> * The index numbers **must be a positive integer** (*e.g. 1, 2, 3, ...*).
-> * Multiple indexes are allowed. All tasks at the specified indexes will be unmarked.
 > * Unmark will move the task(s) from the `Done` category to their initial categories from before they were marked or terminated.
+> * The index number refers to the index number of the task in the currently showing category.<br>
+> * The index number **must be a positive integer** (*e.g. 1, 2, 3, ...*).
+> * Multiple indexes are allowed. All tasks at the specified indexes will be unmarked.
 
 Examples:
  
