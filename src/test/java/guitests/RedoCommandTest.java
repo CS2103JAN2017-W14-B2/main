@@ -26,7 +26,15 @@ public class RedoCommandTest extends TaskBossGuiTest {
         TestTask[] expectedList = TestUtil.addTasksToList(currentList, taskToAdd);
         assertRedoCommandSuccess(false, expectedList);
 
+        //redo operation fails when undo fails
+        commandBox.runCommand("undo");
+        commandBox.runCommand("redo");
+        assertResultMessage(RedoCommand.MESSAGE_WITHOUT_PREVIOUS_OPERATION);
+ 
         //redo operation fails when apply delete operation after undo operation
+        TestTask[] currentList = td.getTypicalTasks();
+        TestTask taskToAdd = td.taskI;
+        commandBox.runCommand(taskToAdd.getAddCommand());
         commandBox.runCommand("undo");
         commandBox.runCommand("delete 1");
         commandBox.runCommand("redo");
@@ -41,7 +49,7 @@ public class RedoCommandTest extends TaskBossGuiTest {
     public void redoShortCommand() {
 
         //without any last command
-        commandBox.runCommand("redo");
+        commandBox.runCommand("r");
         assertResultMessage(RedoCommand.MESSAGE_WITHOUT_PREVIOUS_OPERATION);
 
         //redo one undo command
@@ -52,9 +60,17 @@ public class RedoCommandTest extends TaskBossGuiTest {
         TestTask[] expectedList = TestUtil.addTasksToList(currentList, taskToAdd);
         assertRedoCommandSuccess(true, expectedList);
 
-        //redo operation fails when apply delete operation after undo operation
+        //redo operation fails when undo fails
         commandBox.runCommand("u");
-        commandBox.runCommand("delete 1");
+        commandBox.runCommand("r");
+        assertResultMessage(RedoCommand.MESSAGE_WITHOUT_PREVIOUS_OPERATION);
+
+        //redo operation fails when apply delete operation after undo operation
+        TestTask[] currentList = td.getTypicalTasks();
+        TestTask taskToAdd = td.taskI;
+        commandBox.runCommand(taskToAdd.getAddCommand());
+        commandBox.runCommand("u");
+        commandBox.runCommand("d 1");
         commandBox.runCommand("r");
         assertResultMessage(RedoCommand.MESSAGE_WITHOUT_PREVIOUS_OPERATION);
 
