@@ -361,7 +361,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
         }
 
         // confirm the Alltasks category now does not contain the terminatedTask
-        assertTrue(taskListPanel.isListMatching(expectedAllTasks));       
+        assertTrue(taskListPanel.isListMatching(expectedAllTasks));
         assertResultMessage(String.format(TerminateCommand.MESSAGE_MARK_RECURRING_TASK_DONE_SUCCESS, "1. " +
                 terminatedTask));
 

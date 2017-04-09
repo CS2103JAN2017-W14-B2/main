@@ -361,7 +361,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
         assertTrue(taskListPanel.isListMatching(expectedAllTasks));
 
         assertResultMessage(String.format(MarkDoneCommand.MESSAGE_MARK_TASK_DONE_SUCCESS,
-                getDesiredFormat(new TestTask[] {markedDoneTask})));    
+                getDesiredFormat(new TestTask[] {markedDoneTask})));
     }
 
     /*
@@ -412,7 +412,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
         }
 
         // confirm the Alltasks category now does not contain the markedDoneTask
-        assertTrue(taskListPanel.isListMatching(expectedAllTasks));       
+        assertTrue(taskListPanel.isListMatching(expectedAllTasks));
         assertResultMessage(String.format(MarkDoneCommand.MESSAGE_MARK_TASK_DONE_SUCCESS, "1. " +
                 markedDoneTask));
 

@@ -408,7 +408,7 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
         // confirm the list now contains all previous tasks plus the task with updated details
         assertResultMessage(String.format(UnmarkCommand.MESSAGE_UNMARK_TASK_DONE_SUCCESS ,
                 "1. " + terminatedTask));
- 
+
         commandBox.runCommand("list");
         assertTrue(taskListPanel.isListMatching(expectedAllTasks));
     }
