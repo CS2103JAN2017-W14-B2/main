@@ -79,7 +79,7 @@ Provides a box where user commands are entered.
 Displays result messages and user feedback.
 
 5. **Status Bar**<br>
-Displays the filepath where TaskBoss' data is currently saved in.
+Displays the filepath where TaskBoss' data is currently saved in. The filepath displayed will be updated whenever there are changes in the filepath via the `save` command.
 
 ## 3. Features
 
@@ -370,13 +370,17 @@ Examples:
 
 ### 3.13. Undoing a command : `undo / u`
 
-Undoes a most recent command and reverts to previous state<br>
+Undoes the most recent command and reverts to previous state<br>
 Format: `undo`
+> * `Undo` command can be executed until all previous undo-able commands are exhausted.
+> * `Save` command is not undo-able.
 
 ### 3.14. Redoing a command : `redo / r`
 
-Redoes a most recent command after it has been undone<br>
+Redoes the most recent command after it has been undone<br>
 Format: `redo`
+> * `Redo` command can be executed as long as an undo command was called previously and has not been redone.
+> * `Save` command is not redo-able.
 
 ### 3.15. Sorting tasks : `sort / s` 
 
@@ -410,6 +414,9 @@ Format: `save NEW_FILE_PATH`
 
 > * TaskBoss saves data in _taskboss.xml_ in its home folder by default if the `save` command is not used.
 > * _taskboss.xml_ updates itself automatically after the user enters any command that changes the data.
+> * TaskBoss rejects filepath that consists of any of the following symbols: `*` `<` `>` `?` and `|`.
+> * TaskBoss automatically replaces `:` (colon) found in a filepath with `/` (forward slash) in Mac OS as Mac OS does not support filepaths with colons.
+> * If a non-filepath or random string input is provided, TaskBoss automatically creates a folder with name of that input and places it in its home folder.
 > * TaskBoss loads data from the last specified filepath every time it is re-loaded.
 
 ### 3.17. Exiting the program : `exit / x`
