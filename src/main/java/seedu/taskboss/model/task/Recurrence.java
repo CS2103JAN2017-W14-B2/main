@@ -35,8 +35,8 @@ public class Recurrence {
     }
 
     /**
-     * Marks a recurring task undone and
-     * updates task dates according to the recurrence of the task
+     * Marks a recurring {@code task} undone and
+     * updates {@code task} dates according to the recurrence of the {@code task}
      * @throws IllegalValueException
      */
     public void updateTaskDates(Task task) throws IllegalValueException {
@@ -116,7 +116,7 @@ public class Recurrence {
     }
 
     /**
-     * Update task dates {@code startDate} and {@code endDate} by incrementing a day if they are present
+     * Update {@code task} dates {@code startDate} and {@code endDate} by incrementing a day if they are present
      * @throws IllegalValueException
      */
     private void updateDailyRecur(Task task, Date startDate, Date endDate, SimpleDateFormat startSdfFormat,
@@ -130,7 +130,7 @@ public class Recurrence {
     }
 
     /**
-     * Update a task's date based on the specified {@code frequency}
+     * Update a {@code task} date based on the specified {@code frequency}
      * @throws IllegalValueException
      */
     private void updateDateTime(Frequency frequency, Task task, SimpleDateFormat sdfFormat, boolean isStartDate)
@@ -147,8 +147,8 @@ public class Recurrence {
     }
 
     /**
-     * Set the start/end DateTime of a given task with
-     * the Date extracted from Calendar, based on its original DateTime format
+     * Set the start/end DateTime of a given {@code task} with the Date
+     * extracted from {@code calendar}, based on its original SimpleDateFormat {@code desiredFormat}
      * @throws IllegalValueException
      */
     private void setDateTime(Calendar calendar, Task task,
@@ -163,7 +163,7 @@ public class Recurrence {
 
     /**
      * Constructs a Calendar and adds the corresponding
-     * frequency to the Calendar with the given Date.
+     * frequency to the Calendar with the given {@code date}.
      */
     private Calendar addFrequencyToCalendar(Date date, Frequency freq) {
         Calendar calendar = initCalendar(date);
@@ -180,28 +180,28 @@ public class Recurrence {
     }
 
     /**
-     * Adds one day to the calendar.
+     * Adds one day to the {@code calendar}.
      */
     private void addDayToCalendar(Calendar calendar) {
         calendar.add(Calendar.DATE, AMOUNT_ONE);
     }
 
     /**
-     * Adds one week to the calendar.
+     * Adds one week to the {@code calendar}.
      */
     private void addWeekToCalendar(Calendar calendar) {
         calendar.add(Calendar.WEEK_OF_YEAR, AMOUNT_ONE);
     }
 
     /**
-     * Adds one month to the calendar.
+     * Adds one month to the {@code calendar}.
      */
     private void addMonthToCalendar(Calendar calendar) {
         calendar.add(Calendar.MONTH, AMOUNT_ONE);
     }
 
     /**
-     * Adds one year to the calendar.
+     * Adds one year to the {@code calendar}.
      */
     private void addYearToCalendar(Calendar calendar) {
         calendar.add(Calendar.YEAR, AMOUNT_ONE);
