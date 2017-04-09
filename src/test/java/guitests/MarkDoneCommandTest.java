@@ -32,7 +32,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
     //long command format
     //single mark done
     @Test
-    public void markDone_validIndex_longCommandFormat_success() throws Exception {
+    public void markDone_validIndexLongCommandFormat_success() throws Exception {
         int taskBossIndex = 1;
 
         TestTask markedDoneTask = new TaskBuilder().withName("Clean house").withPriorityLevel("Yes")
@@ -48,7 +48,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
 
     //multiple mark done
     @Test
-    public void multiple_markDone_validIndexes_longCommandFormat_success() throws Exception {
+    public void markDone_multipleValidIndexesLongCommandFormat_success() throws Exception {
         commandBox.runCommand("mark 4 5");
 
         expectedTasksList[4] = new TaskBuilder().withName("Birthday party")
@@ -80,7 +80,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
     //short command format
     //single mark done
     @Test
-    public void markTaskDone_validIndex_shortCommandFormat_success() throws Exception {
+    public void markDone_validIndexShortCommandFormat_success() throws Exception {
         int taskBossIndex = 1;
 
         TestTask markedDoneTask = new TaskBuilder().withName("Clean house").withPriorityLevel("Yes")
@@ -96,7 +96,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
 
     //multiple mark done
     @Test
-    public void multiple_markDone_validIndexes_shortCommandFormat_success() throws Exception {
+    public void markDone_multipleValidIndexesShortCommandFormat_success() throws Exception {
         commandBox.runCommand("m 4 5");
 
         expectedTasksList[4] = new TaskBuilder().withName("Birthday party")
@@ -185,7 +185,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
 
     //multiple mark done
     @Test
-    public void multiple_markDone_InvalidIndexes_failure() {
+    public void markDone_multipleInvalidIndexes_failure() {
         //long command format
         commandBox.runCommand("mark 1 2 100");
         assertResultMessage(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
@@ -228,7 +228,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
 
     //single mark done
     @Test
-    public void markDone_taskMarkedDone_longCommandFormat_failure() {
+    public void markDone_taskMarkedDoneLongCommandFormat_failure() {
         commandBox.runCommand("mark 1");
         commandBox.runCommand("list c/done");
         commandBox.runCommand("mark 1");
@@ -237,7 +237,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
 
     //multiple mark done
     @Test
-    public void multiple_markDone_taskMarkedDone_longCommandFormat_failure() {
+    public void markDone_multipleTaskMarkedDoneLongCommandFormat_failure() {
         commandBox.runCommand("mark 1 4");
         commandBox.runCommand("list c/done");
         commandBox.runCommand("mark 1 2");
@@ -248,7 +248,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
 
     //single mark done
     @Test
-    public void markDone_taskMarkedDone_shortCommandFormat_failure() {
+    public void markDone_taskMarkedDoneShortCommandFormat_failure() {
         commandBox.runCommand("m 1");
         commandBox.runCommand("list c/done");
         commandBox.runCommand("m 1");
@@ -257,7 +257,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
 
     //multiple mark done
     @Test
-    public void multiple_markDone_taskMarkedDone_shortCommandFormat_failure() {
+    public void markDone_multipleTaskMarkedDoneShortCommandFormat_failure() {
         commandBox.runCommand("m 1 5");
         commandBox.runCommand("list c/done");
         commandBox.runCommand("m 1 2");
@@ -269,7 +269,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
      * should add category "Done" to all the tasks's current category lists.
      */
     @Test
-    public void multiple_SpacesInBetween_markTaskDone_success() throws Exception {
+    public void marDone_SpacesInBetweenIndexes_success() throws Exception {
         commandBox.runCommand("mark 5       4 ");
         expectedTasksList[4] = new TaskBuilder().withName("Birthday party")
                 .withInformation("311, Clementi Ave 2, #02-25")
@@ -327,7 +327,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
      * should add category "Done" to the task's current category list.
      */
     @Test
-    public void markDone_nonRecurring_success() throws Exception {
+    public void markDone_markNonRecurringTask_success() throws Exception {
         int taskBossIndex = 1;
 
         TestTask markedDoneTask = new TaskBuilder().withName("Clean house").withPriorityLevel("Yes")
@@ -347,7 +347,8 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
      * should update task's dates based on recurrence type.
      */
     @Test
-    public void markDone_recurring_success() throws Exception {
+
+    public void markDone_markRecurringTask_success() throws Exception {
         commandBox.runCommand("mark 2");
         TestTask markedDoneTask =  new TaskBuilder().withName("Ensure code quality").withPriorityLevel("No")
                 .withStartDateTime("Mar 22, 2017 5pm")
@@ -370,7 +371,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
      * should add category "Done" to the non-recurring task's current category list.
      */
     @Test
-    public void markDone_mixTypes_success() throws Exception {
+    public void markDone_markMixTypesOfTasks_success() throws Exception {
 
         commandBox.runCommand("mark 2 4");
 

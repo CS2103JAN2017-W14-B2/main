@@ -31,7 +31,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
     //long command format
     //single terminate
     @Test
-    public void terminateTask_validIndex_longCommandformat_success() throws Exception {
+    public void terminate_validIndexLongCommandformat_success() throws Exception {
         int taskBossIndex = 2;
 
         TestTask terminatedTask = new TaskBuilder().withName("Ensure code quality").withPriorityLevel("No")
@@ -49,7 +49,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
 
     //multiple terminate
     @Test
-    public void multiple_terminate_validIndexes_longCommandformat_success() throws Exception {
+    public void terminate_multipleValidIndexesLongCommandformat_success() throws Exception {
         commandBox.runCommand("terminate 2 7");
 
         expectedTasksList[1] = new TaskBuilder().withName("Ensure code quality").withPriorityLevel("No")
@@ -76,7 +76,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
     //short command format
     //single terminate
     @Test
-    public void terminateTask_validIndex_shortCommandformat_success() throws Exception {
+    public void terminate_validIndexShortCommandformat_success() throws Exception {
         int taskBossIndex = 2;
 
         TestTask terminatedTask = new TaskBuilder().withName("Ensure code quality").withPriorityLevel("No")
@@ -94,7 +94,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
 
     //multiple terminate
     @Test
-    public void multiple_terminate_validIndexes_shortCommandformat_success() throws Exception {
+    public void terminate_multipleValidIndexesShortCommandformat_success() throws Exception {
         commandBox.runCommand("t 2 7");
 
         expectedTasksList[1] = new TaskBuilder().withName("Ensure code quality").withPriorityLevel("No")
@@ -179,7 +179,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
 
     //multiple terminate
     @Test
-    public void multiple_terminate_InvalidIndexes_failure() {
+    public void terminate_multipleInvalidIndexes_failure() {
         //long command format
         commandBox.runCommand("terminate 1 2 100");
         assertResultMessage(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
@@ -222,7 +222,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
 
     //single terminate
     @Test
-    public void terminate_taskTerminated_longCommandFormat_failure() {
+    public void terminate_taskTerminatedLongCommandFormat_failure() {
         commandBox.runCommand("terminate 2");
         commandBox.runCommand("list c/done");
         commandBox.runCommand("terminate 1");
@@ -230,7 +230,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
     }
 
     @Test
-    public void multiple_terminate_taskTerminated_longCommandFormat_failure() {
+    public void terminate_multinpleTaskTerminatedLongCommandFormat_failure() {
         commandBox.runCommand("terminate 2 7");
         commandBox.runCommand("list c/done");
         commandBox.runCommand("terminate 1 2");
@@ -241,7 +241,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
 
     //single terminate
     @Test
-    public void terminate_taskTerminated_shortCommandFormat_failure() {
+    public void terminate_taskTerminatedShortCommandFormat_failure() {
         commandBox.runCommand("terminate 2");
         commandBox.runCommand("list c/done");
         commandBox.runCommand("terminate 1");
@@ -249,7 +249,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
     }
 
     @Test
-    public void multiple_terminate_taskTerminated_shortCommandFormat_failure() {
+    public void terminate_multinpleTaskTerminatedShortCommandFormat_failure() {
         commandBox.runCommand("terminate 2 7");
         commandBox.runCommand("list c/done");
         commandBox.runCommand("terminate 1 2");
@@ -261,7 +261,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
      * should add category "Done" to all the tasks's current category lists.
      */
     @Test
-    public void multiple_SpacesInBetween_terminateTask_success() throws Exception {
+    public void terminate_SpacesInBetweenIndexes_success() throws Exception {
         commandBox.runCommand("t 2       6 ");
         expectedTasksList[1] = new TaskBuilder().withName("Ensure code quality").withPriorityLevel("No")
                 .withStartDateTime("Feb 22, 2017 5pm")
@@ -313,7 +313,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
      * should show message: cannot terminate a non-recurring task.
      */
     @Test
-    public void terminate_nonRecurring_failure() throws Exception {
+    public void terminate_nonRecurringTask_failure() throws Exception {
         commandBox.runCommand("t 1");
         assertResultMessage(TerminateCommand.ERROR_TASK_NOT_RECURRING);
     }
@@ -323,7 +323,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
      * should add category "Done" to the task's current category list.
      */
     @Test
-    public void terminate_recurring_success() throws Exception {
+    public void terminate_recurringTask_success() throws Exception {
         int taskBossIndex = 2;
         TestTask markedDoneTask =  new TaskBuilder().withName("Ensure code quality").withPriorityLevel("No")
                 .withStartDateTime("Feb 22, 2017 5pm")
@@ -343,7 +343,7 @@ public class TerminateCommandTest extends TaskBossGuiTest {
      * should show message: cannot terminate a non-recurring task.
      */
     @Test
-    public void terminate_mixTypes_failure() throws Exception {
+    public void terminate_mixTypesOfTasks_failure() throws Exception {
         commandBox.runCommand("t 2 4");
         assertResultMessage(TerminateCommand.ERROR_TASK_NOT_RECURRING);
     }

@@ -32,7 +32,7 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
 
     //single unmark
     @Test
-    public void unmark_validIndex_longCommandFormat_success() throws Exception {
+    public void unmark_validIndexLongCommandFormat_success() throws Exception {
         int taskBossIndex = 2;
         int filteredTaskListIndex = 1;
         String commandType = "termination";
@@ -52,7 +52,7 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
 
     //multiple unmark
     @Test
-    public void multiple_unmark_validIndexes_longCommandFormat_success() throws Exception {
+    public void unmark_multipleValidIndexesLongCommandFormat_success() throws Exception {
         commandBox.runCommand("m 4 5");
         commandBox.runCommand("list c/done");
         commandBox.runCommand("unmark 1           2");
@@ -83,7 +83,7 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
 
     //single unmark
     @Test
-    public void unmark_validIndex_shortCommandFormat_success() throws Exception {
+    public void unmark_validIndexSshortCommandFormat_success() throws Exception {
         int taskBossIndex = 2;
         int filteredTaskListIndex = 1;
         String commandType = "termination";
@@ -102,9 +102,9 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
                 unmarkedTask, expectedAllTasks);
     }
 
-    //multiple mark done
+    //multiple unmark
     @Test
-    public void multiple_unmark_validIndexes_shortCommandFormat_success() throws Exception {
+    public void unmark_multipleValidIndexesShortCommandFormat_success() throws Exception {
         commandBox.runCommand("m 4 5");
         commandBox.runCommand("list c/done");
         commandBox.runCommand("um 1           2");
@@ -191,7 +191,7 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
 
     //multiple unmark
     @Test
-    public void multiple_unmark_InvalidIndexes_failure() {
+    public void unmark_multipleInvalidIndexes_failure() {
         //long command format
         commandBox.runCommand("unmark 1 2 100");
         assertResultMessage(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
@@ -228,7 +228,7 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
      * should remove Done category from all tasks' current category lists.
      */
     @Test
-    public void multiple_SpacesInBetween_unmarkTask_success() throws Exception {
+    public void unmark_SpacesInBetweenIndexes_success() throws Exception {
         commandBox.runCommand("m 4 5");
         commandBox.runCommand("list c/done");
         commandBox.runCommand("um 1           2");
@@ -283,7 +283,7 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
      * should remove Done category from all tasks' current category lists.
      */
     @Test
-    public void unmark_nonRecurring_success() throws Exception {
+    public void unmark_nonRecurringTask_success() throws Exception {
         int taskBossIndex = 1;
         String commandType = "marking";
 
@@ -303,7 +303,7 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
      * and should update date of task according to recurrance type
      */
     @Test
-    public void unmark_recurring_success() throws Exception {
+    public void unmark_recurringTask_success() throws Exception {
         int taskBossIndex = 2;
         int filteredTaskListIndex = 1;
         String commandType = "termination";
@@ -326,7 +326,7 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
      * and should remove Done category from all tasks' current category lists
      */
     @Test
-    public void unmarkDone_mixTypes_success() throws Exception {
+    public void unmark_mixTypesOfTasks_success() throws Exception {
         commandBox.runCommand("terminate 2");
         commandBox.runCommand("mark 3");
         commandBox.runCommand("list c/done");
@@ -365,14 +365,14 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
 
     //not marked task
     @Test
-    public void unmarkTask_NotMarkedDone_failure() {
+    public void unmark_NotMarkedDone_failure() {
         commandBox.runCommand("um 1");
         assertResultMessage(UnmarkCommand.ERROR_NOT_MARKED);
     }
 
     //not terminated task
     @Test
-    public void unmarkTask_NotTerminated_failure() {
+    public void unmark_NotTerminated_failure() {
         commandBox.runCommand("um 2");
         assertResultMessage(UnmarkCommand.ERROR_NOT_MARKED);
     }

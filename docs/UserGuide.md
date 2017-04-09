@@ -4,15 +4,33 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
 
 ---
 
-1. [Introduction](#0-introduction)
-2. [Quick Start](#1-quick-start)
-3. [Features](#2-features)
-4. [FAQ](#3-faq)
-5. [Command Summary](#4-command-summary)
+1. [Introduction](#1-introduction)
+2. [Quick Start](#2-quick-start)
+3. [Features](#3-features)<ed>
+   > * 3.1 [Viewing help](#31-viewing-help--help--h)<ed>
+   > * 3.2 [Adding a task](#32-adding-a-task--add--a--plus-sign)<ed>
+   > * 3.3 [Listing all tasks](#33-listing-all-tasks--list--l)<ed>
+   > * 3.4 [Editing a task](#34-editing-a-task--edit--e)<ed>
+   > * 3.5 [Finding task(s) by Keywords or by Datetime](#35-finding-tasks-by-keywords-or-by-datetime--find--f)<ed>
+   > * 3.6 [Deleting task(s)](#36-deleting-tasks--delete--d--minus-sign)<ed>
+   > * 3.7 [Clearing tasks by category](#37-clearing-tasks-by-category--clear--c)<ed>
+   > * 3.8 [Viewing a task](#38-viewing-a-task--view--v)<ed>
+   > * 3.9 [Renaming a category](#39-renaming-a-category--name--n)<ed>
+   > * 3.10 [Marking task(s) done](#310-marking-tasks-done--mark--m)<ed> 
+   > * 3.11 [Terminating task(s)](#311-terminating-tasks--terminate--t)<ed> 
+   > * 3.12 [Unmarking task(s)](#312-unmarking-tasks--unmark--um)<ed> 
+   > * 3.13 [Undoing a command](#313-undoing-a-command--undo--u)<ed>
+   > * 3.14 [Redoing a command](#314-redoing-a-command--redo--r)<ed> 
+   > * 3.15 [Sorting tasks](#315-sorting-tasks--sort--s)<ed>
+   > * 3.16 [Saving and exporting the data](#316-exporting-the-data--save--sv)<ed>
+   > * 3.17 [Exiting the program](#317-exiting-the-program--exit--x)<ed>
+4. [FAQ](#4-faq)
+5. [Command Summary](#5-command-summary)
  
 
 ## TaskBoss Prototype
 <img src="images/TaskBoss (all tasks).png" width="600"> <br>
+An image of TaskBoss
 
 ## 1. Introduction
 Have you ever been overwhelmed with too many tasks? Perhaps a couple of these tasks might have slipped your mind. Well, TaskBoss is here to help you out! TaskBoss is a user friendly task manager which supports a wide range of features. Be the boss of your tasks, use TaskBoss today!
@@ -52,17 +70,17 @@ Have you ever been overwhelmed with too many tasks? Perhaps a couple of these ta
 |Command    |Description                                                          |
 |:---------:|:-------------------------------------------------------------------:|
 |[**help / h**](#31-viewing-help--help--h)                       |View help              |
-|[**add / a**](#32-adding-a-task-add--a)                         |Add a task             |
+|[**add / a / +**](#32-adding-a-task--add--a--plus-sign)                         |Add a task             |
 |[**list / l**](#33-listing-all-tasks--list--l)                  |List the tasks         |
 |[**edit / e**](#34-editing-a-task--edit--e)                     |Edit a task            |
-|[**find / f**](#35-finding-all-tasks-by-keywords-or-by-datetime--find--f)           |Find tasks by keywords or by datetime             |
-|[**delete / d**](#36-deleting-tasks--delete--d)                |Delete a task          |
+|[**find / f**](#35-finding-tasks-by-keywords-or-by-datetime--find--f)           |Find tasks by keywords or by datetime             |
+|[**delete / d / -**](#36-deleting-tasks--delete--d--minus-sign)                |Delete a task          |
 |[**clear / c**](#37-clearing-tasks-by-category--clear--c)       |Clear tasks in category|
 |[**view / v**](#38-viewing-a-task--view--v)                    |View a task            |
 |[**name / n**](#39-renaming-a-category--name--n)         |Rename a category      |
 |[**mark / m**](#310-marking-tasks-done--mark--m)               |Mark a task as done and updates task's dates    |
-|[**terminate / t**](#311-terminating-tasks--t)          |Terminates a recurring task    |
-|[**unmark / um**](#312-unmakring-tasks--t)          |Unmarks previously marked or terminated tasks and updates task's dates | 
+|[**terminate / t**](#311-terminating-tasks--terminate--t)          |Terminates a recurring task    |
+|[**unmark / um**](#312-unmarking-tasks--unmark--um)       |Unmarks previously marked or terminated tasks and updates task's dates | 
 |[**undo / u**](#313-undoing-a-command--undo--u)                 |Undo a task            |
 |[**redo / r**](#314-redoing-a-command--redo--r)                 |Redo a task            |
 |[**sort / s**](#315-sorting-tasks--sort--s)                     |Sort tasks by deadline or by priority|
@@ -75,7 +93,7 @@ Have you ever been overwhelmed with too many tasks? Perhaps a couple of these ta
 
 Format: `help`
 
-### 3.2. Adding a task: `add / a`
+### 3.2. Adding a task : `add / a / plus sign`
 
 Adds a task<br>
 Format: `add TASK_NAME [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY] [p/PRIORITY_LEVEL] [r/RECURRENCE]`
@@ -132,7 +150,7 @@ Examples:
 * `edit 3 p/yes`<br>
   Edits the priority level of third task to yes. 
 
-### 3.5. Finding all tasks by Keywords or by Datetime : `find / f`
+### 3.5. Finding task(s) by Keywords or by Datetime : `find / f`
 
 Finds tasks whose names or information contain any of the given keywords<br>
 Format: `find KEYWORDS` 
@@ -160,7 +178,7 @@ Examples:
 * `find ed/february`<br>
   Returns all tasks with end date in February.
   
-### 3.6. Deleting task(s) : `delete / d`
+### 3.6. Deleting task(s) : `delete / d / minus sign`
 
 Deletes the specified task<br>
 Format: `delete INDEX...`
@@ -239,7 +257,7 @@ Format: `mark INDEX...`
 
 > * Marks the task(s) as done at the specified `INDEX` if the task(s) is(are) non-recurring. <br>
 > * Updates the start and end dates of the task(s) if the task(s) is(are) recurring based on the 
-recurrance type (See details of recurrances in [**Add task**](#32-adding-a-task-add--a)). <br>
+recurrance type (See details of recurrances in [**Add task**](#32-adding-a-task--add--a--plus-sign)). <br>
 > * The index numbers refers to the index number last shown in the last task listing.<br>
 > * The index numbers **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * Multiple indexes are allowed. All tasks at the specified indexes will be marked or updated.
@@ -256,7 +274,7 @@ Examples:
  Marks the first task in the result of the `find` command as done if they are non-recurring. <br>
  Marks the first task in the result of the `find` command as done if they are non-recurring. <br>
 
-### 3.11. Terminating task(s) done : `terminate / t`
+### 3.11. Terminating task(s) : `terminate / t`
 
 Terminates recurring task(s)<br>
 Format: `terminate INDEX...`
@@ -277,7 +295,7 @@ Examples:
  `mark 1`<br>
  Terminates the first recurring task in the result of the `find`. <br>
  
-### 3.12. Unmarking task(s): `unmark/ um`
+### 3.12. Unmarking task(s) : `unmark / um`
 
 Re-instates previously marked or terminated task(s)<br>
 Format: `terminate INDEX...`
@@ -356,22 +374,22 @@ A: Install TaskBoss in the other computer and overwrite the empty data file it c
 
 |Command    |Parameters                                                        |
 |:---------:|:-------------------------------------------------------------------------------------------|
-|[help / h](#31-viewing-help--help)                       |**`help`**              |
-|[add / a](#32-adding-a-task-add)                         |**`add TASK_NAME [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY] [p/PRIORITY_LEVEL] [r/RECURRENCE]`**             |
-|[list / l](#33-listing-all-tasks--list)                  |**`list` `list c/CATEGORY NAME`**        |
-|[edit / e](#34-editing-a-task--edit)                     |**`edit INDEX [TASK NAME] [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY] [p/PRIORITY_LEVEL] [r/RECURRENCE]`**|
-|[find / f](#35-finding-all-tasks-by-keywords-or-by-datetime--find)|**`find KEYWORDS`  `find sd/date and time`  `find ed/date and time`**|
-|[delete / d](#36-deleting-a-task--delete)                |**`delete INDEX...`**         |
-|[clear / c](#37-clearing-tasks-by-category--clear)       |**`clear c/CATEGORY NAME`** |
-|[view / v](#38-viewing-a-task--view)                    |**`view INDEX`**             |
-|[name / n](#39-modifying-a-category-name--name)         |**`name EXISTING_CATEGORY NEW_CATEGORY`**       |
-|[mark / m](#310--marking-a-task-done--done)               |**`mark INDEX...`**        |
-|[terminate / t](#311-terminating-tasks--t)              |**`terminate INDEX...`**      |
-|[unmark / um](#312-terminating-tasks--t)              |**`unmark INDEX...`**      |
+|[help / h](#31-viewing-help--help--h)                       |**`help`**              |
+|[add / a / +](#32-adding-a-task--add--a--plus-sign)                         |**`add TASK_NAME [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY] [p/PRIORITY_LEVEL] [r/RECURRENCE]`**             |
+|[list / l](#33-listing-all-tasks--list--l)                  |**`list` `list c/CATEGORY NAME`**        |
+|[edit / e](#34-editing-a-task--edit--e)                     |**`edit INDEX [TASK NAME] [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY] [p/PRIORITY_LEVEL] [r/RECURRENCE]`**|
+|[find / f](#35-finding-tasks-by-keywords-or-by-datetime--find--f)|**`find KEYWORDS`  `find sd/date and time`  `find ed/date and time`**|
+|[delete / d / -](#36-deleting-tasks--delete--d--minus-sign)                |**`delete INDEX...`**         |
+|[clear / c](#37-clearing-tasks-by-category--clear--c)       |**`clear c/CATEGORY NAME`** |
+|[view / v](#38-viewing-a-task--view--v)                    |**`view INDEX`**             |
+|[name / n](#39-renaming-a-category--name--n)         |**`name EXISTING_CATEGORY NEW_CATEGORY`**       |
+|[mark / m](#310-marking-tasks-done--mark--m)               |**`mark INDEX...`**        |
+|[terminate / t](#311-terminating-tasks--terminate--t)              |**`terminate INDEX...`**      |
+|[unmark / um](#312-unmarking-tasks--unmark--um)              |**`unmark INDEX...`**      |
 |[undo / u](#313-undoing-a-command--undo--u)                 |**`undo`**            |
 |[redo / r](#314-redoing-a-command--redo--r)                     |**`redo`**            |
-|[sort / s](#315-sorting-tasks--sort)                     |**`sort ed` `sort sd` `sort p`**   |
-|[save / sv](#316-exporting-the-data--save)                |**`save FILE_PATH` `save NEW_FILE_PATH`**|
-|[exit / x](#317-exiting-the-program--exit)               |**`exit`**           |
+|[sort / s](#315-sorting-tasks--sort--s)                     |**`sort ed` `sort sd` `sort p`**   |
+|[save / sv](#316-exporting-the-data--save--sv)                |**`save FILE_PATH` `save NEW_FILE_PATH`**|
+|[exit / x](#317-exiting-the-program--exit--x)               |**`exit`**           |
 
 <br>
