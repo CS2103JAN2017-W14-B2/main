@@ -62,9 +62,8 @@ Displays a list of all categories created by the user when adding tasks to TaskB
     * When the user marks a task done or terminates a task, the task is automatically moved to `Done` category.
 
 2. **Task List Panel**<br>
-Displays a list of tasks under a particular category, if specified. Otherwise, it displays all tasks that exist in Taskboss.<br>
-The following are some general properties of each task:
-    * Tasks in TaskBoss are sorted by end dates in ascending order by default.
+Displays a list of tasks under a particular category, if specified. Otherwise, it displays all tasks that exist in Taskboss. The following are some general properties of each task:
+    * Tasks are sorted by end dates in ascending order by default.
     * A task has seven parameters, which are task name, information, start date, end date, categories, priority level and recurrence.
     * A task can be tagged with multiple categories.
     * An overdue task is highlighted in red as shown in task #1 in Figure 3.
