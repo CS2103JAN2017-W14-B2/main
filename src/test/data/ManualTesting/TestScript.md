@@ -101,12 +101,10 @@ Expected behavior: Mark the recurring task with index 13 as done.
 10. Terminate recurring task(s)
 <pre>
 terminate 13 14
-Expected behavior: Terminate the recurring tasks with index 13 and 14. 
-                   The tasks will only appear in Done category.
+Expected behavior: Terminate the recurring tasks with index 13 and 14. The tasks will only appear in Done category.
 
 t 22
-Expected behavior: Terminate the recurring task with index 22. 
-                   The task will only appear in Done category.
+Expected behavior: Terminate the recurring task with index 22. The task will only appear in Done category.
 </pre>
 
 11. Find task by keywords
