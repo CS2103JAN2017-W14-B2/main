@@ -30,7 +30,7 @@ public class RedoCommandTest extends TaskBossGuiTest {
         commandBox.runCommand("undo");
         commandBox.runCommand("redo");
         assertResultMessage(RedoCommand.MESSAGE_WITHOUT_PREVIOUS_OPERATION);
- 
+
         //redo operation fails when apply delete operation after undo operation
         TestTask[] currentList = td.getTypicalTasks();
         TestTask taskToAdd = td.taskI;
