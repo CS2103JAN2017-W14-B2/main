@@ -116,6 +116,14 @@ public class MainWindow extends UiPart<Region> {
         new ResultDisplay(getResultDisplayPlaceholder());
         new StatusBarFooter(getStatusbarPlaceholder(), config.getTaskBossFilePath());
         new CommandBox(getCommandBoxPlaceholder(), logic);
+        initCategoryListPanel();
+    }
+
+    //@@author A0143157J
+    /**
+     * Initialises {@code categoryListPanel}
+     */
+    private void initCategoryListPanel() {
         categoryListPanel = new CategoryListPanel(getCategoryListPlaceholder(), logic.getFilteredTaskList());
         categoryListPanel.setTaskList(logic.getTaskBoss().getTaskList());
         categoryListPanel.setCategoryList(logic.getTaskBoss().getCategoryList());
