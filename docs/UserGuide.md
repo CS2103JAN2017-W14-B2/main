@@ -253,16 +253,16 @@ Clears all tasks<br>
 Format: `clear`
 
 > * Category names are case-insensitive. <br>
-> * The build-in categories are `Alltasks` and `Done`. <br>
+> * The built-in categories are `Alltasks` and `Done`. <br>
 > * Clearing `Alltasks` will result in the clearance of all the tasks except for those under the `Done` catgeory. <br>
 > * Clearing `Done` will result in the clearance of all the tasks under `Done`. <br>
 
 Examples:
 
-* `clear c/work`
- clears all tasks with the catgeory `work`
+* `clear c/work`<br>
+ clears all tasks with the category `work`
  
- * `clear`
+ * `clear`<br>
  clears all tasks under all categories
 
 ### 3.8. Viewing a task : `view / v`
@@ -276,7 +276,7 @@ Format: `view INDEX`
 
 Examples:
 
-* `view 1`
+* `view 1`<br>
  Highlights the first task
 
 ### 3.9. Renaming a category : `name / n`
@@ -290,7 +290,7 @@ Format: `name EXISTING_CATEGORY NEW_CATEGORY`
 
 Example:
 
-* `name work project`
+* `name work project`<br>
  Renames `work` category to `project`
 
 ### 3.10. Marking task(s) done : `mark / m`
