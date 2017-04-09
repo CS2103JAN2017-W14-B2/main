@@ -5,7 +5,10 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
 ---
 
 1. [Introduction](#1-introduction)
-2. [Quick Start](#2-quick-start)
+2. [Quick Start](#2-quick-start)<br>
+    2.1 [Download](#21-download)<br>
+    2.2 [Launch](#22-launch)<br>
+    2.3 [Visual Introduction](#23-visual-introduction)<br>
 3. [Features](#3-features)<br>
     3.1 [Viewing help](#31-viewing-help--help--h)<br>
     3.2 [Adding a task](#32-adding-a-task--add--a--plus-sign)<br>
@@ -26,11 +29,6 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
     3.17 [Exiting the program](#317-exiting-the-program--exit--x)<br>
 4. [FAQ](#4-faq)
 5. [Command Summary](#5-command-summary)
- 
-
-## TaskBoss Prototype
-<img src="images/TaskBoss_UI.png" width="600"> <br>
-An image of TaskBoss
 
 ## 1. Introduction
 Have you ever been overwhelmed with too many tasks? Perhaps a couple of these tasks might have slipped your mind. Well, TaskBoss is here to help you out! TaskBoss is a user friendly task manager which supports a wide range of features.<br>
@@ -52,7 +50,7 @@ Figure 2 below shows the sample GUI of TaskBoss pre-loaded with tasks.
 <p align="left"><img src="images/TaskBoss_UI.png" width="800"></p>
 <h5 align="left">Figure 2: Sample GUI of TaskBoss Pre-loaded with Tasks</h5>
 
-### 2.2. Visual Introduction
+### 2.3. Visual Introduction
 <p align="left"><img src="images/visual_intro_taskboss.png" width="800"></p>
 <h5 align="left">Figure 2: Main Components of the GUI of TaskBoss</h5>
 
@@ -110,7 +108,7 @@ Displays the filepath where TaskBoss' data is currently saved in.
 
 Format: `help`
 
-### 3.2. Adding a task : `add / a / +`
+### 3.2. Adding a task : `add / a / plus sign`
 
 Adds a task<br>
 Format: `add TASK_NAME [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY...] [p/PRIORITY_LEVEL] [r/RECURRENCE]`
@@ -127,8 +125,8 @@ Format: `add TASK_NAME [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY...] [p
 Examples:
 
 * `add Email progress report ed/19-02-2017 c/Project p/YES r/weekly`
-* `add Dinner with Jim i/In Orchard road sd/next friday ed/19-02-2017 c/Meeting p/no`
-* `add Contract signing sd/tomorrow at 3 PM c/Work i/company merger`
+* `a Dinner with Jim i/In Orchard road sd/next friday ed/19-02-2017 c/Meeting p/no`
+* `+ Contract signing sd/tomorrow at 3 PM c/Work i/company merger`
 
 #### 3.2.1. Accepted Date Format
 Date can be either in the UK format `i.e dd-mm-yyyy` or the US format `i.e mm-dd-yyyy` depending on the region and date settings of your computer. It can also be in natural language `i.e this sunday` and is case-insensitive.<br>
@@ -165,9 +163,9 @@ Format: `list`
 Shows a list of tasks under a specified category <br>
 Format: `list c/CATEGORY NAME` 
 
-Example:
+Examples:
 * `list`
-* `list c/Project`<br>
+* `l c/Project`<br>
 
 
 ### 3.4. Editing a task : `edit / e`
@@ -187,7 +185,7 @@ Examples:
 * `edit 1 i/Use Stack ed/23:59`<br>
   Edits the task information and end time of the first task to be `Use Stack` and `23:59` respectively.
   
-* `edit 3 p/yes`<br>
+* `e 3 p/yes`<br>
   Edits the priority level of third task to yes. 
 
 ### 3.5. Finding task(s) by Keywords or by Datetime : `find / f`
@@ -215,10 +213,10 @@ Examples:
 * `find sd/2 april`<br>
   Returns all tasks with start date on 2nd April of the current year.
   
-* `find ed/february`<br>
+* `f ed/february`<br>
   Returns all tasks with end date in February.
   
-### 3.6. Deleting task(s) : `delete / d / -`
+### 3.6. Deleting task(s) : `delete / d / minus sign`
 
 Deletes the specified task<br>
 Format: `delete INDEX...`
@@ -234,11 +232,11 @@ Examples:
   `delete 2`<br>
   Deletes the second task.
   
-* `delete 1 2`<br>
+* `d 1 2`<br>
   Deletes the first and second task.
   
 * `find meeting`<br>
-  `delete 1`<br>
+  `- 1`<br>
   Deletes the first task in the results of the `find` command.
 
 ### 3.7. Clearing tasks by category : `clear / c`
@@ -281,14 +279,14 @@ Examples:
 Renames a category <br>
 Format: `name EXISTING_CATEGORY NEW_CATEGORY`
 
-> * Renames all the `EXISTING_CATEGORY` categories to `NEW_CATEGORY`. <br>
+> * Renames the specified `EXISTING_CATEGORY` category to `NEW_CATEGORY`, provided that EXISTING_CATEGORY exists in TaskBoss. <br>
 > * Built-in categories, `Alltasks` and `Done`, cannot be renamed.
-> * Existing cannot be renamed to Built-in categories
+> * Existing categories cannot be renamed to the two built-in categories, `Alltasks` or `Done`.
 
 Example:
 
 * `name work project`
- Renames all `work` categories to `project`
+ Renames `work` category to `project`
 
 ### 3.10. Marking task(s) done : `mark / m`
 
