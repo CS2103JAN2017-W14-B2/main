@@ -293,7 +293,7 @@ public class UnmarkCommandTest extends TaskBossGuiTest {
         assertTrue(taskListPanel.isListMatching(resultList));
     }
 
-    //@@author A0143157J
+    //@@author
     /**
      * Returns a formatted {@code Array} tasksToMarkDone,
      * so that each TestTask in the Array is numbered

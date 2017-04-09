@@ -83,10 +83,12 @@ public class DeleteCommandTest extends TaskBossGuiTest {
      * so that each ReadOnlyTask in the ArrayList is numbered
      */
     private String getDesiredFormat(ArrayList<TestTask> deletedTasks) {
-        int i = 1;
+        int indexOne = 1;
+        String numberingDot = ". ";
+        int i = indexOne;
         StringBuilder builder = new StringBuilder();
         for (ReadOnlyTask task : deletedTasks) {
-            builder.append(i + ". ").append(task.toString());
+            builder.append(i + numberingDot).append(task.toString());
             i++;
         }
         return builder.toString();

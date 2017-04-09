@@ -267,7 +267,7 @@ public class MarkDoneCommandTest extends TaskBossGuiTest {
                         markedDoneTask));
     }
 
-    //@@author A0143157J
+    //@@author
     /**
      * Returns a formatted {@code Array} tasksToMarkDone,
      * so that each TestTask in the Array is numbered
