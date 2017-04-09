@@ -82,6 +82,7 @@ Displays the filepath where TaskBoss' data is currently saved in. The filepath d
 ## 3. Features
 
 **List of Commands**
+Table 1 below shows the list of all available commands in TaskBoss.
 
 |Command    |Description                                                          |
 |:---------:|:-------------------------------------------------------------------:|
@@ -102,6 +103,7 @@ Displays the filepath where TaskBoss' data is currently saved in. The filepath d
 |[**sort / s**](#315-sorting-tasks--sort--s)                     |Sort tasks by deadline or by priority|
 |[**save / sv**](#316-saving-the-data--save--sv)                |Save TaskBoss          |
 |[**exit / x**](#317-exiting-the-program--exit--x)               |Exit TaskBoss          |
+<h5 align="left">Table 1: List of Commands in TaskBoss</h5>
 
 **General Command Format**
 >
@@ -136,7 +138,7 @@ Examples:
 
 #### 3.2.1. Accepted Date Format
 Date can be either in the UK format `i.e dd-mm-yyyy` or the US format `i.e mm-dd-yyyy` depending on the region and date settings of your computer. It can also be in natural language `i.e this sunday` and is case-insensitive.<br>
-Table 1 below shows some examples of the accepted date format in the UK format.
+Table 2 below shows some examples of the accepted date format in the UK format.
 
 | Date Format     | Example(s)           | Formatted Result   |
 |-----------------|----------------------|--------------------|
@@ -145,11 +147,11 @@ Table 1 below shows some examples of the accepted date format in the UK format.
 | Month Day       | Nov 1                | Nov 01, 2017       |
 | Day of the week | thurs, Thursday      | (relative)         |
 | Relative date   | today, tmr, next fri | (relative)          |
-<h5 align="left">Table 1: Examples of Accepted Date Format</h5>
+<h5 align="left">Table 2: Examples of Accepted Date Format</h5>
 
 #### 3.2.2. Accepted Time Format
 Time should be in the 24-hour clock format `i.e 1830`, or the 12-hour clock format with `AM` or `PM` (case-insensitive) `i.e 6:30 PM`.<br>
-Table 2 below shows some examples of the accepted time format.
+Table 3 below shows some examples of the accepted time format.
  
 | Time Format     | Example(s)                              | Formatted Result   |
 |-----------------|-----------------------------------------|--------------------|
@@ -158,7 +160,7 @@ Table 2 below shows some examples of the accepted time format.
 | Hour:Minute     | 10:30                                   | 10:30 AM           |
 | Hour.Minute     | 10.30                                   | 10.30 AM           |
 | Relative time   | this morning, this afternoon, tonight   | (relative)         |
-<h5 align="left">Table 1: Examples of Accepted Time Format</h5>
+<h5 align="left">Table 3: Examples of Accepted Time Format</h5>
 
 ### 3.3. Listing all tasks : `list / l`
 
@@ -433,7 +435,7 @@ A: Download TaskBoss in the other computer and overwrite the empty data file it 
 
 ## 5. Command Summary
 
-<br>
+Table 4 below shows the list of all available commands in TaskBoss and their parameters.<br>
 
 |Command    |Parameters                                                        |
 |:---------:|:-------------------------------------------------------------------------------------------|
@@ -454,5 +456,6 @@ A: Download TaskBoss in the other computer and overwrite the empty data file it 
 |[sort / s](#315-sorting-tasks--sort--s)                     |**`sort ed` `sort sd` `sort p`**   |
 |[save / sv](#316-saving-the-data--save--sv)                |**`save FILE_PATH` `save NEW_FILE_PATH`**|
 |[exit / x](#317-exiting-the-program--exit--x)               |**`exit`**           |
+<h5 align="left">Table 4: Command Summary of TaskBoss</h5>
 
 <br>
