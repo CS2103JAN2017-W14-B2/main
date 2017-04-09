@@ -345,6 +345,7 @@ Re-instates previously marked or terminated task(s)<br>
 Format: `unmark INDEX...`
 
 > * Unmarks the task(s) at the specified `INDEX`. <br>
+> * If the the task(s) is(are) recurring, both its start and end dates (if present) will be updated based on its recurrence type.
 > * Unmark will move the task(s) from the `Done` category to their initial categories from before they were marked or terminated.
 > * The index number refers to the index number of the task in the currently showing category.<br>
 > * The index number **must be a positive integer** (*e.g. 1, 2, 3, ...*).
