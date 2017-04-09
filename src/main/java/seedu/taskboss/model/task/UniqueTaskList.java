@@ -189,19 +189,20 @@ public class UniqueTaskList implements Iterable<Task> {
                                                                                 CommandException {
         assert oldCategory != null;
 
-        boolean isFound = false;
+        boolean isOldCategoryFound = false;
 
         for (Task task : this) {
             UniqueCategoryList targetCategoryList = task.getCategories();
             UniqueCategoryList newCategoryList = new UniqueCategoryList();
             try {
-                isFound = initNewCategoryList(oldCategory, newCategory, isFound, targetCategoryList, newCategoryList);
+                isOldCategoryFound = initNewCategoryList(oldCategory, newCategory, isOldCategoryFound,
+                        targetCategoryList, newCategoryList);
             } catch (DuplicateCategoryException dce) {
                 throw new DuplicateCategoryException();
             }
             task.setCategories(newCategoryList);
         }
-        errorDoesNotExistDetect(oldCategory, isFound);
+        errorDoesNotExistDetect(oldCategory, isOldCategoryFound);
     }
 
     /**
@@ -209,18 +210,18 @@ public class UniqueTaskList implements Iterable<Task> {
      * is found in {@code targetCategoryList}
      * @throws IllegalValueException, DuplicateCategoryException
      */
-    private boolean initNewCategoryList(Category oldCategory, Category newCategory, boolean isFound,
+    private boolean initNewCategoryList(Category oldCategory, Category newCategory, boolean isOldCategoryFound,
             UniqueCategoryList targetCategoryList, UniqueCategoryList newCategoryList)
             throws IllegalValueException, DuplicateCategoryException {
         for (Category category : targetCategoryList) {
             if (category.equals(oldCategory)) {
-                isFound = true;
+                isOldCategoryFound = true;
                 newCategoryList.add(newCategory);
             } else {
                 newCategoryList.add(category);
             }
         }
-        return isFound;
+        return isOldCategoryFound;
     }
 
     //@@author A0144904H

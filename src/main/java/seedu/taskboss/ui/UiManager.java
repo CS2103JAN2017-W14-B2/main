@@ -119,12 +119,14 @@ public class UiManager extends ComponentManager implements Ui {
         mainWindow.getTaskListPanel().scrollTo(event.targetIndex);
     }
 
+    //@@author A0143157J
     @Subscribe
     private void handleJumpToCategoryListEvent(JumpToCategoryListEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         mainWindow.getCategoryListPanel().scrollTo(event.category);
     }
 
+    //@@author
     @Subscribe
     private void handleTaskPanelViewingChangedEvent(TaskPanelViewingChangedEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));

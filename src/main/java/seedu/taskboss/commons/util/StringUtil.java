@@ -2,11 +2,18 @@ package seedu.taskboss.commons.util;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.ArrayList;
+
+import seedu.taskboss.model.task.ReadOnlyTask;
+import seedu.taskboss.testutil.TestTask;
 
 /**
  * Helper functions for handling strings.
  */
 public class StringUtil {
+
+    private static int INDEX_ONE = 1;
+    private static String NUMBERING_DOT = ". ";
 
     /**
      * Returns true if the {@code sentence} contains the {@code word}.
@@ -54,5 +61,35 @@ public class StringUtil {
      */
     public static boolean isUnsignedInteger(String s) {
         return s != null && s.matches("^0*[1-9]\\d*$");
+    }
+
+    //@@author A0143157J
+    /**
+     * Returns a formatted {@code taskList} ArrayList,
+     * so that each ReadOnlyTask in {@code taskList} is numbered
+     */
+    public static String getDesiredArrayListFormat(ArrayList<ReadOnlyTask> taskList) {
+        int i = INDEX_ONE;
+        StringBuilder builder = new StringBuilder();
+        for (ReadOnlyTask task : taskList) {
+            builder.append(i + NUMBERING_DOT).append(task.toString());
+            i++;
+        }
+        return builder.toString();
+    }
+
+    /**
+     * For testing purposes.
+     * Returns a formatted {@code taskList} ArrayList,
+     * so that each TestTask in {@code taskList} is numbered
+     */
+    public static String getDesiredArrayListFormatForTest(ArrayList<TestTask> taskList) {
+        int i = INDEX_ONE;
+        StringBuilder builder = new StringBuilder();
+        for (TestTask task : taskList) {
+            builder.append(i + NUMBERING_DOT).append(task.toString());
+            i++;
+        }
+        return builder.toString();
     }
 }
