@@ -179,7 +179,7 @@ Edits an existing task<br>
 Format: `edit INDEX [TASK NAME] [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY] [p/PRIORITY_LEVEL] [r/RECURRENCE]`
 
 > * Edits the task at the specified `INDEX`.
-    The index refers to the index number of the task in the currently showing category.<br>
+    The index refers to the index number of the task in the current showing category.<br>
     The index **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * At least one of the optional paramaters must be provided.
 > * Existing task details will be updated to the new input values.
@@ -227,7 +227,7 @@ Deletes the specified task<br>
 Format: `delete INDEX...`
 
 > * Deletes the task(s) at the specified `INDEX`. <br>
-> * The index numbers refers to the index number of the task in the currently showing category. <br>
+> * The index numbers refers to the index number of the task in the current showing category. <br>
 > * The index numbers **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * Multiple indexes are allowed. All tasks at the specified indexes will be deleted.
 
@@ -271,7 +271,7 @@ Highlights the specified task<br>
 Format: `view INDEX`
 
 > * Highlights the task at the specified `INDEX`. <br>
-> * The index refers to the index number of the task in the currently showing category.<br>
+> * The index refers to the index number of the task in the current showing category.<br>
 > * The index **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 
 Examples:
@@ -302,7 +302,7 @@ Format: `mark INDEX...`
 > * Updates the start and end dates of the task(s) if the task(s) is(are) recurring based on the 
 recurrence type, which can be `daily`, `weekly`, `monthly` or `yearly`.<br>
 > * Start and end dates of the recurring task(s) will be incremented by either a day, a week, a month or a year.
-> * The index number refers to the index number of the task in the currently showing category.<br>
+> * The index number refers to the index number of the task in the current showing category.<br>
 > * The index number **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * Multiple indexes are allowed. All tasks at the specified indexes will be marked or updated.
 
@@ -324,7 +324,7 @@ Terminates recurring task(s)<br>
 Format: `terminate INDEX...`
 
 > * Terminates the task(s) at the specified `INDEX` as long as the task(s) is(are) recurring. <br>
-> * The index number refers to the index number of the task in the currently showing category.<br>
+> * The index number refers to the index number of the task in the current showing category.<br>
 > * The index number **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * Multiple indexes are allowed. All tasks at the specified indexes will be terminated.
 > * Terminate will move the task(s) to the `Done` category
@@ -347,7 +347,7 @@ Format: `unmark INDEX...`
 > * Unmarks the task(s) at the specified `INDEX`. <br>
 > * If the the task(s) is(are) recurring, both its start and end dates (if present) will be updated based on its recurrence type.
 > * Unmark will move the task(s) from the `Done` category to their initial categories from before they were marked or terminated.
-> * The index number refers to the index number of the task in the currently showing category.<br>
+> * The index number refers to the index number of the task in the current showing category.<br>
 > * The index number **must be a positive integer** (*e.g. 1, 2, 3, ...*).
 > * Multiple indexes are allowed. All tasks at the specified indexes will be unmarked.
 
@@ -413,7 +413,7 @@ Format: `exit`
 ## 4. FAQ
 
 **_Q: How do I save my task data in TaskBoss?_** <br>
-TaskBoss saves your data to ‘taskboss.xml’ in your home folder by default whenever your task list is updated. There is no need to save manually. You can also change the storage location using the `save` command.
+TaskBoss saves your data to `taskboss.xml` in your home folder by default whenever your task list is updated. There is no need to save manually. You can also change the storage location using the `save` command.
 
 **_Q: How do I transfer my data to another computer?_** <br>
 A: Download TaskBoss in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TaskBoss.
