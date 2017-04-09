@@ -52,6 +52,10 @@ public class UndoCommandTest extends TaskBossGuiTest {
         //undo another command after undoing one command
         assertUndoCommandSuccess(true, currentList);
 
+        //invalid command
+        commandBox.runCommand("u2");
+        assertResultMessage(Messages.MESSAGE_UNKNOWN_COMMAND);
+
     }
 
     private void assertUndoCommandSuccess(boolean isShortCommand, TestTask[] expectedList) {
