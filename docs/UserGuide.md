@@ -337,12 +337,12 @@ Format: `terminate INDEX...`
 Examples:
  
  * `list`<br>
-  `t 1 2`<br>
+  `terminate 1 2`<br>
   Terminates the first and second tasks, assuming that they are recurring tasks. 
   
  * `find meeting`<br>
  `terminate 1`<br>
- Terminates the first task listed in the result of `find`command, assuming that it is a recurring task. <br>
+ Terminates the first task listed in the result of `find` command, assuming that it is a recurring task. <br>
  
 ### 3.12. Unmarking task(s) : `unmark / um`
 
