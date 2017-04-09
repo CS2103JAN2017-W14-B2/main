@@ -472,7 +472,7 @@ public class LogicManagerTest {
 
         assertCommandFailure("d 0", MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
     }
-    
+
     @Test
     public void execute_short_delete_removesValidAndInvalidTasks() throws Exception {
         TestDataHelper helper = new TestDataHelper();
