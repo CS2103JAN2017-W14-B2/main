@@ -11,10 +11,13 @@ We are a team based in the [School of Computing, National University of Singapor
 * Aspects/tools in charge of: Team Lead, Scheduling
 * Features implemented:
    * [Add priority to a task](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#32-adding-a-task-add)
-   * [Mark Done command and shortcut (support multiple Done)](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#310-marking-a-task-done--done)
+   * [Mark Done command and shortcut (support multiple tasks to mark)](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#310-marking-task(s)-done--mark--m)
+   * [Terminate command and shortcut (support multiple tasks to terminate)](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#311-terminating-task(s)--terminate--t)
+   * [Unmark Command with short cut (support multiple tasks to unmark)](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#312-unmarking-task(s)--unmark--um)
    * [Edit category name](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#34-editing-a-task--edit)
    * [Edit priority of a task](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#34-editing-a-task--edit)
-   * Default categories
+   * [Default categories](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/UserGuide.md#37-clearing-tasks-by-category--clear--c)
+   * [Command words case insensitive](https://github.com/CS2103JAN2017-W14-B2/main/pull/178)
 * Code written: [[functional code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/main/A0144904H.md)][[test code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/test/A0144904H.md)]
 * Other major contributions:
   * Remove Email in Addressbook level 4 [[#52](https://github.com/CS2103JAN2017-W14-B2/main/pull/52)]
@@ -23,7 +26,10 @@ We are a team based in the [School of Computing, National University of Singapor
   * Make name accept special characters [[#146](https://github.com/CS2103JAN2017-W14-B2/main/pull/146)]
   * Make priority be added using prefix [[#146](https://github.com/CS2103JAN2017-W14-B2/main/pull/146)]
   * Implement new exception class for default category [[#152](https://github.com/CS2103JAN2017-W14-B2/main/pull/152)]
-  * Improve and add test cases for features and changes within features [[#76](https://github.com/CS2103JAN2017-W14-B2/main/pull/76), [#102](https://github.com/CS2103JAN2017-W14-B2/main/pull/102), [#103](https://github.com/CS2103JAN2017-W14-B2/main/pull/103), [#114](https://github.com/CS2103JAN2017-W14-B2/main/pull/114), [#146](https://github.com/CS2103JAN2017-W14-B2/main/pull/146)]
+  * Improve and add test cases for features and changes within features [[#76](https://github.com/CS2103JAN2017-W14-B2/main/pull/76), [#102](https://github.com/CS2103JAN2017-W14-B2/main/pull/102), [#103](https://github.com/CS2103JAN2017-W14-B2/main/pull/103), [#114](https://github.com/CS2103JAN2017-W14-B2/main/pull/114), [#146](https://github.com/CS2103JAN2017-W14-B2/main/pull/146), [#225](https://github.com/CS2103JAN2017-W14-B2/main/pull/225), [#230](https://github.com/CS2103JAN2017-W14-B2/main/pull/230)]
+  * Documentation [[#226](https://github.com/CS2103JAN2017-W14-B2/main/pull/226)[#228](https://github.com/CS2103JAN2017-W14-B2/main/pull/228)]
+  * Update priority level regex [[#157](https://github.com/CS2103JAN2017-W14-B2/main/pull/157)]
+  * Improve code quality by refactoring
 
 -----
 
