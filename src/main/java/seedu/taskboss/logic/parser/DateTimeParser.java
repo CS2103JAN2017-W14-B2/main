@@ -2,9 +2,11 @@ package seedu.taskboss.logic.parser;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 import com.joestelmach.natty.DateGroup;
 
+import seedu.taskboss.commons.core.LogsCenter;
 import seedu.taskboss.commons.exceptions.IllegalValueException;
 import seedu.taskboss.model.task.DateTime;
 
@@ -13,6 +15,8 @@ import seedu.taskboss.model.task.DateTime;
  * Parses date and returns a DateTime object for execution
  */
 public class DateTimeParser {
+
+    private final Logger logger = LogsCenter.getLogger(DateTimeParser.class);
 
     private static final int SINGLE_DATE = 1;
     private static final int INDEX_FIRST_DATEGROUP = 0;
@@ -82,8 +86,10 @@ public class DateTimeParser {
      */
     private void checkDateValidity(int numDates) throws IllegalValueException {
         if (numDates > SINGLE_DATE) {
+            logger.info("User attempted to enter multiple dates or a range of dates. Throwing IllegalValueException");
             throw new IllegalValueException(ERROR_MULTIPLE_DATES);
         } else if (numDates < SINGLE_DATE) {
+            logger.info("Natty failed to parse user-entered date. Throwing IllegalValueException");
             throw new IllegalValueException(ERROR_INVALID_DATE);
         }
     }

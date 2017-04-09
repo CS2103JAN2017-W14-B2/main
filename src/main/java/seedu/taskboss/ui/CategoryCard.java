@@ -13,6 +13,8 @@ import seedu.taskboss.model.category.Category;
  */
 public class CategoryCard extends UiPart<Region> {
 
+    private static final String COLOUR_PINK = "F26177";
+
     private static final String FXML = "CategoryCard.fxml";
 
     @FXML
@@ -33,7 +35,7 @@ public class CategoryCard extends UiPart<Region> {
         categoryText.setText(category.categoryName);
         categoryTaskCount.setText(Integer.toString(taskCount));
         if (category.categoryName.equals("Alltasks") || category.categoryName.equals("Done")) {
-            taskCountRectangle.setFill(Color.web("F26177"));
+            taskCountRectangle.setFill(Color.web(COLOUR_PINK));
         }
     }
 }

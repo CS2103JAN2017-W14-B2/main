@@ -2,8 +2,10 @@ package seedu.taskboss.logic.commands;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import seedu.taskboss.commons.core.EventsCenter;
+import seedu.taskboss.commons.core.LogsCenter;
 import seedu.taskboss.commons.core.UnmodifiableObservableList;
 import seedu.taskboss.commons.events.ui.JumpToCategoryListEvent;
 import seedu.taskboss.commons.events.ui.JumpToListRequestEvent;
@@ -27,6 +29,8 @@ import seedu.taskboss.model.task.UniqueTaskList;
  * Adds a task to the TaskBoss.
  */
 public class AddCommand extends Command {
+    
+    private final Logger logger = LogsCenter.getLogger(AddCommand.class);
 
     public static final String COMMAND_WORD = "add";
     public static final String COMMAND_WORD_SHORT = "a";
@@ -98,6 +102,7 @@ public class AddCommand extends Command {
     private void checkDatesValidity(DateTime startDateTimeObj, DateTime endDateTimeObj) throws InvalidDatesException {
         if (startDateTimeObj.getDate() != null && endDateTimeObj.getDate() != null &&
                 startDateTimeObj.getDate().after(endDateTimeObj.getDate())) {
+            logger.info("Start date is later than end date. Throwing InvalidDatesException");
             throw new InvalidDatesException(ERROR_INVALID_ORDER_DATES);
         }
     }
@@ -147,8 +152,10 @@ public class AddCommand extends Command {
             scrollToTask();
             return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
         } catch (UniqueTaskList.DuplicateTaskException e) {
+            logger.info("Duplicate task added. Throwing CommandException");
             throw new CommandException(MESSAGE_DUPLICATE_TASK);
         } catch (IllegalArgumentException iae) {
+            logger.info("An invalid recurrence type is specified. Throwing CommandException");
             throw new CommandException(Recurrence.MESSAGE_RECURRENCE_CONSTRAINTS);
         }
 
