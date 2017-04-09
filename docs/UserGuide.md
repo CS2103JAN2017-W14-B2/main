@@ -56,10 +56,10 @@ Figure 2 below shows the sample GUI of TaskBoss pre-loaded with tasks.
 
 1. **Category List Panel**<br>
 Displays a list of all categories created by the user when adding tasks to TaskBoss. The highlighted category is the current showing category in TaskBoss.
-    * Note that Alltasks and Done categories are built-in categories of TaskBoss and are labelled with a different colour.
-    * Categories are automatically sorted based on alphabetical order, with the exception of Alltasks being always on top and Done at the bottom of the panel.
-    * When the user adds a task, the task is automatically included in Alltasks category.
-    * When the user marks a task done, the task is automatically moved to Done category.
+    * Note that `Alltasks` and `Done` categories are built-in categories of TaskBoss and are labelled with a different colour.
+    * Categories are automatically sorted based on alphabetical order, with the exception of `Alltasks` being always on top and `Done` at the bottom of the panel.
+    * When the user adds a task, the task is automatically included in `Alltasks` category.
+    * When the user marks a task done, the task is automatically moved to `Done` category.
 
 2. **Task List Panel**<br>
 Displays a list of tasks under a particular category, if specified. Otherwise, it displays all tasks that exist in Taskboss.<br>
@@ -74,7 +74,8 @@ The following are some general properties of each task:
 Provides a box where user commands are entered.
 
 4. **Result Display**<br>
-Displays result messages and user feedback.
+Displays a message detailing the results of the most recent command and the changes that occured as a result. 
+The Result Display also shows a feedback message to the user if a wrong command or parameter was entered, along with an explanation of the error if relevant.
 
 5. **Status Bar**<br>
 Displays the filepath where TaskBoss' data is currently saved in. The filepath displayed will be updated whenever there are changes in the filepath via the `save` command.
