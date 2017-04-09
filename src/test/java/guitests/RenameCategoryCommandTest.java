@@ -17,12 +17,12 @@ import seedu.taskboss.testutil.TestTask;
 public class RenameCategoryCommandTest extends TaskBossGuiTest {
 
     @Test
-    public void renameCategory_Long_Command_success() throws IllegalValueException {
+    public void renameCategory_LongCommand_success() throws IllegalValueException {
         assertRenameCategoryResult("name friends Project");
     }
 
     @Test
-    public void renameCategory_Short_Command_success() throws IllegalValueException {
+    public void renameCategory_ShortCommand_success() throws IllegalValueException {
         assertRenameCategoryResult("n friends Project");
     }
 
