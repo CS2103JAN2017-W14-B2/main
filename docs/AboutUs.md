@@ -63,7 +63,7 @@ We are a team based in the [School of Computing, National University of Singapor
   * Set up Travis, Appveyor and Coveralls
   * Scroll to tasks after updates [[#137](https://github.com/CS2103JAN2017-W14-B2/main/pull/137)]
   * Did code quality checks periodically for the team [[#160](https://github.com/CS2103JAN2017-W14-B2/main/pull/160), [#212](https://github.com/CS2103JAN2017-W14-B2/main/pull/212), [#227](https://github.com/CS2103JAN2017-W14-B2/main/pull/227), [#233](https://github.com/CS2103JAN2017-W14-B2/main/pull/233)]
-  * Updated TaskBoss overall UI and implemented CategoryListPanel as well as CategoryCard [[#164](https://github.com/CS2103JAN2017-W14-B2/main/pull/164), [#188](https://github.com/CS2103JAN2017-W14-B2/main/pull/188), [#196](https://github.com/CS2103JAN2017-W14-B2/main/pull/196), [#207] (https://github.com/CS2103JAN2017-W14-B2/main/pull/207), [#209](https://github.com/CS2103JAN2017-W14-B2/main/pull/209)]
+  * Updated TaskBoss overall UI and implemented CategoryListPanel as well as CategoryCard [[#164](https://github.com/CS2103JAN2017-W14-B2/main/pull/164), [#188](https://github.com/CS2103JAN2017-W14-B2/main/pull/188), [#196](https://github.com/CS2103JAN2017-W14-B2/main/pull/196), [#207](https://github.com/CS2103JAN2017-W14-B2/main/pull/207), [#209](https://github.com/CS2103JAN2017-W14-B2/main/pull/209)]
   * Designed TaskBoss' [initial prototype](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/images/TaskBoss%20(all%20tasks).png)
   * Documentation [[#2](https://github.com/CS2103JAN2017-W14-B2/main/pull/2), [#3](https://github.com/CS2103JAN2017-W14-B2/main/pull/3), [#79](https://github.com/CS2103JAN2017-W14-B2/main/pull/79), [#81](https://github.com/CS2103JAN2017-W14-B2/main/pull/81), [#95](https://github.com/CS2103JAN2017-W14-B2/main/pull/95), [#166](https://github.com/CS2103JAN2017-W14-B2/main/pull/166), [#234](https://github.com/CS2103JAN2017-W14-B2/main/pull/234)]
 
@@ -84,9 +84,9 @@ We are a team based in the [School of Computing, National University of Singapor
 * Code written: [[functional code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/main/A0147990R.md)][[test code](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/collated/test/A0147990R.md)]
 * Other major contributions:
   * In charge of review and merge pull requests
-  * Help debug and solve merge conflicts [[#152](https://github.com/CS2103JAN2017-W14-B2/main/pull/152), [#146](https://github.com/CS2103JAN2017-W14-B2/main/pull/146), [#188](https://github.com/CS2103JAN2017-W14-B2/main/pull/188), [#196](https://github.com/CS2103JAN2017-W14-B2/main/pull/196), [#208](https://github.com/CS2103JAN2017-W14-B2/main/pull/208)]
+  * Help debug and solve merge conflicts [[#146](https://github.com/CS2103JAN2017-W14-B2/main/pull/146), [#152](https://github.com/CS2103JAN2017-W14-B2/main/pull/152), [#188](https://github.com/CS2103JAN2017-W14-B2/main/pull/188), [#196](https://github.com/CS2103JAN2017-W14-B2/main/pull/196), [#208](https://github.com/CS2103JAN2017-W14-B2/main/pull/208)]
   * Improve result display [[#200](https://github.com/CS2103JAN2017-W14-B2/main/pull/200)]
-  * Documentation [[#80](https://github.com/CS2103JAN2017-W14-B2/main/pull/80), [#1](https://github.com/CS2103JAN2017-W14-B2/main/pull/1)]
+  * Documentation [[#1](https://github.com/CS2103JAN2017-W14-B2/main/pull/1), [#80](https://github.com/CS2103JAN2017-W14-B2/main/pull/80), ]
   * UI of task Card [[#176](https://github.com/CS2103JAN2017-W14-B2/main/pull/176)]
 
 -----
