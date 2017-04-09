@@ -68,6 +68,7 @@ public class StringUtil {
      * so that each ReadOnlyTask in {@code taskList} is numbered
      */
     public static String getDesiredArrayListFormat(ArrayList<ReadOnlyTask> taskList) {
+        assert taskList != null;
         int i = INDEX_ONE;
         StringBuilder builder = new StringBuilder();
         for (ReadOnlyTask task : taskList) {
