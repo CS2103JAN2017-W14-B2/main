@@ -3,8 +3,10 @@ package seedu.taskboss.logic.commands;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import seedu.taskboss.commons.core.EventsCenter;
+import seedu.taskboss.commons.core.LogsCenter;
 import seedu.taskboss.commons.core.Messages;
 import seedu.taskboss.commons.core.UnmodifiableObservableList;
 import seedu.taskboss.commons.events.ui.JumpToListRequestEvent;
@@ -16,6 +18,8 @@ import seedu.taskboss.model.task.ReadOnlyTask;
 
 //@@author A0144904H
 public class UnmarkCommand extends Command {
+
+    private final Logger logger = LogsCenter.getLogger(UnmarkCommand.class);
 
     private static final int INDEX_ZERO = 0;
     public static final String COMMAND_WORD = "unmark";
@@ -50,17 +54,21 @@ public class UnmarkCommand extends Command {
 
         if (filteredTaskListIndices.get(filteredTaskListIndices.size() - 1) < 1
                 || filteredTaskListIndices.get(INDEX_ZERO) > lastShownList.size()) {
+            logger.info("user input index(es) out of bound.");
             throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
 
         for (int index : filteredTaskListIndices) {
             ReadOnlyTask taskToUnmark = lastShownList.get(index - 1);
             if (!taskToUnmark.getCategories().contains(Category.done)) {
+                logger.info("User attempted to unmark done a task that was not marked previosuly. "
+                        + "Throwing commandException.");
                 throw new CommandException(ERROR_NOT_MARKED);
             }
             tasksToUnmark.add(taskToUnmark);
         }
 
+        logger.info("Attempting to unmark task(s).");
         model.unmarkTask(filteredTaskListIndices, tasksToUnmark);
 
         scrollToTask(tasksToUnmark);

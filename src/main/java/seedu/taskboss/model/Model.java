@@ -109,7 +109,7 @@ public interface Model {
                                                                                         CommandException;
 
     /**
-     * unmarks a task
+     * unmarks a recurring or non-recurring task
      * @throws CommandException
      * @throws IllegalValueException
      */
