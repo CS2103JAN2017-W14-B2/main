@@ -41,7 +41,7 @@ Be the boss of your tasks, use TaskBoss today!
 
 ### 2.1. Download
 1. Ensure you have Java version `1.8.0_60` or later installed in your Computer.<br>
-2. Download the latest `TaskBoss.jar` from the [releases](../../../releases) tab as shown in figure 1.<br>
+2. Download the latest `TaskBoss.jar` from the [releases](../../../releases) tab as shown in Figure 1.<br>
 <p align="left"><img src="images/release_taskboss.png" width="400"></p>
 <h5 align="left">Figure 1: Locating TaskBoss.jar in the Releases Tab</h5>
 3. Copy the jar file to the folder you want to use as the home folder for TaskBoss.
@@ -54,21 +54,23 @@ Figure 2 below shows the sample GUI of TaskBoss pre-loaded with tasks.
 
 ### 2.3. Visual Introduction
 <p align="left"><img src="images/visual_intro_taskboss.png" width="800"></p>
-<h5 align="left">Figure 2: Main Components of the GUI of TaskBoss</h5>
+<h5 align="left">Figure 3: Main Components of the GUI of TaskBoss</h5>
 
 1. **Category List Panel**<br>
 Displays a list of all categories created by the user when adding tasks to TaskBoss. The highlighted category is the current showing category in TaskBoss.
     * Note that Alltasks and Done categories are built-in categories of TaskBoss and are labelled with a different colour.
+    * Categories are automatically sorted based on alphabetical order, with the exception of Alltasks being always on top and Done at the bottom of the panel.
     * When the user adds a task, the task is automatically included in Alltasks category.
     * When the user marks a task done, the task is automatically moved to Done category.
 
 2. **Task List Panel**<br>
 Displays a list of tasks under a particular category, if specified. Otherwise, it displays all tasks that exist in Taskboss.<br>
-The following are some general properties of each task in TaskBoss:
+The following are some general properties of each task:
+    * Tasks in TaskBoss are sorted by end dates in ascending order by default.
     * A task has seven parameters, which are _task name_, _information_, _start date_, _end date_, _categories_, _priority level_ and _recurrence_.
     * A task can be tagged with multiple categories.
-    * An overdue task is highlighted in red as shown in task #1 in Figure 2.
-    * A high priority task has the <img src="images/urgent.png" width="60"> label attached as shown in task #1 in Figure 2.
+    * An overdue task is highlighted in red as shown in task #1 in Figure 3.
+    * A high priority task has the <img src="images/urgent.png" width="60"> label attached as shown in task #1 in Figure 3.
 
 3. **Command Box**<br>
 Provides a box where user commands are entered.
@@ -284,14 +286,17 @@ Examples:
 Renames a category <br>
 Format: `name EXISTING_CATEGORY NEW_CATEGORY`
 
-> * Renames the specified `EXISTING_CATEGORY` category to `NEW_CATEGORY`, provided that EXISTING_CATEGORY exists in TaskBoss. <br>
+> * Renames the specified `EXISTING_CATEGORY` category to `NEW_CATEGORY`, provided that `EXISTING_CATEGORY` exists in TaskBoss.<br>
+> * The Category List Panel will be automatically sorted by alphabetical order after the `name` command. 
 > * Built-in categories, `Alltasks` and `Done`, cannot be renamed.
 > * Existing categories cannot be renamed to the two built-in categories, `Alltasks` or `Done`.
 
 Example:
 
 * `name work project`<br>
- Renames `work` category to `project`
+ Renames `work` category to `project` as shown in Figure 4 below.
+ <p align="left"><img src="images/nameCommand.png" width="800"></p>
+<h5 align="left">Figure 4: Illustration of Renaming a Category</h5>
 
 ### 3.10. Marking task(s) done : `mark / m`
 
@@ -345,7 +350,7 @@ Re-instates previously marked or terminated task(s)<br>
 Format: `unmark INDEX...`
 
 > * Unmarks the task(s) at the specified `INDEX`. <br>
-> * If the the task(s) is(are) recurring, both its start and end dates (if present) will be updated based on its recurrence type.
+> * If the the task(s) is(are) recurring, both its start and end dates (if present) will be incremented based on its recurrence type.
 > * Unmark will move the task(s) from the `Done` category to their initial categories from before they were marked or terminated.
 > * The index number refers to the index number of the task in the current showing category.<br>
 > * The index number **must be a positive integer** (*e.g. 1, 2, 3, ...*).
@@ -356,12 +361,12 @@ Examples:
  * `list`<br>
   `unmark 1 2`<br>
   Unmarks the first and second tasks. 
-  If any of the tasks is recurring, the it's dates will be updated
+  If any of the tasks is recurring, both its start and end dates (if present) will be incremented based on its recurrence type.
   
  * `find meeting`<br>
  `unmark 1`<br>
  Unmarks the first task in the result of the `find`. <br>
- If the task is recurring, it;s dates will be updated
+ If the task is recurring, both its start and end dates (if present) will be incremented based on its recurrence type.
 
 ### 3.13. Undoing a command : `undo / u`
 
@@ -377,19 +382,22 @@ Format: `redo`
 
 Sorts tasks by priority level<br>
 Format: `sort p` 
-> * Tasks with high priority will take precedence.
+> * Tasks with high priority will take precedence as shown in Figure 5 below.
 > * Tasks with the same priority level are sorted based on the previous sorting criteria.<br>
+
+<p align="left"><img src="images/sortCommand.png" width="800"></p>
+<h5 align="left">Figure 5: Illustration of Sorting by Priority</h5>
 
 Sorts tasks by start dates<br>
 Format: `sort sd`
 > * Tasks with earlier start dates will take precedence.
-> * For tasks with the same start dates, a task with time specified will take precedence. `i.e Apr 10, 2017 7.30am` comes before `Apr 10, 2017`.
+> * For tasks with the same start dates, a task without time specified will take precedence. `i.e May 09, 2017` comes before `May 09, 2017 2pm`.
 > * Tasks with the same start dates are sorted based on the previous sorting criteria.<br>
 
 Sorts tasks by end dates<br>
 Format: `sort ed`
 > * Tasks with earlier end dates will take precedence.
-> * For tasks with the same end dates, a task with time specified will take precedence. `i.e Apr 14, 2017 9am` comes before `Apr 14, 2017`.<br>
+> * For tasks with the same end dates, a task without time specified will take precedence. `i.e Apr 14, 2017 9am` comes before `Apr 14, 2017`.<br>
 > * Tasks with the same start dates are sorted based on the previous sorting criteria.<br>
 
 ### 3.16. Saving the data : `save / sv`
