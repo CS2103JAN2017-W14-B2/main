@@ -59,7 +59,7 @@ Displays a list of all categories created by the user when adding tasks to TaskB
     * Note that `Alltasks` and `Done` categories are built-in categories of TaskBoss and are labelled with a different colour.
     * Categories are automatically sorted based on alphabetical order, with the exception of `Alltasks` being always on top and `Done` at the bottom of the panel.
     * When the user adds a task, the task is automatically included in `Alltasks` category.
-    * When the user marks a task done, the task is automatically moved to `Done` category.
+    * When the user marks a task done or terminates a task, the task is automatically moved to `Done` category.
 
 2. **Task List Panel**<br>
 Displays a list of tasks under a particular category, if specified. Otherwise, it displays all tasks that exist in Taskboss.<br>
@@ -340,7 +340,7 @@ Examples:
   Terminates the first and second tasks, assuming that they are recurring tasks. 
   
  * `find meeting`<br>
- `terminate 1`<br>
+ `t 1`<br>
  Terminates the first task listed in the result of `find` command, assuming that it is a recurring task. <br>
  
 ### 3.12. Unmarking task(s) : `unmark / um`
@@ -363,7 +363,7 @@ Examples:
   If any of the tasks is recurring, both its start and end dates (if present) will be incremented based on its recurrence type.
   
  * `find meeting`<br>
- `unmark 1`<br>
+ `um 1`<br>
  Unmarks the first task in the result of the `find`. <br>
  If the task is recurring, both its start and end dates (if present) will be incremented based on its recurrence type.
 
