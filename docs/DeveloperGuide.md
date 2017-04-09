@@ -209,6 +209,12 @@ Figure 2.3.1 below shows the interactions within the [**`Logic`**](#33-logic-com
 <img src="images/DeleteTaskSdForLogic.png" width="800"><br>
 _Figure 2.3.1 : Interactions Inside the Logic Component for the `delete 1` Command_
 
+Figure 2.3.2 below shows the interactions within the [**`Logic`**](#33-logic-component) component for the *`execute("mark 1")`*
+ API call.<br>
+
+<img src="images/MarkDoneTaskSdForLogic.png" width="800"><br>
+_Figure 2.3.2 : Interactions Inside the Logic Component for the `mark 1` Command_
+
 ### 4.4. Model component
 
 Author: Xu Ruolan
