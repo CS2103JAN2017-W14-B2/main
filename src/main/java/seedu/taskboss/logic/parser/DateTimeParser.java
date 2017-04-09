@@ -18,7 +18,7 @@ public class DateTimeParser {
     private static final int INDEX_FIRST_DATEGROUP = 0;
     private static final int INDEX_FIRST_DATE = 0;
     private static final String ERROR_MULTIPLE_DATES = "Please only enter a single date.";
-    private static final String ERROR_INVALID_DATE = "Sorry, TaskBoss has failed to understand"
+    private static final String ERROR_INVALID_DATE = "Sorry, TaskBoss is unable to understand"
             + " your given date.";
     private static final String REGEX_US_DATE = "(\\d{1,2})-(\\d{1,2})-((?:\\d\\d){1,2})";
     private static final String REGEX_NON_US_DATE = "$2-$1-$3";

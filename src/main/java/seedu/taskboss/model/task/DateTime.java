@@ -9,7 +9,7 @@ import seedu.taskboss.logic.parser.DateTimeParser;
 //@@author A0143157J
 public class DateTime {
 
-    public static final String ERROR_INVALID_DATE = "Sorry, TaskBoss has failed to understand"
+    public static final String ERROR_INVALID_DATE = "Sorry, TaskBoss is unable to understand"
             + " your given date.";
     public static final String MESSAGE_DATE_CONSTRAINTS = "Task dates format should be in dd-mm-yyyy,"
             + " or word format like 5pm tomorrow, " + "and does not accept doubles.";
