@@ -4,9 +4,11 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.taskboss.commons.core.LogsCenter;
 import seedu.taskboss.commons.core.UnmodifiableObservableList;
 import seedu.taskboss.commons.exceptions.DuplicateDataException;
 import seedu.taskboss.commons.exceptions.IllegalValueException;
@@ -27,6 +29,8 @@ import seedu.taskboss.model.category.UniqueCategoryList.DuplicateCategoryExcepti
  * @see CollectionUtil#elementsAreUnique(Collection)
  */
 public class UniqueTaskList implements Iterable<Task> {
+
+    private final Logger logger = LogsCenter.getLogger(UniqueTaskList.class);
 
     private final ObservableList<Task> internalList = FXCollections.observableArrayList();
 
@@ -198,6 +202,8 @@ public class UniqueTaskList implements Iterable<Task> {
                 isOldCategoryFound = initNewCategoryList(oldCategory, newCategory, isOldCategoryFound,
                         targetCategoryList, newCategoryList);
             } catch (DuplicateCategoryException dce) {
+                logger.info("User attempted to rename a category to a name that already exists in TaskBoss."
+                        + " Throwing DuplicateCategoryException.");
                 throw new DuplicateCategoryException();
             }
             task.setCategories(newCategoryList);

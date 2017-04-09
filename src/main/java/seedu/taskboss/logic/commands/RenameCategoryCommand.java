@@ -2,7 +2,9 @@ package seedu.taskboss.logic.commands;
 
 import java.util.logging.Logger;
 
+import seedu.taskboss.commons.core.EventsCenter;
 import seedu.taskboss.commons.core.LogsCenter;
+import seedu.taskboss.commons.events.ui.JumpToCategoryListEvent;
 import seedu.taskboss.commons.exceptions.BuiltInCategoryException;
 import seedu.taskboss.commons.exceptions.IllegalValueException;
 import seedu.taskboss.logic.commands.exceptions.CommandException;
@@ -59,6 +61,7 @@ public class RenameCategoryCommand extends Command {
             checkBuiltInCategoryViolation(oldCategory, newCategory);
             model.renameCategory(oldCategory, newCategory);
             model.updateFilteredTaskListByCategory(newCategory);
+            EventsCenter.getInstance().post(new JumpToCategoryListEvent(newCategory));
             return new CommandResult(MESSAGE_SUCCESS);
         } catch (BuiltInCategoryException dce) {
             logger.info("User attempted to modify built-in categories' names. Throwing CommandException");

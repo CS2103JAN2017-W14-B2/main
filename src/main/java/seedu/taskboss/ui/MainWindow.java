@@ -11,11 +11,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import seedu.taskboss.commons.core.Config;
+import seedu.taskboss.commons.core.EventsCenter;
 import seedu.taskboss.commons.core.GuiSettings;
 import seedu.taskboss.commons.events.ui.ExitAppRequestEvent;
+import seedu.taskboss.commons.events.ui.JumpToCategoryListEvent;
+import seedu.taskboss.commons.exceptions.IllegalValueException;
 import seedu.taskboss.commons.util.FxViewUtil;
 import seedu.taskboss.logic.Logic;
 import seedu.taskboss.model.UserPrefs;
+import seedu.taskboss.model.category.Category;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -111,12 +115,13 @@ public class MainWindow extends UiPart<Region> {
         });
     }
 
-    void fillInnerParts() {
+    void fillInnerParts() throws IllegalValueException {
         taskListPanel = new TaskListPanel(getTaskListPlaceholder(), logic.getFilteredTaskList());
         new ResultDisplay(getResultDisplayPlaceholder());
         new StatusBarFooter(getStatusbarPlaceholder(), config.getTaskBossFilePath());
         new CommandBox(getCommandBoxPlaceholder(), logic);
         initCategoryListPanel();
+        EventsCenter.getInstance().post(new JumpToCategoryListEvent(new Category("Alltasks")));
     }
 
     //@@author A0143157J

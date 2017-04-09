@@ -58,6 +58,7 @@ public class ModelManager extends ComponentManager implements Model {
         currentSortType = SortBy.END_DATE_TIME;
         sortTasks(currentSortType);
         filteredTasks = new FilteredList<>(this.taskBoss.getTaskList());
+        updateFilteredListToShowAll();
         taskbossHistory = new Stack<ReadOnlyTaskBoss>();
         taskbossUndoHistory = new Stack<ReadOnlyTaskBoss>();
         undoInputList = new Stack<String>();

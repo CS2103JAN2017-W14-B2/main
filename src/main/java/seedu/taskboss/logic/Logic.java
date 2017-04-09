@@ -28,4 +28,5 @@ public interface Logic {
     ObservableList<ReadOnlyTask> getFilteredTaskList();
 
     ReadOnlyTaskBoss getTaskBoss();
+
 }
