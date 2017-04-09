@@ -100,7 +100,7 @@ Displays the filepath where TaskBoss' data is currently saved in. The filepath d
 |[**undo / u**](#313-undoing-a-command--undo--u)                 |Undo a task            |
 |[**redo / r**](#314-redoing-a-command--redo--r)                 |Redo a task            |
 |[**sort / s**](#315-sorting-tasks--sort--s)                     |Sort tasks by deadline or by priority|
-|[**save / sv**](#316-exporting-the-data--save--sv)                |Save TaskBoss          |
+|[**save / sv**](#316-saving-the-data--save--sv)                |Save TaskBoss          |
 |[**exit / x**](#317-exiting-the-program--exit--x)               |Exit TaskBoss          |
 
 **General Command Format**
@@ -452,7 +452,7 @@ A: Download TaskBoss in the other computer and overwrite the empty data file it 
 |[undo / u](#313-undoing-a-command--undo--u)                 |**`undo`**            |
 |[redo / r](#314-redoing-a-command--redo--r)                     |**`redo`**            |
 |[sort / s](#315-sorting-tasks--sort--s)                     |**`sort ed` `sort sd` `sort p`**   |
-|[save / sv](#316-exporting-the-data--save--sv)                |**`save FILE_PATH` `save NEW_FILE_PATH`**|
+|[save / sv](#316-saving-the-data--save--sv)                |**`save FILE_PATH` `save NEW_FILE_PATH`**|
 |[exit / x](#317-exiting-the-program--exit--x)               |**`exit`**           |
 
 <br>
