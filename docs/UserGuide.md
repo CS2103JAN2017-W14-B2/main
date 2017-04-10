@@ -105,6 +105,7 @@ Table 1 below shows the list of all available commands in TaskBoss.<br>
 |[**exit / x**](#317-exiting-the-program--exit--x)                               |Exit TaskBoss                                                            |
 
 <h5 align="left">Table 1: List of Commands in TaskBoss</h5>
+<br>
 
 **General Command Format**
 >
