@@ -405,7 +405,7 @@ Format: `sort sd`
 Sorts tasks by end dates<br>
 Format: `sort ed`
 > * Tasks with earlier end dates will take precedence.
-> * For tasks with the same end dates, a task without time specified will take precedence. `i.e Apr 14, 2017 9am` comes before `Apr 14, 2017`.<br>
+> * Tasks with the same end dates, a task without time specified will take precedence. `i.e Apr 14, 2017 9am` comes before `Apr 14, 2017`.<br>
 > * Tasks with the same start dates are sorted based on the previous sorting criteria.<br>
 
 ### 3.16. Saving the data : `save / sv`
