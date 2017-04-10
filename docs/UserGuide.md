@@ -116,7 +116,7 @@ Table 1 below shows the list of all available commands in TaskBoss.<br>
 
 ### 3.1. Viewing help : `help / h`
 
-Displays a window with a summary of all the different commands and features available and guidelines on how to use them.<br>
+Displays a window with a summary of all the different commands and features available and guidelines on how to use them<br>
 Format: `help`
 
 ### 3.2. Adding a task : `add / a / plus sign`
