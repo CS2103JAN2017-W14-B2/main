@@ -84,25 +84,26 @@ Displays the filepath where TaskBoss' data is currently saved in. The filepath d
 **List of Commands**<br>
 Table 1 below shows the list of all available commands in TaskBoss.<br>
 
-|Command    |Description                                                          |
-|:---------:|:-------------------------------------------------------------------:|
-|[**help / h**](#31-viewing-help--help--h)                       |View help window             |
-|[**add / a / +**](#32-adding-a-task--add--a--plus-sign)                         |Add a task             |
-|[**list / l**](#33-listing-all-tasks--list--l)                  |List the tasks         |
-|[**edit / e**](#34-editing-a-task--edit--e)                     |Edit a task            |
-|[**find / f**](#35-finding-tasks-by-keywords-or-by-datetime--find--f)           |Find tasks by keywords or by datetime             |
-|[**delete / d / -**](#36-deleting-tasks--delete--d--minus-sign)                |Delete a task          |
-|[**clear / c**](#37-clearing-tasks-by-category--clear--c)       |Clear tasks in category|
-|[**view / v**](#38-viewing-a-task--view--v)                    |View a task            |
-|[**name / n**](#39-renaming-a-category--name--n)         |Rename a category      |
-|[**mark / m**](#310-marking-tasks-done--mark--m)               |Mark a task as done and updates task's dates    |
-|[**terminate / t**](#311-terminating-tasks--terminate--t)          |Terminate a recurring task    |
-|[**unmark / um**](#312-unmarking-tasks--unmark--um)       |Unmark previously marked or terminated tasks and updates task's dates | 
-|[**undo / u**](#313-undoing-a-command--undo--u)                 |Undo a task            |
-|[**redo / r**](#314-redoing-a-command--redo--r)                 |Redo a task            |
-|[**sort / s**](#315-sorting-tasks--sort--s)                     |Sort tasks by deadline or by priority|
-|[**save / sv**](#316-saving-the-data--save--sv)                |Save TaskBoss          |
-|[**exit / x**](#317-exiting-the-program--exit--x)               |Exit TaskBoss          |
+|Command    |Description                                                                                                                                    |
+|:---------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|
+|[**help / h**](#31-viewing-help--help--h)                                       |View help window                                                          |
+|[**add / a / +**](#32-adding-a-task--add--a--plus-sign)                         |Add a task                                                                |
+|[**list / l**](#33-listing-all-tasks--list--l)                                  |List the tasks                                                            |
+|[**edit / e**](#34-editing-a-task--edit--e)                                     |Edit a task                                                              |
+|[**find / f**](#35-finding-tasks-by-keywords-or-by-datetime--find--f)           |Find tasks by keywords or by datetime                                    |
+|[**delete / d / -**](#36-deleting-tasks--delete--d--minus-sign)                 |Delete a task                                                            |
+|[**clear / c**](#37-clearing-tasks-by-category--clear--c)                       |Clear tasks in category                                                  |
+|[**view / v**](#38-viewing-a-task--view--v)                                     |View a task                                                              |
+|[**name / n**](#39-renaming-a-category--name--n)                                |Rename a category                                                        |
+|[**mark / m**](#310-marking-tasks-done--mark--m)                                |Mark a task as done and updates task's dates                          |
+|[**terminate / t**](#311-terminating-tasks--terminate--t)                       |Terminate a recurring task                                                |
+|[**unmark / um**](#312-unmarking-tasks--unmark--um)                             |Unmark previously marked or terminated tasks and updates task's dates | 
+|[**undo / u**](#313-undoing-a-command--undo--u)                                 |Undo a task                                                              |
+|[**redo / r**](#314-redoing-a-command--redo--r)                                 |Redo a task                                                              |
+|[**sort / s**](#315-sorting-tasks--sort--s)                                     |Sort tasks by deadline or by priority                                    |
+|[**save / sv**](#316-saving-the-data--save--sv)                                 |Save TaskBoss                                                            |
+|[**exit / x**](#317-exiting-the-program--exit--x)                               |Exit TaskBoss                                                            |
+
 <h5 align="left">Table 1: List of Commands in TaskBoss</h5>
 
 **General Command Format**
@@ -138,20 +139,21 @@ Examples:
 
 #### 3.2.1. Accepted Date Format
 Date can be either in the UK format `i.e dd-mm-yyyy` or the US format `i.e mm-dd-yyyy` depending on the region and date settings of your computer. It can also be in natural language `i.e this sunday` and is case-insensitive.<br>
-Table 2 below shows some examples of the accepted date format in the UK format.
+Table 2 below shows some examples of the accepted date format in the UK format.<br>
 
-| Date Format     | Example(s)           | Formatted Result   |
-|-----------------|----------------------|--------------------|
-| Month/day       | 3/19                 | Mar 19, 2017       |
-| Day Month       | 1 Dec                | Dec 01, 2017       |
-| Month Day       | Nov 1                | Nov 01, 2017       |
-| Day of the week | thurs, Thursday      | (relative)         |
+| Date Format     | Example(s)           | Formatted Result    |
+|-----------------|----------------------|---------------------|
+| Month/day       | 3/19                 | Mar 19, 2017        |
+| Day Month       | 1 Dec                | Dec 01, 2017        |
+| Month Day       | Nov 1                | Nov 01, 2017        |
+| Day of the week | thurs, Thursday      | (relative)          |
 | Relative date   | today, tmr, next fri | (relative)          |
+
 <h5 align="left">Table 2: Examples of Accepted Date Format</h5>
 
 #### 3.2.2. Accepted Time Format
 Time should be in the 24-hour clock format `i.e 1830`, or the 12-hour clock format with `AM` or `PM` (case-insensitive) `i.e 6:30 PM`.<br>
-Table 3 below shows some examples of the accepted time format.
+Table 3 below shows some examples of the accepted time format.<br>
  
 | Time Format     | Example(s)                              | Formatted Result   |
 |-----------------|-----------------------------------------|--------------------|
@@ -160,6 +162,7 @@ Table 3 below shows some examples of the accepted time format.
 | Hour:Minute     | 10:30                                   | 10:30 AM           |
 | Hour.Minute     | 10.30                                   | 10.30 AM           |
 | Relative time   | this morning, this afternoon, tonight   | (relative)         |
+
 <h5 align="left">Table 3: Examples of Accepted Time Format</h5>
 
 ### 3.3. Listing all tasks : `list / l`
@@ -437,12 +440,12 @@ A: Download TaskBoss in the other computer and overwrite the empty data file it 
 
 Table 4 below shows the list of all available commands in TaskBoss and their parameters.<br>
 
-|Command    |Parameters                                                        |
+|Command    |Parameters                                                                                  |
 |:---------:|:-------------------------------------------------------------------------------------------|
-|[help / h](#31-viewing-help--help--h)                       |**`help`**              |
-|[add / a / +](#32-adding-a-task--add--a--plus-sign)                         |**`add TASK_NAME [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY] [p/PRIORITY_LEVEL] [r/RECURRENCE]`**             |
-|[list / l](#33-listing-all-tasks--list--l)                  |**`list` `list c/CATEGORY NAME`**        |
-|[edit / e](#34-editing-a-task--edit--e)                     |**`edit INDEX [TASK NAME] [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY] [p/PRIORITY_LEVEL] [r/RECURRENCE]`**|
+|[help / h](#31-viewing-help--help--h)                                          |**`help`**              |
+|[add / a / +](#32-adding-a-task--add--a--plus-sign)                            |**`add TASK_NAME [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY] [p/PRIORITY_LEVEL] [r/RECURRENCE]`**                 |
+|[list / l](#33-listing-all-tasks--list--l)                                     |**`list` `list c/CATEGORY NAME`**        |
+|[edit / e](#34-editing-a-task--edit--e)                                        |**`edit INDEX [TASK NAME] [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY] [p/PRIORITY_LEVEL] [r/RECURRENCE]`**|
 |[find / f](#35-finding-tasks-by-keywords-or-by-datetime--find--f)|**`find KEYWORDS`  `find sd/date and time`  `find ed/date and time`**|
 |[delete / d / -](#36-deleting-tasks--delete--d--minus-sign)                |**`delete INDEX...`**         |
 |[clear / c](#37-clearing-tasks-by-category--clear--c)       |**`clear c/CATEGORY NAME`** |
@@ -456,6 +459,7 @@ Table 4 below shows the list of all available commands in TaskBoss and their par
 |[sort / s](#315-sorting-tasks--sort--s)                     |**`sort ed` `sort sd` `sort p`**   |
 |[save / sv](#316-saving-the-data--save--sv)                |**`save FILE_PATH` `save NEW_FILE_PATH`**|
 |[exit / x](#317-exiting-the-program--exit--x)               |**`exit`**           |
+
 <h5 align="left">Table 4: Command Summary of TaskBoss</h5>
 
 <br>
