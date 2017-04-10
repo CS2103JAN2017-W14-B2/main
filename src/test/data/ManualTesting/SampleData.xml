@@ -39,7 +39,7 @@
         <startDateTime></startDateTime>
         <endDateTime>Mar 29, 2017 2:00 PM</endDateTime>
         <information></information>
-        <recurrence>NONE</recurrence>
+        <recurrence>MONTHLY</recurrence>
         <addedToCategory>Alltasks</addedToCategory>
         <addedToCategory>Work</addedToCategory>
         <addedToCategory>Projects</addedToCategory>
@@ -61,7 +61,7 @@
         <startDateTime></startDateTime>
         <endDateTime>Mar 30, 2017</endDateTime>
         <information>check lists</information>
-        <recurrence>MONTHLY</recurrence>
+        <recurrence>NONE</recurrence>
         <addedToCategory>Personal</addedToCategory>
         <addedToCategory>Alltasks</addedToCategory>
     </tasks>
@@ -91,7 +91,7 @@
         <startDateTime></startDateTime>
         <endDateTime>Mar 31, 2017</endDateTime>
         <information></information>
-        <recurrence>NONE</recurrence>
+        <recurrence>MONTHLY</recurrence>
         <addedToCategory>Alltasks</addedToCategory>
         <addedToCategory>Work</addedToCategory>
     </tasks>
@@ -163,7 +163,7 @@
         <name>French training in company</name>
         <priorityLevel>No</priorityLevel>
         <startDateTime>Apr 25, 2017 9:00 AM</startDateTime>
-        <endDateTime>Apr 25, 2017 12:00 PM</endDateTime>
+        <endDateTime>Apr 28, 2017</endDateTime>
         <information>read textbook before the training</information>
         <recurrence>NONE</recurrence>
         <addedToCategory>Alltasks</addedToCategory>
@@ -186,7 +186,7 @@
         <startDateTime></startDateTime>
         <endDateTime></endDateTime>
         <information></information>
-        <recurrence>NONE</recurrence>
+        <recurrence>WEEKLY</recurrence>
         <addedToCategory>Personal</addedToCategory>
         <addedToCategory>Alltasks</addedToCategory>
     </tasks>
@@ -298,7 +298,7 @@
     <tasks>
         <name>Company dinner</name>
         <priorityLevel>No</priorityLevel>
-        <startDateTime>Mar 22, 2017</startDateTime>
+        <startDateTime>Jan 22, 2017</startDateTime>
         <endDateTime></endDateTime>
         <information>dress formally</information>
         <recurrence>NONE</recurrence>
