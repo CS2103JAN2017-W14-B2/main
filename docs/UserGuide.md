@@ -81,8 +81,8 @@ Displays the filepath where TaskBoss' data is currently saved in. The filepath d
 
 ## 3. Features
 
-**List of Commands**
-Table 1 below shows the list of all available commands in TaskBoss.
+**List of Commands**<br>
+Table 1 below shows the list of all available commands in TaskBoss.<br>
 
 |Command    |Description                                                          |
 |:---------:|:-------------------------------------------------------------------:|
@@ -433,7 +433,7 @@ TaskBoss saves your data to `taskboss.xml` in your home folder by default whenev
 **_Q: How do I transfer my data to another computer?_** <br>
 A: Download TaskBoss in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TaskBoss.
 
-## 5. Command Summary
+## 5. Command Summary<br>
 
 Table 4 below shows the list of all available commands in TaskBoss and their parameters.<br>
 
