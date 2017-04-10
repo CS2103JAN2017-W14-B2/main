@@ -180,12 +180,23 @@ The [**`UI`**](#32-ui-component) component as shown above in Figure 5:
 * Binds itself to some data in the [**`Model`**](#34-model-component) component so that the user interface can auto-update when data in the [**`Model`**](#34-model-component) component change
 * Responds to events raised from various parts of the TaskBoss and updates the user interface accordingly
 
-The [**`UI`**](#32-ui-component) component consists of a `MainWindow` that is made up of parts i.e.`CommandBox`, `ResultDisplay`, `CategoryListPanel`, `TaskListPanel`, `StatusBarFooter` and `HelpWindow`. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+It consists of a `MainWindow` that is made up of parts i.e.`CommandBox`, `ResultDisplay`, `CategoryListPanel`, `TaskListPanel`, `StatusBarFooter` and `HelpWindow`. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
-The [**`UI`**](#32-ui-component) component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder.<br>
+The [**`UI`**](#32-ui-component) component is written based on the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder.<br>
 
 > For example, the layout of the [`MainWindow`](../src/main/java/seedu/taskboss/ui/MainWindow.java) is specified in
  [`MainWindow.fxml`](../src/main/resources/view/MainWindow.fxml)
+ 
+#### Model-View-Controller approach
+ 
+To reduce coupling resulting from the interlinked nature of the components, the _Model-View-Controller (MVC)_ pattern is applied.  The [**`UI`**](#32-ui-component) component in this case, is a combination of view and controller:
+* View: The [**`UI`**](#32-ui-component) component is responsible for displaying data, interacting with the user, and pulling data updates from the [**`Model`**](#34-model-component) component
+* Controller: Parts of the [**`UI`**](#32-ui-component) component such as the `CommandBox` is also responsible for detecting user command inputs and executing them using the [**`Logic`**](#33-logic-component) component, which in turn updates the [**`Model`**](#34-model-component) component when necessary
+* Model: The [**`Model`**](#34-model-component) component on the other hand, takes the role of Model in MVC, to store and maintain TaskBoss’ data
+ 
+#### Observer pattern
+
+To further avoid a direct coupling between the [**`UI`**](#32-ui-component) component and the other components, the _Observer_ pattern is also applied. For example, parts of the [**`UI`**](#32-ui-component) component such as the `CategoryListPanel` and `StatusBarFooter` are interested in being notified whenever the [**`Model`**](#34-model-component) component is being updated, by subscribing to changes in the `TaskBossChangedEvent` object. As such, whenever the data in the the [**`Model`**](#34-model-component) component changes, it notifies the relevant UI parts _observers_ by calling the indicateTaskBossChanged() operation, that raises a new `TaskBossChangedEvent`. The [**`UI`**](#32-ui-component) component can then pull data from the [**`Model`**](#34-model-component) component and update the `CategoryListPanel` and `StatusBarFooter` accordingly.
 
 ### 4.3. Logic component
 
@@ -198,10 +209,10 @@ _Figure 6: Structure of the Logic Component_
 
 The [**`Logic`**](#33-logic-component) component as shown above in Figure 6:
 
-* Uses the `Parser` class to parse the user command.
-* Executes a `Command` object via the `LogicManager`.
-* Affects the [**`Model`**](#34-model-component) component (e.g. *adding a person*) and/or raises events.
-* Encapsulates as a `CommandResult` object which is passed back to the [**`UI`**](#32-ui-component) component.
+* Uses the `Parser` class to parse the user command
+* Executes a `Command` object via the `LogicManager`
+* Affects the [**`Model`**](#34-model-component) component (e.g. *adding a person*) and/or raises events
+* Encapsulates as a `CommandResult` object which is passed back to the [**`UI`**](#32-ui-component) component
 
 Figure 7 below shows the interactions within the [**`Logic`**](#33-logic-component) component for the *`execute("delete 1")`*
  API call.<br>
@@ -242,8 +253,8 @@ _Figure 10: Structure of the Storage Component_
 
 The [**`Storage`**](#35-storage-component) component as shown above in Figure 10:
 
-* Saves `UserPref` objects in `.json` format and reads it back.
-* Saves TaskBoss data in `.xml` format and reads it back.
+* Saves `UserPref` objects in `.json` format and reads it back
+* Saves TaskBoss data in `.xml` format and reads it back
 
 TaskBoss allows the user to save their data at a new filepath. The filepath can be specified via the Save command and will contain a new `taskboss.xml` document. The new filepath is then saved into `Config` and TaskBoss will load from and save to the new filepath for current and future sessions until a new filepath is specified.
 
