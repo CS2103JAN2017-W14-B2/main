@@ -125,12 +125,12 @@ Adds a task<br>
 Format: `add TASK_NAME [i/INFO] [sd/START_DATE] [ed/END_DATE] [c/CATEGORY...] [p/PRIORITY_LEVEL] [r/RECURRENCE]`
 
 > * The added task is included in `Alltasks` category by default.
-> * Task name and information can take both alphanumeric and non-alphanumeric characters.
-> * Start and end dates are automatically formatted into _Month Day_of_month, Year Time_, `i.e Apr 14, 2017`.
-> * Priority level is `no` by default, and can be either `yes` or `no` OR `y` or `n` (case-insensitive).
-> * Category is configured to be in the lowercase form with the first letter in the uppercase form, `i.e c/work` will be `Work`.
-> * Recurrence is `none` by default, and can be either `daily`, `weekly`, `monthly` or `yearly` (case-insensitive).
-> * Prefixes are i/, sd/, ed/, c/, p/, and r/ (case-sensitive).
+> * The task name and information can take both alphanumeric and non-alphanumeric characters.
+> * The start and end dates are automatically formatted into _Month Day_of_month, Year Time_, `i.e Apr 14, 2017`.
+> * The priority level is `no` by default, and can be either `yes` or `no` OR `y` or `n` (case-insensitive).
+> * The category is configured to be in the lowercase form with the first letter in the uppercase form, `i.e c/work` will be `Work`.
+> * The recurrence is `none` by default, and can be either `daily`, `weekly`, `monthly` or `yearly` (case-insensitive).
+> * The prefixes are i/, sd/, ed/, c/, p/, and r/ (case-sensitive).
 
 Examples:
 
