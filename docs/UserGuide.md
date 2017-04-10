@@ -259,7 +259,7 @@ Clears all tasks<br>
 Format: `clear`
 
 > * Category names are case-insensitive. <br>
-> * The built-in categories are `Alltasks` and `Done`. <br>
+> * Built-in categories are `Alltasks` and `Done`. <br>
 > * Clearing `Alltasks` will result in the clearance of all the tasks except for those under the `Done` catgeory. <br>
 > * Clearing `Done` will result in the clearance of all the tasks under `Done`. <br>
 
@@ -399,7 +399,7 @@ Format: `sort p`
 Sorts tasks by start dates<br>
 Format: `sort sd`
 > * Tasks with earlier start dates will take precedence.
-> * For tasks with the same start dates, a task without time specified will take precedence. `i.e May 09, 2017` comes before `May 09, 2017 2pm`.
+> * Tasks with the same start dates, a task without time specified will take precedence. `i.e May 09, 2017` comes before `May 09, 2017 2pm`.
 > * Tasks with the same start dates are sorted based on the previous sorting criteria.<br>
 
 Sorts tasks by end dates<br>
