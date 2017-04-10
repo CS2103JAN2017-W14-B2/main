@@ -34,7 +34,7 @@ By : `Team W14-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Mar 2017`  &nbsp;&nbsp;&nbs
     7.6 [Managing Dependencies](#76-managing-dependencies)<br>
 * [Appendix A: User Stories](#appendix-a--user-stories)
 * [Appendix B: Use Cases](#appendix-b--use-cases)
-* [Appendix C: Non Functional Requirements](#appendix-c--non-functional-requirements)
+* [Appendix C: Non-Functional Requirements](#appendix-c--non-functional-requirements)
 * [Appendix D: Glossary](#appendix-d--glossary)
 * [Appendix E : Product Survey](#appendix-e--product-survey)
 
@@ -120,7 +120,7 @@ Given below is a quick overview of each component.
 * Initializing the components in the correct sequence, and connecting them up with each other at app launch
 * Shutting down the components and invoking cleanup method where necessary at shut down
 
-[**`Commons`**](#36-common-classes) has a collection of classes used by multiple other components.
+[**`Commons`**](#46-common-classes) has a collection of classes used by multiple other components.
 Two of those classes play important roles at the architecture level:
 
 * [`EventsCenter`](../src/main/java/seedu/taskboss/commons/core/EventsCenter.java) : This class (written using [Google's Event Bus library](https://github.com/google/guava/wiki/EventBusExplained))
@@ -129,17 +129,17 @@ Two of those classes play important roles at the architecture level:
 
 The rest of the TaskBoss consists of four components:
 
-* [**`UI`**](#32-ui-component) : The UI of TaskBoss
-* [**`Logic`**](#33-logic-component) : The command executor
-* [**`Model`**](#34-model-component) : The data holder of TaskBoss in-memory
-* [**`Storage`**](#35-storage-component) : The data reader and writer to and from the hard disk
+* [**`UI`**](#42-ui-component) : The UI of TaskBoss
+* [**`Logic`**](#43-logic-component) : The command executor
+* [**`Model`**](#44-model-component) : The data holder of TaskBoss in-memory
+* [**`Storage`**](#45-storage-component) : The data reader and writer to and from the hard disk
 
 Each of the four components:
 
 * Defines its API in an `interface` with the same name as the component
 * Exposes its functionality using a `{Component Name}Manager` class
 
-> For example, the [**`Logic`**](#33-logic-component) component (see the Figure 2 below) defines its API in the [`Logic.java`](../src/main/java/seedu/taskboss/logic/Logic.java)
+> For example, the [**`Logic`**](#43-logic-component) component (see the Figure 2 below) defines its API in the [`Logic.java`](../src/main/java/seedu/taskboss/logic/Logic.java)
 interface and exposes its functionality using the [`LogicManager.java`](../src/main/java/seedu/taskboss/logic/LogicManager.java) class.<br>
 
 <img src="images/LogicClassDiagram.png" width="800"><br>
@@ -174,29 +174,29 @@ _Figure 5: Structure of the UI Component_
 
 **API** : [`Ui.java`](../src/main/java/seedu/taskboss/ui/Ui.java)
 
-The [**`UI`**](#32-ui-component) component as shown above in Figure 5:
+The [**`UI`**](#42-ui-component) component as shown above in Figure 5:
 
-* Executes user commands using the [**`Logic`**](#33-logic-component) component
-* Binds itself to some data in the [**`Model`**](#34-model-component) component so that the user interface can auto-update when data in the [**`Model`**](#34-model-component) component change
+* Executes user commands using the [**`Logic`**](#43-logic-component) component
+* Binds itself to some data in the [**`Model`**](#44-model-component) component so that the user interface can auto-update when data in the [**`Model`**](#44-model-component) component change
 * Responds to events raised from various parts of the TaskBoss and updates the user interface accordingly
 
 It consists of a `MainWindow` that is made up of parts i.e.`CommandBox`, `ResultDisplay`, `CategoryListPanel`, `TaskListPanel`, `StatusBarFooter` and `HelpWindow`. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
-The [**`UI`**](#32-ui-component) component is written based on the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder.<br>
+The [**`UI`**](#42-ui-component) component is written based on the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder.<br>
 
 > For example, the layout of the [`MainWindow`](../src/main/java/seedu/taskboss/ui/MainWindow.java) is specified in
  [`MainWindow.fxml`](../src/main/resources/view/MainWindow.fxml)
  
 #### Model-View-Controller approach
  
-To reduce coupling resulting from the interlinked nature of the components, the _Model-View-Controller (MVC)_ pattern is applied.  The [**`UI`**](#32-ui-component) component in this case, is a combination of view and controller:
-* View: The [**`UI`**](#32-ui-component) component is responsible for displaying data, interacting with the user, and pulling data updates from the [**`Model`**](#34-model-component) component
-* Controller: Parts of the [**`UI`**](#32-ui-component) component such as the `CommandBox` is also responsible for detecting user command inputs and executing them using the [**`Logic`**](#33-logic-component) component, which in turn updates the [**`Model`**](#34-model-component) component when necessary
-* Model: The [**`Model`**](#34-model-component) component on the other hand, takes the role of Model in MVC, to store and maintain TaskBoss’ data
+To reduce coupling resulting from the interlinked nature of the components, the _Model-View-Controller (MVC)_ pattern is applied.  The [**`UI`**](#42-ui-component) component in this case, is a combination of view and controller:
+* View: The [**`UI`**](#42-ui-component) component is responsible for displaying data, interacting with the user, and pulling data updates from the [**`Model`**](#44-model-component) component
+* Controller: Parts of the [**`UI`**](#42-ui-component) component such as the `CommandBox` is also responsible for detecting user command inputs and executing them using the [**`Logic`**](#43-logic-component) component, which in turn updates the [**`Model`**](#44-model-component) component when necessary
+* Model: The [**`Model`**](#44-model-component) component on the other hand, takes the role of Model in MVC, to store and maintain TaskBoss’ data
  
 #### Observer pattern
 
-To further avoid a direct coupling between the [**`UI`**](#32-ui-component) component and the other components, the _Observer_ pattern is also applied. For example, parts of the [**`UI`**](#32-ui-component) component such as the `CategoryListPanel` and `StatusBarFooter` are interested in being notified whenever the [**`Model`**](#34-model-component) component is being updated, by subscribing to changes in the `TaskBossChangedEvent` object. As such, whenever the data in the the [**`Model`**](#34-model-component) component changes, it notifies the relevant UI parts _observers_ by calling the indicateTaskBossChanged() operation, that raises a new `TaskBossChangedEvent`. The [**`UI`**](#32-ui-component) component can then pull data from the [**`Model`**](#34-model-component) component and update the `CategoryListPanel` and `StatusBarFooter` accordingly.
+To further avoid a direct coupling between the [**`UI`**](#42-ui-component) component and the other components, the _Observer_ pattern is also applied. For example, parts of the [**`UI`**](#42-ui-component) component such as the `CategoryListPanel` and `StatusBarFooter` are interested in being notified whenever the [**`Model`**](#44-model-component) component is being updated, by subscribing to changes in the `TaskBossChangedEvent` object. As such, whenever the data in the the [**`Model`**](#44-model-component) component changes, it notifies the relevant UI parts _observers_ by calling the indicateTaskBossChanged() operation, that raises a new `TaskBossChangedEvent`. The [**`UI`**](#42-ui-component) component can then pull data from the [**`Model`**](#44-model-component) component and update the `CategoryListPanel` and `StatusBarFooter` accordingly.
 
 ### 4.3. Logic component
 
@@ -207,20 +207,20 @@ _Figure 6: Structure of the Logic Component_
 
 **API** : [`Logic.java`](../src/main/java/seedu/taskboss/logic/Logic.java)
 
-The [**`Logic`**](#33-logic-component) component as shown above in Figure 6:
+The [**`Logic`**](#43-logic-component) component as shown above in Figure 6:
 
 * Uses the `Parser` class to parse the user command
 * Executes a `Command` object via the `LogicManager`
-* Affects the [**`Model`**](#34-model-component) component (e.g. *adding a person*) and/or raises events
-* Encapsulates as a `CommandResult` object which is passed back to the [**`UI`**](#32-ui-component) component
+* Affects the [**`Model`**](#44-model-component) component (e.g. *adding a person*) and/or raises events
+* Encapsulates as a `CommandResult` object which is passed back to the [**`UI`**](#42-ui-component) component
 
-Figure 7 below shows the interactions within the [**`Logic`**](#33-logic-component) component for the *`execute("delete 1")`*
+Figure 7 below shows the interactions within the [**`Logic`**](#43-logic-component) component for the *`execute("delete 1")`*
  API call.<br>
 
 <img src="images/DeleteTaskSdForLogic.png" width="800"><br>
 _Figure 7: Interactions Inside the Logic Component for the `delete 1` Command_
 
-Figure 8 below shows the interactions within the [**`Logic`**](#33-logic-component) component for the *`execute("mark 1")`*
+Figure 8 below shows the interactions within the [**`Logic`**](#43-logic-component) component for the *`execute("mark 1")`*
  API call.<br>
 
  <img src="images/MarkDoneTaskSDForLogic.png" width="800"><br>
@@ -235,11 +235,11 @@ _Figure 9: Structure of the Model Component_
 
 **API** : [`Model.java`](../src/main/java/seedu/taskboss/model/Model.java)
 
-The [**`Model`**](#34-model-component) component as shown above in Figure 9:
+The [**`Model`**](#44-model-component) component as shown above in Figure 9:
 
 * Stores a `UserPref` object that represents the user's preferences
 * Stores TaskBoss data
-* Exposes a `UnmodifiableObservableList<ReadOnlyTask>` that can be 'observed' e.g. the [**`UI`**](#32-ui-component) component can be bound to this list so that the user interface automatically updates when the data in the list change
+* Exposes a `UnmodifiableObservableList<ReadOnlyTask>` that can be 'observed' e.g. the [**`UI`**](#42-ui-component) component can be bound to this list so that the user interface automatically updates when the data in the list change
 * Does not depend on any of the other three components
 
 ### 4.5. Storage component
@@ -251,7 +251,7 @@ _Figure 10: Structure of the Storage Component_
 
 **API** : [`Storage.java`](../src/main/java/seedu/taskboss/storage/Storage.java)
 
-The [**`Storage`**](#35-storage-component) component as shown above in Figure 10:
+The [**`Storage`**](#45-storage-component) component as shown above in Figure 10:
 
 * Saves `UserPref` objects in `.json` format and reads it back
 * Saves TaskBoss data in `.xml` format and reads it back
