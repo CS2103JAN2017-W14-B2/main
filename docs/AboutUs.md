@@ -33,7 +33,7 @@ We are a team based in the [School of Computing, National University of Singapor
 
 -----
 
-#### [Melvin Soh](https://github.com/InfinityFrost) <br>
+#### [Melvin](https://github.com/InfinityFrost) <br>
 <img src="images/infinityfrost.png" width="150"><br>
 
 * Components in charge of: [Storage](https://github.com/CS2103JAN2017-W14-B2/main/blob/master/docs/DeveloperGuide.md#35-storage-component)
